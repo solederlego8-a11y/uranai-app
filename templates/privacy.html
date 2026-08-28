@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}プライバシーポリシー｜今日の総合鑑定{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h1 class="card-title">プライバシーポリシー</h1>
+  <p class="about-lead">
+    当サイト「今日の総合鑑定」（以下「当サイト」）は、ご利用者の個人情報の保護を重要な責務と考え、
+    以下の方針に基づいて取り扱います。
+  </p>
+  <p class="about-note">最終更新日：{{ updated_on }}</p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">1. 入力していただく情報の取り扱い</h2>
+  <p>
+    当サイトの鑑定機能では、氏名・生年月日・出生時刻・性別・出生地の5項目を入力していただきます。
+    これらの情報は、送信されたリクエストの中で鑑定結果を計算するためだけに使用され、
+    <strong>サーバー上のデータベースやファイルに保存することはありません。</strong>
+    鑑定結果ページの表示が完了した時点で、入力内容はサーバーのメモリから破棄されます。
+  </p>
+  <p>
+    当サイトは、入力された氏名・生年月日等を第三者に提供・販売することはありません。
+    また、これらの情報を用いて個人を特定・追跡することもありません。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">2. Cookie（クッキー）の使用について</h2>
+  <p>
+    当サイトでは、後述する広告配信およびアクセス解析のためにCookieを使用する場合があります。
+    Cookieとは、ウェブサイトがご利用者のブラウザに保存する小さなテキストファイルで、
+    氏名や住所などの個人を直接特定する情報を含むものではありません。
+  </p>
+  <p>
+    Cookieの使用を希望されない場合は、お使いのブラウザの設定からCookieを無効にすることができます。
+    ただし、その場合でも当サイトの鑑定機能は問題なくご利用いただけます。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">3. 第三者配信の広告サービスについて</h2>
+  <p>
+    当サイトでは、第三者配信の広告サービス「{{ ad_network }}」を利用する予定です（または利用しています）。
+  </p>
+  <ul class="about-inputs">
+    <li>
+      広告配信事業者は、ご利用者の興味に応じた広告を表示するためにCookieを使用することがあります。
+    </li>
+    <li>
+      Googleを含む第三者配信事業者は、Cookieを使用して、
+      ご利用者が当サイトや他のサイトに過去にアクセスした際の情報に基づいて広告を配信します。
+    </li>
+    <li>
+      Googleが広告Cookieを使用することにより、ご利用者は
+      <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">Google広告設定</a>
+      でパーソナライズ広告を無効にできます。
+    </li>
+    <li>
+      パーソナライズ広告に使用される第三者配信事業者のCookieを無効にする方法については、
+      <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>
+      をご参照ください。
+    </li>
+    <li>
+      詳細は
+      <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer">「広告 – ポリシーと規約 – Google」</a>
+      をご確認ください。
+    </li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2 class="card-title">4. アクセス解析ツールについて</h2>
+  <p>
+    当サイトでは、サイトの利用状況を把握するためにアクセス解析ツールを利用する場合があります。
+    これらのツールはCookieを使用してトラフィックデータを収集しますが、
+    収集されるデータは匿名であり、個人を特定するものではありません。
+    この機能はCookieを無効にすることで収集を拒否できます。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">5. 免責事項</h2>
+  <p>
+    当サイトが提供する鑑定結果は、<strong>エンターテインメントを目的としたもの</strong>です。
+    各占術は文化的・歴史的な体系であり、その内容について科学的根拠を保証するものではありません。
+    健康・医療・法律・投資・進路など、人生の重要な判断の材料としてのご利用はお控えください。
+  </p>
+  <p>
+    当サイトに掲載された内容によって生じた損害等について、
+    当サイトの運営者は一切の責任を負いかねます。
+    また、当サイトから移動された先のウェブサイトで提供される情報・サービスについても、
+    責任を負うものではありません。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">6. 著作権について</h2>
+  <p>
+    当サイトに掲載されている文章・プログラム等の著作権は、当サイトの運営者に帰属します。
+    法的に認められた引用の範囲を超える転載・複製はご遠慮ください。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">7. プライバシーポリシーの変更</h2>
+  <p>
+    当サイトは、法令の変更やサービス内容の変更に伴い、本ポリシーを予告なく変更することがあります。
+    変更後のプライバシーポリシーは、当ページに掲載した時点から効力を生じるものとします。
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('contact') }}">お問い合わせはこちら</a>
+</section>
+{% endblock %}

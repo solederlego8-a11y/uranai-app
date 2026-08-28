@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{{ guide.title }}｜今日の総合鑑定{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="{{ url_for('index') }}">トップ</a>
+  <span aria-hidden="true">›</span>
+  <a href="{{ url_for('guides') }}">占術ガイド</a>
+  <span aria-hidden="true">›</span>
+  <span>{{ guide.module }}</span>
+</nav>
+
+<article class="card guide-article">
+  <p class="guide-tag">{{ guide.module }}</p>
+  <h1 class="guide-title">{{ guide.title }}</h1>
+  <p class="guide-lead">{{ guide.lead }}</p>
+
+  <nav class="guide-toc" aria-label="目次">
+    <p class="guide-toc-title">目次</p>
+    <ol>
+      {% for section in guide.sections %}
+      <li><a href="#section-{{ loop.index }}">{{ section.heading }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+
+  {% for section in guide.sections %}
+  <section class="guide-section" id="section-{{ loop.index }}">
+    <h2 class="guide-heading">{{ section.heading }}</h2>
+    {% for paragraph in section.paragraphs %}
+    <p class="guide-paragraph">{{ paragraph }}</p>
+    {% endfor %}
+  </section>
+  {% endfor %}
+
+  <p class="guide-disclaimer">
+    ※本記事は占術の考え方を紹介するものであり、その内容について科学的根拠を保証するものではありません。
+    鑑定結果はエンターテインメントとしてお楽しみください。
+  </p>
+</article>
+
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+<div class="ad-container ad-guide">広告スペース</div>
+
+<section class="card">
+  <h2 class="card-title">{{ guide.module }}を実際に鑑定してみる</h2>
+  <p>
+    当サイトの総合鑑定では、{{ guide.module }}を含む11種の占術をまとめて計算します。
+    5項目を入力するだけで、{{ guide.module }}の個別結果も「詳しく見る」から確認できます。
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('index') }}">今日の総合鑑定を見る</a>
+</section>
+
+<section class="card">
+  <h2 class="card-title">ほかの占術の解説を読む</h2>
+  <ul class="guide-related">
+    {% for other in others %}
+    <li>
+      <a href="{{ url_for('guide_detail', slug=other.slug) }}">
+        <strong>{{ other.module }}</strong>
+        <span>{{ other.title.split('｜')[1] if '｜' in other.title else other.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="guide-card-link" href="{{ url_for('guides') }}">占術ガイドの一覧へ</a>
+</section>
+{% endblock %}

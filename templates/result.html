@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% block title %}{{ user_data.last_name }}{{ user_data.first_name }}さんの今日の総合鑑定｜{{ report.score_rank }}（{{ report.total_score }}点）{% endblock %}
+
+{% block content %}
+
+<!-- ================================================================= -->
+<!-- 1. 最上部・最重要：今日の総合鑑定                                    -->
+<!-- ================================================================= -->
+<section class="verdict" id="verdict">
+  <p class="verdict-eyebrow">
+    {{ user_data.today.year }}年{{ user_data.today.month }}月{{ user_data.today.day }}日の総合鑑定
+  </p>
+  <h1 class="verdict-name">{{ user_data.last_name }} {{ user_data.first_name }} さん</h1>
+
+  <div class="verdict-main">
+    <div class="rank-badge rank-{{ report.score_rank }}">
+      <span class="rank-label">総合</span>
+      <span class="rank-value">{{ report.score_rank }}</span>
+    </div>
+
+    <div class="score-block">
+      <div class="score-number">
+        <span class="score-value">{{ report.total_score }}</span><span class="score-unit">/ 100点</span>
+      </div>
+      <div class="progress" role="img"
+           aria-label="総合スコア {{ report.total_score }}点">
+        <div class="progress-bar" style="width: {{ report.total_score }}%"></div>
+      </div>
+      <p class="score-note">{{ module_count }}種の占術の重み付き平均で算出しています。</p>
+    </div>
+  </div>
+
+  <div class="lucky-grid">
+    <div class="lucky-item">
+      <p class="lucky-label">ラッキーカラー</p>
+      <p class="lucky-value">
+        <span class="color-chip" style="background: {{ report.lucky_color_hex }}"></span>
+        {{ report.lucky_color }}
+      </p>
+      <p class="lucky-sub">{{ report.lucky_color_hex }}</p>
+    </div>
+    <div class="lucky-item">
+      <p class="lucky-label">ラッキーアイテム</p>
+      <p class="lucky-value">{{ report.lucky_item }}</p>
+    </div>
+    <div class="lucky-item">
+      <p class="lucky-label">ラッキー方位</p>
+      <p class="lucky-value">{{ report.lucky_dir }}</p>
+    </div>
+    <div class="lucky-item">
+      <p class="lucky-label">ラッキーナンバー</p>
+      <p class="lucky-value">{{ report.lucky_number }}</p>
+    </div>
+  </div>
+
+  <div class="message-block">
+    <h2 class="block-title">今日の総合アドバイス</h2>
+    <p class="overall-message">{{ report.overall_message }}</p>
+  </div>
+
+  {% if report.today_keywords %}
+  <div class="keyword-block">
+    <h2 class="block-title">今日のキーワード</h2>
+    <ul class="keyword-list">
+      {% for kw in report.today_keywords %}
+      <li class="keyword-tag">{{ kw }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="category-block">
+    <h2 class="block-title">カテゴリ別の運勢</h2>
+    <ul class="category-list">
+      {% for key in ['love', 'work', 'money', 'health'] %}
+      {% set value = report.category_scores[key] %}
+      <li class="category-row">
+        <span class="category-name">{{ category_label[key] }}</span>
+        <span class="category-bar">
+          <span class="category-fill category-{{ key }}" style="width: {{ value }}%"></span>
+        </span>
+        <span class="category-value">{{ value }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <p class="verdict-disclaimer">
+    ※本鑑定はエンターテインメントを目的としたものであり、科学的根拠を保証するものではありません。
+  </p>
+</section>
+
+<!-- ================================================================= -->
+<!-- 2. 広告枠1                                                        -->
+<!-- ================================================================= -->
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+<div class="ad-container ad-result-1">広告スペース</div>
+
+<!-- ================================================================= -->
+<!-- 3. 11種のスコアをレーダーチャートで表示                              -->
+<!-- ================================================================= -->
+<section class="card chart-card">
+  <h2 class="card-title">11種の占術スコア</h2>
+  <div class="chart-wrap">
+    <canvas id="scoreRadar" width="400" height="400"
+            aria-label="11種の占術スコアのレーダーチャート" role="img"></canvas>
+  </div>
+  <noscript>
+    <ul class="score-fallback">
+      {% for name, value in report.score_breakdown.items() %}
+      <li>{{ name }}：{{ value }}点</li>
+      {% endfor %}
+    </ul>
+  </noscript>
+  <script id="score-data" type="application/json">
+    {{ report.score_breakdown | tojson }}
+  </script>
+</section>
+
+<!-- ================================================================= -->
+<!-- 4. 11種の個別占術結果（アコーディオン・デフォルト折りたたみ）          -->
+<!-- ================================================================= -->
+<section class="detail-section">
+  <h2 class="section-title">詳しく見る（11種の個別鑑定）</h2>
+  <p class="section-note">
+    それぞれの占術がどう読み解いたのかを確認できます。項目をタップすると開きます。
+  </p>
+
+  <div class="accordion">
+    {% for item in report.detail_results %}
+    <details class="accordion-item">
+      <summary class="accordion-head">
+        <span class="accordion-title">{{ item.name }}</span>
+        <span class="accordion-score">{{ item.score }}点</span>
+        <span class="accordion-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="accordion-body">
+        <p class="item-summary">{{ item.summary }}</p>
+        <div class="item-meter">
+          <span class="item-meter-fill" style="width: {{ item.score }}%"></span>
+        </div>
+        <p class="item-detail">{{ item.detail }}</p>
+
+        <ul class="item-lucky">
+          <li><span>色</span>{{ item.lucky_color }}</li>
+          <li><span>物</span>{{ item.lucky_item }}</li>
+          <li><span>方位</span>{{ item.lucky_dir }}</li>
+        </ul>
+
+        {% if item.keywords %}
+        <ul class="item-keywords">
+          {% for kw in item.keywords %}
+          <li>{{ kw }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if item.raw %}
+        <details class="raw-data">
+          <summary>算出データを見る</summary>
+          <dl class="raw-list">
+            {% for key, value in item.raw.items() %}
+            <div class="raw-row">
+              <dt>{{ key }}</dt>
+              <dd>{{ value }}</dd>
+            </div>
+            {% endfor %}
+          </dl>
+        </details>
+        {% endif %}
+      </div>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<!-- 5. 広告枠2                                                        -->
+<!-- ================================================================= -->
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+<div class="ad-container ad-result-2">広告スペース</div>
+
+<!-- ================================================================= -->
+<!-- 6. 入力内容の確認 ＋ もう一度占う                                    -->
+<!-- ================================================================= -->
+<section class="card input-card">
+  <h2 class="card-title">今回の鑑定に使用した入力</h2>
+  <dl class="input-list">
+    <div class="input-row"><dt>お名前</dt><dd>{{ user_data.last_name }} {{ user_data.first_name }}</dd></div>
+    <div class="input-row"><dt>生年月日</dt><dd>{{ user_data.birth_year }}年{{ user_data.birth_month }}月{{ user_data.birth_day }}日</dd></div>
+    <div class="input-row"><dt>出生時刻</dt><dd>{{ hour_label }}</dd></div>
+    <div class="input-row"><dt>性別</dt><dd>{{ gender_label }}</dd></div>
+    <div class="input-row"><dt>出生地</dt><dd>{{ prefecture_label }}</dd></div>
+    <div class="input-row"><dt>鑑定日</dt><dd>{{ user_data.today.year }}年{{ user_data.today.month }}月{{ user_data.today.day }}日</dd></div>
+  </dl>
+  <a class="submit-button link-button" href="{{ url_for('index') }}">もう一度占う</a>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+{% endblock %}

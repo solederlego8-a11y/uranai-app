@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}お問い合わせ・運営者情報｜今日の総合鑑定{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h1 class="card-title">お問い合わせ・運営者情報</h1>
+  <p class="about-lead">
+    当サイトに関するご質問・ご指摘・掲載内容の削除依頼などは、
+    以下の連絡先までお願いいたします。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">運営者情報</h2>
+  <dl class="input-list">
+    <div class="input-row">
+      <dt>サイト名</dt>
+      <dd>今日の総合鑑定</dd>
+    </div>
+    <div class="input-row">
+      <dt>運営者</dt>
+      <dd>
+        {% if site_operator %}{{ site_operator }}
+        {% else %}<span class="unset-notice">未設定（環境変数 SITE_OPERATOR を設定してください）</span>{% endif %}
+      </dd>
+    </div>
+    <div class="input-row">
+      <dt>連絡先</dt>
+      <dd>
+        {% if contact_email %}<a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+        {% else %}<span class="unset-notice">未設定（環境変数 CONTACT_EMAIL を設定してください）</span>{% endif %}
+      </dd>
+    </div>
+    <div class="input-row">
+      <dt>サイトの内容</dt>
+      <dd>生年月日と氏名をもとに、11種の占術を統合して「今日の総合鑑定」を提示する占いWebアプリケーション</dd>
+    </div>
+  </dl>
+
+  {% if not contact_email or not site_operator %}
+  <p class="alert" role="alert">
+    運営者名・連絡先が未設定です。Google AdSenseの審査では運営者情報の明示が求められるため、
+    公開前に環境変数 <code>SITE_OPERATOR</code> と <code>CONTACT_EMAIL</code> を設定してください。
+    この注意書きは、両方を設定すると自動的に表示されなくなります。
+  </p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2 class="card-title">お問い合わせにあたって</h2>
+  <ul class="about-inputs">
+    <li>個別の鑑定内容に関する詳細な解説やご相談には、原則としてお応えしておりません。</li>
+    <li>計算結果の不具合・表示崩れ・リンク切れなどのご報告は歓迎いたします。お使いの端末とブラウザをあわせてお知らせください。</li>
+    <li>当サイトは占いの結果について、その的中や効果を保証するものではありません。詳しくは<a href="{{ url_for('privacy') }}">プライバシーポリシー</a>の免責事項をご覧ください。</li>
+    <li>お返事までにお時間をいただく場合があります。あらかじめご了承ください。</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2 class="card-title">個人情報の取り扱い</h2>
+  <p>
+    お問い合わせの際にお預かりしたメールアドレス・お名前などの個人情報は、
+    ご返信および内容の確認のためにのみ使用し、第三者に提供することはありません。
+    詳細は<a href="{{ url_for('privacy') }}">プライバシーポリシー</a>をご確認ください。
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('index') }}">トップページへ戻る</a>
+</section>
+{% endblock %}

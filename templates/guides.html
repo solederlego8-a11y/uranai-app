@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}占い方の解説一覧｜11種の占術をやさしく読み解く{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <p class="hero-lead">占術ガイド</p>
+  <h1 class="hero-title">11種の占い方を<br><span class="accent">ひとつずつ解説</span></h1>
+  <p class="hero-desc">
+    当サイトの総合鑑定で使っている11種の占術について、
+    それぞれの成り立ち、どんな情報を使うのか、基本となる用語、
+    そして当サイトがどう計算しているのかを解説しています。
+    鑑定結果に出てきた用語の意味を調べたいときにもご利用ください。
+  </p>
+</section>
+
+<section class="guide-index">
+  {% for guide in guides %}
+  <article class="guide-card">
+    <p class="guide-card-tag">{{ guide.module }}</p>
+    <h2 class="guide-card-title">
+      <a href="{{ url_for('guide_detail', slug=guide.slug) }}">{{ guide.title }}</a>
+    </h2>
+    <p class="guide-card-desc">{{ guide.description }}</p>
+    <ul class="guide-card-toc">
+      {% for section in guide.sections %}
+      <li>{{ section.heading }}</li>
+      {% endfor %}
+    </ul>
+    <a class="guide-card-link" href="{{ url_for('guide_detail', slug=guide.slug) }}">
+      この記事を読む
+    </a>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="card">
+  <h2 class="card-title">まずは占ってみる</h2>
+  <p>
+    解説を読む前に、実際の鑑定結果を見てみるのもおすすめです。
+    5項目を入力するだけで、11種すべての結果と総合鑑定が表示されます。
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('index') }}">今日の総合鑑定を見る</a>
+</section>
+{% endblock %}

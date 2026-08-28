@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}今日の総合鑑定｜11種の占術で読み解く一日{% endblock %}</title>
+  <meta name="description" content="姓名判断・四柱推命・西洋占星術など11種の占術を統合し、今日の総合評価・ラッキーカラー・ラッキーアイテム・ラッキー方位を1つの結論として提示します。">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% if adsense_client_id %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ adsense_client_id }}"
+          crossorigin="anonymous"></script>
+  {% endif %}
+</head>
+<body>
+  <div id="loading-overlay" class="loading-overlay" hidden>
+    <div class="loading-box">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <p class="loading-text">十一の暦を照らし合わせています……</p>
+      <p class="loading-note">初回アクセス時はサーバーの起動に最大30秒ほどかかることがあります。</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('index') }}">
+        <span class="brand-mark">卜</span>
+        <span class="brand-text">
+          <strong>今日の総合鑑定</strong>
+          <small>命占十種 ＋ 姓名判断</small>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="{{ url_for('index') }}">占う</a>
+        <a href="{{ url_for('guides') }}">占術ガイド</a>
+        <a href="{{ url_for('about') }}">このサイトについて</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+  <div class="container">
+    <div class="ad-container ad-header">広告スペース</div>
+  </div>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer">
+        <strong>免責事項：</strong>
+        当サイトの鑑定結果はエンターテインメントを目的としたものです。
+        算出には各占術の伝統的な計算式および簡易近似式を用いており、
+        科学的根拠を保証するものではありません。
+        医療・法律・投資など重要な判断の材料としてのご利用はお控えください。
+        結果の利用によって生じたいかなる損害についても、当サイトは責任を負いかねます。
+      </p>
+      <nav class="footer-nav">
+        <a href="{{ url_for('index') }}">トップ</a>
+        <a href="{{ url_for('guides') }}">占術ガイド</a>
+        <a href="{{ url_for('about') }}">このサイトについて</a>
+        <a href="{{ url_for('privacy') }}">プライバシーポリシー</a>
+        <a href="{{ url_for('contact') }}">お問い合わせ・運営者情報</a>
+      </nav>
+      <p class="copyright">&copy; 今日の総合鑑定</p>
+    </div>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}今日の総合鑑定｜5項目の入力で11種の占術をまとめて鑑定{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <p class="hero-lead">生年月日と名前だけ。入力は5項目。</p>
+  <h1 class="hero-title">十一の占術を束ねた<br><span class="accent">今日の総合鑑定</span></h1>
+  <p class="hero-desc">
+    姓名判断・四柱推命・西洋占星術・紫微斗数・九星気学・算命学・数秘術・
+    インド占星術・宿曜占星術・マヤ暦・チベット占星術。
+    11種すべてを計算し、<strong>今日の総合評価・ラッキーカラー・アイテム・方位・ナンバー</strong>を
+    ひとつの結論としてお伝えします。
+  </p>
+  <p class="hero-date">本日は {{ today.year }}年{{ today.month }}月{{ today.day }}日です</p>
+</section>
+
+{% if error %}
+<div class="alert" role="alert">{{ error }}</div>
+{% endif %}
+
+<section class="card form-card">
+  <h2 class="card-title">鑑定に必要な5項目</h2>
+  <form id="uranai-form" action="{{ url_for('result') }}" method="post" novalidate>
+
+    <div class="field">
+      <label class="field-label" for="last_name">① 姓・名（漢字）<span class="required">必須</span></label>
+      <div class="field-row">
+        <input type="text" id="last_name" name="last_name" placeholder="姓（例：山田）"
+               maxlength="10" required value="{{ form.get('last_name', '') }}">
+        <input type="text" id="first_name" name="first_name" placeholder="名（例：太郎）"
+               maxlength="10" required value="{{ form.get('first_name', '') }}">
+      </div>
+      <p class="field-note">姓名判断と数秘術に使用します。ローマ字の入力は不要です。</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="birth_year">② 生年月日<span class="required">必須</span></label>
+      <div class="field-row">
+        <select id="birth_year" name="birth_year" required>
+          <option value="">年</option>
+          {% for y in range(year_max, year_min - 1, -1) %}
+          <option value="{{ y }}" {% if form.get('birth_year')|string == y|string %}selected{% endif %}>{{ y }}年</option>
+          {% endfor %}
+        </select>
+        <select id="birth_month" name="birth_month" required>
+          <option value="">月</option>
+          {% for m in range(1, 13) %}
+          <option value="{{ m }}" {% if form.get('birth_month')|string == m|string %}selected{% endif %}>{{ m }}月</option>
+          {% endfor %}
+        </select>
+        <select id="birth_day" name="birth_day" required>
+          <option value="">日</option>
+          {% for d in range(1, 32) %}
+          <option value="{{ d }}" {% if form.get('birth_day')|string == d|string %}selected{% endif %}>{{ d }}日</option>
+          {% endfor %}
+        </select>
+      </div>
+      <p class="field-note">11種すべての占術で使用する、最も重要な項目です。</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="birth_hour">③ 出生時刻<span class="optional">任意</span></label>
+      <select id="birth_hour" name="birth_hour">
+        {% for value, label in hours %}
+        <option value="{{ value }}" {% if form.get('birth_hour', '') == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <p class="field-note">
+        四柱推命の時柱・紫微斗数の時辰・西洋占星術のアセンダントに使用します。
+        「不明」の場合は正午（12時）として計算します。
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="field-label">④ 性別<span class="optional">任意</span></label>
+      <div class="radio-row">
+        {% for value, label in genders %}
+        <label class="radio-chip">
+          <input type="radio" name="gender" value="{{ value }}"
+                 {% if form.get('gender', 'unknown') == value %}checked{% endif %}>
+          <span>{{ label }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <p class="field-note">四柱推命・紫微斗数・算命学・チベット占星術の解釈に使用します。</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="prefecture">⑤ 出生地（都道府県）<span class="optional">任意</span></label>
+      <select id="prefecture" name="prefecture">
+        <option value="unknown">不明・海外</option>
+        {% for pref in prefectures %}
+        <option value="{{ pref }}" {% if form.get('prefecture') == pref %}selected{% endif %}>{{ pref }}</option>
+        {% endfor %}
+      </select>
+      <p class="field-note">
+        西洋占星術・インド占星術のアセンダント近似計算に使用します。
+        「不明・海外」の場合は東京（東経139.69度／北緯35.69度）で代替します。
+      </p>
+    </div>
+
+    <button type="submit" class="submit-button">今日の総合鑑定を見る</button>
+    <p class="form-footnote">入力内容はサーバーに保存されません。</p>
+  </form>
+</section>
+
+<section class="card">
+  <h2 class="card-title">占い方を知りたい方へ</h2>
+  <p>
+    四柱推命の日主とは何か、九星気学の本命星はどう出すのか、宿曜占星術の27宿とは何か。
+    当サイトで使っている11種の占術について、成り立ちから計算方法までを解説しています。
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('guides') }}">占術ガイドを読む</a>
+</section>
+
+<section class="card feature-card">
+  <h2 class="card-title">このアプリの特徴</h2>
+  <ul class="feature-list">
+    <li><strong>結論がひとつ。</strong>11種の結果を重み付き平均で統合し、100点満点の総合評価と大吉〜凶のランクを提示します。</li>
+    <li><strong>日替わり。</strong>「今日の日付」を計算に組み込むため、同じ人でも日付が変われば結果が変わります。</li>
+    <li><strong>完全に決定論的。</strong>乱数は一切使用していません。同じ入力・同じ日付なら必ず同じ結果になります。</li>
+    <li><strong>個別結果も確認可能。</strong>11種それぞれの鑑定は、結論の下のアコーディオンから読めます。</li>
+  </ul>
+</section>
+{% endblock %}
