@@ -7,16 +7,37 @@
 from __future__ import annotations
 
 import os
-from datetime import date
+from datetime import date, datetime
 
+import pytz
 from flask import Flask, Response, render_template, request
 
 from uranai import MODULES, build_report
 from uranai.aggregator import CATEGORY_LABEL
 from uranai.guides import GUIDES, get_guide
+from uranai.i18n import (
+    GENDER_EN,
+    PREFECTURE_EN,
+    module_name_en,
+    prefecture_en,
+    translate_report,
+)
 from uranai.utils import PREFECTURES
 
 app = Flask(__name__)
+
+# 「今日」は常に日本時間（JST）基準で判定する。
+# Renderのサーバーは協定世界時（UTC）で動作しているため、単純に
+# datetime.date.today() を使うと、日本時間の深夜0時〜9時の間
+# （＝UTCではまだ前日）に「前日の運勢」が表示されてしまう。
+# 世界中どこからアクセスしても同じ「今日」を共有できるよう、
+# サーバーの所在地に関わらずJSTで日付を固定する。
+JST = pytz.timezone("Asia/Tokyo")
+
+
+def today_jst() -> date:
+    """日本時間（JST）基準の「今日」を返す。"""
+    return datetime.now(JST).date()
 
 # ---------------------------------------------------------------------------
 # サイト運営情報・広告設定（環境変数で与える。未設定でもアプリは動作する）
@@ -50,9 +71,39 @@ GENDER_CHOICES = [
 
 HOUR_CHOICES = [("", "不明")] + [(str(h), "%d時台" % h) for h in range(24)]
 
+# ---------------------------------------------------------------------------
+# 英語版（グローバル向け）の選択肢
+#   value は日本語版と共通（parse_user_data がそのまま使えるようにするため）、
+#   ラベルだけを英語に差し替える。
+# ---------------------------------------------------------------------------
+GENDER_CHOICES_EN = [(value, GENDER_EN[value]) for value, _ in GENDER_CHOICES]
+HOUR_CHOICES_EN = [("", "Unknown")] + [(str(h), "%d:00" % h) for h in range(24)]
+PREFECTURES_EN = [(pref, prefecture_en(pref)) for pref in PREFECTURES]
+
+ERROR_MESSAGES_JA = {
+    "name_required": "姓と名の両方を入力してください。",
+    "name_too_long": "姓・名はそれぞれ10文字以内で入力してください。",
+    "birth_date_invalid": "生年月日を正しく選択してください。",
+    "year_out_of_range": "生年は%d年から%d年の範囲で選択してください。",
+    "date_does_not_exist": "存在しない日付です。生年月日を確認してください。",
+    "future_date": "生年月日に未来の日付は指定できません。",
+    "hour_invalid": "出生時刻を正しく選択してください。",
+    "hour_out_of_range": "出生時刻は0時から23時の範囲で選択してください。",
+}
+ERROR_MESSAGES_EN = {
+    "name_required": "Please enter both your family name and given name.",
+    "name_too_long": "Please keep each name field to 10 characters or fewer.",
+    "birth_date_invalid": "Please select a valid date of birth.",
+    "year_out_of_range": "Please choose a birth year between %d and %d.",
+    "date_does_not_exist": "That date doesn't exist. Please check your date of birth.",
+    "future_date": "Date of birth cannot be in the future.",
+    "hour_invalid": "Please select a valid birth hour.",
+    "hour_out_of_range": "Birth hour must be between 0 and 23.",
+}
+
 # 入力フォームの選択肢に渡す年の範囲
 YEAR_MIN = 1900
-YEAR_MAX = date.today().year
+YEAR_MAX = today_jst().year
 
 
 def _form_context(form=None, error=None) -> dict:
@@ -63,39 +114,56 @@ def _form_context(form=None, error=None) -> dict:
         "hours": HOUR_CHOICES,
         "year_min": YEAR_MIN,
         "year_max": YEAR_MAX,
-        "today": date.today(),
+        "today": today_jst(),
         "form": form or {},
         "error": error,
     }
 
 
-def parse_user_data(form) -> tuple:
+def _form_context_en(form=None, error=None) -> dict:
+    """英語版入力フォームの描画に必要なコンテキストを組み立てる。"""
+    return {
+        "prefectures": PREFECTURES_EN,
+        "genders": GENDER_CHOICES_EN,
+        "hours": HOUR_CHOICES_EN,
+        "year_min": YEAR_MIN,
+        "year_max": YEAR_MAX,
+        "today": today_jst(),
+        "form": form or {},
+        "error": error,
+    }
+
+
+def parse_user_data(form, lang: str = "ja") -> tuple:
     """フォームの入力値を検証し、内部表現の dict に整形する。
 
     戻り値: (user_data, エラーメッセージ)  ※エラー時 user_data は None
+    lang="en" の場合、エラーメッセージを英語で返す。
     """
+    msg = ERROR_MESSAGES_EN if lang == "en" else ERROR_MESSAGES_JA
+
     last_name = (form.get("last_name") or "").strip()
     first_name = (form.get("first_name") or "").strip()
     if not last_name or not first_name:
-        return None, "姓と名の両方を入力してください。"
+        return None, msg["name_required"]
     if len(last_name) > 10 or len(first_name) > 10:
-        return None, "姓・名はそれぞれ10文字以内で入力してください。"
+        return None, msg["name_too_long"]
 
     try:
         birth_year = int(form.get("birth_year", ""))
         birth_month = int(form.get("birth_month", ""))
         birth_day = int(form.get("birth_day", ""))
     except (TypeError, ValueError):
-        return None, "生年月日を正しく選択してください。"
+        return None, msg["birth_date_invalid"]
 
     if not (YEAR_MIN <= birth_year <= YEAR_MAX):
-        return None, "生年は%d年から%d年の範囲で選択してください。" % (YEAR_MIN, YEAR_MAX)
+        return None, msg["year_out_of_range"] % (YEAR_MIN, YEAR_MAX)
     try:
         birth = date(birth_year, birth_month, birth_day)
     except ValueError:
-        return None, "存在しない日付です。生年月日を確認してください。"
-    if birth > date.today():
-        return None, "生年月日に未来の日付は指定できません。"
+        return None, msg["date_does_not_exist"]
+    if birth > today_jst():
+        return None, msg["future_date"]
 
     hour_raw = (form.get("birth_hour") or "").strip()
     if hour_raw == "":
@@ -104,9 +172,9 @@ def parse_user_data(form) -> tuple:
         try:
             birth_hour = int(hour_raw)
         except ValueError:
-            return None, "出生時刻を正しく選択してください。"
+            return None, msg["hour_invalid"]
         if not (0 <= birth_hour <= 23):
-            return None, "出生時刻は0時から23時の範囲で選択してください。"
+            return None, msg["hour_out_of_range"]
 
     gender = form.get("gender") or "unknown"
     if gender not in [g for g, _ in GENDER_CHOICES]:
@@ -125,7 +193,7 @@ def parse_user_data(form) -> tuple:
         "birth_hour": birth_hour,
         "gender": gender,
         "prefecture": prefecture,
-        "today": date.today(),
+        "today": today_jst(),
     }, None
 
 
@@ -173,6 +241,73 @@ def about():
     return render_template("about.html", modules=[name for name, _ in MODULES])
 
 
+# ---------------------------------------------------------------------------
+# 英語版（グローバル向け）ルート
+#
+# 内部の計算ロジック（build_report 以下）は日本語のまま完全に共通利用し、
+# uranai.i18n.translate_report() で表示直前に英語へ変換する。
+# 11種の個別鑑定の長文（detail）は現時点では日本語のみのため、英語版の
+# アコーディオンでは「モジュール名・スコア・翻訳済みラッキー要素」を表示し、
+# 詳しい文章は日本語版へのリンクで案内する（誤って機械翻訳のふりをしない）。
+# ---------------------------------------------------------------------------
+@app.route("/en/", methods=["GET"])
+def index_en():
+    """英語版の入力フォームを表示する。"""
+    return render_template("en/index.html", **_form_context_en())
+
+
+@app.route("/en/result", methods=["GET", "POST"])
+def result_en():
+    """英語版：11種の占術を実行し、今日の総合鑑定を表示する。"""
+    if request.method == "GET":
+        return render_template("en/index.html", **_form_context_en())
+
+    user_data, error = parse_user_data(request.form, lang="en")
+    if error:
+        return render_template(
+            "en/index.html", **_form_context_en(form=request.form, error=error)), 400
+
+    report = build_report(user_data)
+    report = translate_report(report, user_data)
+
+    gender_label = GENDER_EN.get(user_data["gender"], "Prefer not to say")
+    hour_label = ("Unknown (calculated as noon)" if user_data["birth_hour"] is None
+                  else "%d:00" % user_data["birth_hour"])
+    prefecture_label = (prefecture_en(user_data["prefecture"])
+                        if user_data["prefecture"] in PREFECTURES
+                        else "Unknown / overseas (Tokyo used as a substitute)")
+
+    return render_template(
+        "en/result.html",
+        report=report,
+        user_data=user_data,
+        gender_label=gender_label,
+        hour_label=hour_label,
+        prefecture_label=prefecture_label,
+        module_count=len(MODULES),
+    )
+
+
+@app.route("/en/about", methods=["GET"])
+def about_en():
+    """英語版：このアプリについて。"""
+    module_names_en = [module_name_en(name) for name, _ in MODULES]
+    return render_template("en/about.html", modules=module_names_en)
+
+
+@app.route("/en/privacy", methods=["GET"])
+def privacy_en():
+    """英語版：プライバシーポリシー。"""
+    return render_template(
+        "en/privacy.html", updated_on=POLICY_UPDATED_ON, ad_network="Google AdSense")
+
+
+@app.route("/en/contact", methods=["GET"])
+def contact_en():
+    """英語版：お問い合わせ・運営者情報。"""
+    return render_template("en/contact.html")
+
+
 @app.route("/guides", methods=["GET"])
 def guides():
     """占術ガイドの一覧を表示する。"""
@@ -197,9 +332,10 @@ def guide_detail(slug):
 def sitemap_xml():
     """検索エンジン向けの sitemap.xml を生成する。"""
     base = request.url_root.rstrip("/")
-    paths = ["/", "/about", "/guides", "/privacy", "/contact"]
+    paths = ["/", "/about", "/guides", "/privacy", "/contact",
+              "/en/", "/en/about", "/en/privacy", "/en/contact"]
     paths += ["/guides/%s" % g["slug"] for g in GUIDES]
-    lastmod = date.today().isoformat()
+    lastmod = today_jst().isoformat()
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for path in paths:
@@ -259,14 +395,20 @@ def robots_txt():
 
 @app.errorhandler(404)
 def not_found(_error):
-    """404 は入力フォームへ誘導する。"""
+    """404 は入力フォームへ誘導する（/en/ 配下なら英語版へ）。"""
+    if request.path.startswith("/en/") or request.path == "/en":
+        return render_template("en/index.html", **_form_context_en(
+            error="The page you were looking for could not be found. Please try getting a reading instead.")), 404
     return render_template("index.html", **_form_context(
         error="お探しのページは見つかりませんでした。もう一度占ってみてください。")), 404
 
 
 @app.errorhandler(500)
 def server_error(_error):
-    """500 も入力フォームへ誘導する。"""
+    """500 も入力フォームへ誘導する（/en/ 配下なら英語版へ）。"""
+    if request.path.startswith("/en/") or request.path == "/en":
+        return render_template("en/index.html", **_form_context_en(
+            error="Something went wrong while generating your reading. Please try again.")), 500
     return render_template("index.html", **_form_context(
         error="鑑定中に問題が発生しました。お手数ですが、もう一度お試しください。")), 500
 

@@ -1,0 +1,122 @@
+{% extends "en/base.html" %}
+{% block title %}Privacy Policy | Today's Fortune{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h1 class="card-title">Privacy Policy</h1>
+  <p class="about-lead">
+    "Today's Fortune" (this site) considers the protection of visitors'
+    personal information an important responsibility, and handles it
+    according to the policy below.
+  </p>
+  <p class="about-note">Last updated: {{ updated_on }}</p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">1. How the information you enter is handled</h2>
+  <p>
+    The reading feature on this site asks for five items: your name, date
+    of birth, time of birth, gender, and place of birth. This information
+    is used only, within the request that generates it, to calculate your
+    reading. <strong>None of it is stored in any database or file on our
+    server.</strong> Once your result page has finished rendering, the
+    information you entered is discarded from server memory.
+  </p>
+  <p>
+    We do not provide or sell any name, date of birth, or other information
+    you enter to any third party, and we do not use it to identify or track
+    any individual.
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">2. Use of cookies</h2>
+  <p>
+    This site may use cookies for the advertising and analytics purposes
+    described below. A cookie is a small text file that a website stores
+    in your browser; it does not directly identify you by name, address,
+    or similar personal details.
+  </p>
+  <p>
+    If you would prefer not to have cookies used, you can disable them in
+    your browser's settings. The reading feature on this site will continue
+    to work correctly even with cookies disabled.
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">3. Third-party advertising services</h2>
+  <p>
+    This site uses (or intends to use) the third-party advertising service
+    "{{ ad_network }}".
+  </p>
+  <ul class="about-inputs">
+    <li>
+      Advertising providers may use cookies to serve ads based on your interests.
+    </li>
+    <li>
+      Google and other third-party vendors may use cookies to serve ads
+      based on a visitor's prior visits to this site or other sites.
+    </li>
+    <li>
+      Visitors can opt out of personalised advertising by visiting
+      <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
+    </li>
+    <li>
+      For information on disabling the use of third-party vendor cookies
+      for personalised advertising, visit
+      <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.
+    </li>
+    <li>
+      For further detail, see
+      <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">"How Google uses information from sites or apps that use our services"</a>.
+    </li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2 class="card-title">4. Analytics tools</h2>
+  <p>
+    This site may use analytics tools to understand how it is used. These
+    tools may use cookies to collect traffic data, but the data collected
+    is anonymous and does not identify any individual. This collection can
+    be declined by disabling cookies.
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">5. Disclaimer</h2>
+  <p>
+    The readings provided on this site are for <strong>entertainment
+    purposes only</strong>. Each divination system reflects a cultural and
+    historical tradition, and no scientific validity is claimed or
+    guaranteed for its content. Please do not use these results as
+    material for important decisions involving your health, medical care,
+    legal matters, finances, or career path.
+  </p>
+  <p>
+    The operator of this site accepts no liability for any damage arising
+    from content published here, nor for any information or service
+    provided by external websites linked from this site.
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">6. Copyright</h2>
+  <p>
+    Copyright in the text and program code published on this site belongs
+    to its operator. Please refrain from reproduction or republication
+    beyond what is legally recognised as fair quotation.
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">7. Changes to this policy</h2>
+  <p>
+    This site may revise this policy without prior notice, in response to
+    changes in law or in the service itself. Any revised policy takes
+    effect from the moment it is posted on this page.
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('contact_en') }}">Contact us</a>
+</section>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "en/base.html" %}
+{% block title %}Today's Fortune | Combine 11 Divination Systems in One Reading{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <p class="hero-lead">Just your name and date of birth. 5 fields.</p>
+  <h1 class="hero-title">Eleven traditions, combined into<br><span class="accent">Today's Fortune</span></h1>
+  <p class="hero-desc">
+    Name Analysis, Four Pillars of Destiny (BaZi), Western Astrology, Zi Wei Dou Shu,
+    Nine Star Ki, Sanmei-gaku, Numerology, Vedic Astrology, Sukuyo Astrology,
+    the Mayan Calendar, and Tibetan Astrology.
+    We calculate all eleven and combine them into <strong>one verdict</strong>: today's
+    overall score, lucky colour, lucky item, lucky direction, and lucky number.
+  </p>
+  <p class="hero-date">Today is {{ today.strftime('%B %d, %Y') }}</p>
+</section>
+
+{% if error %}
+<div class="alert" role="alert">{{ error }}</div>
+{% endif %}
+
+<section class="card form-card">
+  <h2 class="card-title">The 5 details we need</h2>
+  <form id="uranai-form" action="{{ url_for('result_en') }}" method="post" novalidate>
+
+    <div class="field">
+      <label class="field-label" for="last_name">① Name, in Kanji/Chinese characters<span class="required">Required</span></label>
+      <div class="field-row">
+        <input type="text" id="last_name" name="last_name" placeholder="Family name (e.g. 山田)"
+               maxlength="10" required value="{{ form.get('last_name', '') }}">
+        <input type="text" id="first_name" name="first_name" placeholder="Given name (e.g. 太郎)"
+               maxlength="10" required value="{{ form.get('first_name', '') }}">
+      </div>
+      <p class="field-note">
+        Used for Name Analysis and Numerology. This reading is built around
+        Japanese/Chinese-character names — if you don't have a name written this
+        way, you can enter the kanji spelling of your name's sound, or a name a
+        Japanese-speaking friend has written for you. Romanised input is not needed;
+        our built-in tables convert the characters automatically.
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="birth_year">② Date of birth<span class="required">Required</span></label>
+      <div class="field-row">
+        <select id="birth_year" name="birth_year" required>
+          <option value="">Year</option>
+          {% for y in range(year_max, year_min - 1, -1) %}
+          <option value="{{ y }}" {% if form.get('birth_year')|string == y|string %}selected{% endif %}>{{ y }}</option>
+          {% endfor %}
+        </select>
+        <select id="birth_month" name="birth_month" required>
+          <option value="">Month</option>
+          {% for m in range(1, 13) %}
+          <option value="{{ m }}" {% if form.get('birth_month')|string == m|string %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        </select>
+        <select id="birth_day" name="birth_day" required>
+          <option value="">Day</option>
+          {% for d in range(1, 32) %}
+          <option value="{{ d }}" {% if form.get('birth_day')|string == d|string %}selected{% endif %}>{{ d }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <p class="field-note">The single most important field — used by all eleven systems.</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="birth_hour">③ Time of birth<span class="optional">Optional</span></label>
+      <select id="birth_hour" name="birth_hour">
+        {% for value, label in hours %}
+        <option value="{{ value }}" {% if form.get('birth_hour', '') == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <p class="field-note">
+        Used for the Four Pillars' hour pillar, Zi Wei Dou Shu's time branch, and the
+        Ascendant in Western astrology. If unknown, we calculate as if you were born at noon.
+      </p>
+    </div>
+
+    <div class="field">
+      <label class="field-label">④ Gender<span class="optional">Optional</span></label>
+      <div class="radio-row">
+        {% for value, label in genders %}
+        <label class="radio-chip">
+          <input type="radio" name="gender" value="{{ value }}"
+                 {% if form.get('gender', 'unknown') == value %}checked{% endif %}>
+          <span>{{ label }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <p class="field-note">Used to interpret the Four Pillars, Zi Wei Dou Shu, Sanmei-gaku, and Tibetan Astrology.</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="prefecture">⑤ Place of birth (Japanese prefecture)<span class="optional">Optional</span></label>
+      <select id="prefecture" name="prefecture">
+        <option value="unknown">Unknown / outside Japan</option>
+        {% for value, label in prefectures %}
+        <option value="{{ value }}" {% if form.get('prefecture') == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <p class="field-note">
+        Used for the Ascendant approximation in Western and Vedic astrology. If you
+        were born outside Japan, choose "Unknown / outside Japan" — we'll use
+        Tokyo (139.69°E / 35.69°N) as a substitute coordinate.
+      </p>
+    </div>
+
+    <button type="submit" class="submit-button">Get Today's Fortune</button>
+    <p class="form-footnote">Nothing you enter here is stored on our server.</p>
+  </form>
+</section>
+
+<section class="card feature-card">
+  <h2 class="card-title">What makes this different</h2>
+  <ul class="feature-list">
+    <li><strong>One conclusion.</strong> All eleven results are combined with a weighted average into a single score out of 100 and a rank from "Excellent Fortune" to "Caution".</li>
+    <li><strong>A new reading every day.</strong> Today's date is built into every calculation, so the result changes day to day even for the same person.</li>
+    <li><strong>Fully deterministic.</strong> No randomness is used anywhere. The same input on the same day will always produce the same result.</li>
+    <li><strong>Individual results included.</strong> Each of the eleven readings can be explored in the accordion below the main verdict.</li>
+  </ul>
+</section>
+{% endblock %}

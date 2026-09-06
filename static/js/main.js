@@ -8,6 +8,28 @@
 (function () {
   "use strict";
 
+  // ページの lang 属性を見て、JS内で組み立てる文言を日英で切り替える。
+  // （静的なテキストはテンプレート側で言語別に用意しているが、JSが
+  //   動的に差し替える文言だけはここで分岐が必要）
+  var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var TEXT = isEnglish
+    ? {
+        submitting: "Reading...",
+        submitDefault: "Get Today's Fortune",
+        consulting: "Consulting eleven traditions at once...",
+        waking: "Waking up the server...",
+        scoreLabel: "Today's score",
+        pointsSuffix: ""
+      }
+    : {
+        submitting: "鑑定中……",
+        submitDefault: "今日の総合鑑定を見る",
+        consulting: "十一の暦を照らし合わせています……",
+        waking: "サーバーを起動しています……",
+        scoreLabel: "今日のスコア",
+        pointsSuffix: "点"
+      };
+
   /* ------------------------------------------------------------------ */
   /* 1. ローディングオーバーレイ                                          */
   /* ------------------------------------------------------------------ */
@@ -39,9 +61,9 @@
       var button = form.querySelector(".submit-button");
       if (button) {
         button.disabled = true;
-        button.textContent = "鑑定中……";
+        button.textContent = TEXT.submitting;
       }
-      showLoading("十一の暦を照らし合わせています……");
+      showLoading(TEXT.consulting);
     });
   }
 
@@ -53,7 +75,7 @@
         var button = form.querySelector(".submit-button");
         if (button) {
           button.disabled = false;
-          button.textContent = "今日の総合鑑定を見る";
+          button.textContent = TEXT.submitDefault;
         }
       }
     }
@@ -66,7 +88,7 @@
   /* ------------------------------------------------------------------ */
   if (document.readyState === "loading") {
     var warmupTimer = window.setTimeout(function () {
-      showLoading("サーバーを起動しています……");
+      showLoading(TEXT.waking);
     }, 1200);
     window.addEventListener("DOMContentLoaded", function () {
       window.clearTimeout(warmupTimer);
@@ -102,7 +124,7 @@
         labels: labels,
         datasets: [
           {
-            label: "今日のスコア",
+            label: TEXT.scoreLabel,
             data: values,
             fill: true,
             backgroundColor: "rgba(158, 27, 50, 0.18)",
@@ -125,7 +147,7 @@
           tooltip: {
             callbacks: {
               label: function (context) {
-                return context.label + "：" + context.formattedValue + "点";
+                return context.label + (isEnglish ? ": " : "：") + context.formattedValue + TEXT.pointsSuffix;
               }
             }
           }

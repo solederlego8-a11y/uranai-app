@@ -1,0 +1,178 @@
+{% extends "en/base.html" %}
+{% block title %}{{ user_data.last_name }}{{ user_data.first_name }}'s Today's Fortune | {{ report.score_rank_en }} ({{ report.total_score }}/100){% endblock %}
+
+{% block content %}
+
+<!-- ================================================================= -->
+<!-- 1. The verdict                                                     -->
+<!-- ================================================================= -->
+<section class="verdict" id="verdict">
+  <p class="verdict-eyebrow">
+    Today's Fortune for {{ user_data.today.strftime('%B %d, %Y') }}
+  </p>
+  <h1 class="verdict-name">{{ user_data.last_name }} {{ user_data.first_name }}</h1>
+
+  <div class="verdict-main">
+    <div class="rank-badge rank-{{ report.score_rank }}">
+      <span class="rank-label">Overall</span>
+      <span class="rank-value">{{ report.score_rank_en }}</span>
+    </div>
+
+    <div class="score-block">
+      <div class="score-number">
+        <span class="score-value">{{ report.total_score }}</span><span class="score-unit">/ 100</span>
+      </div>
+      <div class="progress" role="img"
+           aria-label="Overall score {{ report.total_score }} out of 100">
+        <div class="progress-bar" style="width: {{ report.total_score }}%"></div>
+      </div>
+      <p class="score-note">Calculated as a weighted average across {{ module_count }} divination systems.</p>
+    </div>
+  </div>
+
+  <div class="lucky-grid">
+    <div class="lucky-item">
+      <p class="lucky-label">Lucky Colour</p>
+      <p class="lucky-value">
+        <span class="color-chip" style="background: {{ report.lucky_color_hex }}"></span>
+        {{ report.lucky_color_en }}
+      </p>
+      <p class="lucky-sub">{{ report.lucky_color_hex }}</p>
+    </div>
+    <div class="lucky-item">
+      <p class="lucky-label">Lucky Item</p>
+      <p class="lucky-value">{{ report.lucky_item_en }}</p>
+    </div>
+    <div class="lucky-item">
+      <p class="lucky-label">Lucky Direction</p>
+      <p class="lucky-value">{{ report.lucky_dir_en }}</p>
+    </div>
+    <div class="lucky-item">
+      <p class="lucky-label">Lucky Number</p>
+      <p class="lucky-value">{{ report.lucky_number }}</p>
+    </div>
+  </div>
+
+  <div class="message-block">
+    <h2 class="block-title">Today's Overall Advice</h2>
+    <p class="overall-message">{{ report.overall_message_en }}</p>
+  </div>
+
+  <div class="category-block">
+    <h2 class="block-title">Fortune by Category</h2>
+    <ul class="category-list">
+      {% for key in ['Love', 'Work', 'Money', 'Health'] %}
+      {% set value = report.category_scores_en[key] %}
+      <li class="category-row">
+        <span class="category-name">{{ key }}</span>
+        <span class="category-bar">
+          <span class="category-fill category-{{ key|lower }}" style="width: {{ value }}%"></span>
+        </span>
+        <span class="category-value">{{ value }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <p class="verdict-disclaimer">
+    * This reading is provided for entertainment purposes only and does not carry
+    any scientific validity claim.
+  </p>
+</section>
+
+<!-- ================================================================= -->
+<!-- 2. Ad slot 1                                                       -->
+<!-- ================================================================= -->
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+<div class="ad-container ad-result-1">Advertisement</div>
+
+<!-- ================================================================= -->
+<!-- 3. Radar chart of all 11 scores                                    -->
+<!-- ================================================================= -->
+<section class="card chart-card">
+  <h2 class="card-title">Scores across all 11 systems</h2>
+  <div class="chart-wrap">
+    <canvas id="scoreRadar" width="400" height="400"
+            aria-label="Radar chart of scores across 11 divination systems" role="img"></canvas>
+  </div>
+  <noscript>
+    <ul class="score-fallback">
+      {% for name, value in report.score_breakdown_en.items() %}
+      <li>{{ name }}: {{ value }}/100</li>
+      {% endfor %}
+    </ul>
+  </noscript>
+  <script id="score-data" type="application/json">
+    {{ report.score_breakdown_en | tojson }}
+  </script>
+</section>
+
+<!-- ================================================================= -->
+<!-- 4. Individual results (accordion)                                  -->
+<!-- ================================================================= -->
+<section class="detail-section">
+  <h2 class="section-title">See the individual readings</h2>
+  <p class="section-note">
+    Each tradition's own score and lucky elements, translated below. Tap to expand.
+    <strong>The full written explanation for each system is currently available in
+    Japanese only</strong> — switch to the <a href="{{ url_for('index') }}">Japanese version</a>
+    to read the complete text once you've entered your details there.
+  </p>
+
+  <div class="accordion">
+    {% for item in report.detail_results_en %}
+    <details class="accordion-item">
+      <summary class="accordion-head">
+        <span class="accordion-title">{{ item.name_en }}</span>
+        <span class="accordion-score">{{ item.score }}/100</span>
+        <span class="accordion-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="accordion-body">
+        <div class="item-meter">
+          <span class="item-meter-fill" style="width: {{ item.score }}%"></span>
+        </div>
+
+        <ul class="item-lucky">
+          <li><span>Colour</span>{{ item.lucky_color_en }}</li>
+          <li><span>Item</span>{{ item.lucky_item_en }}</li>
+          <li><span>Direction</span>{{ item.lucky_dir_en }}</li>
+        </ul>
+
+        <p class="item-detail">
+          The full reading from {{ item.name_en }} — including the reasoning
+          behind today's score — is written in Japanese. If you'd like the
+          complete text, enter your details on the
+          <a href="{{ url_for('index') }}">Japanese version</a> of this page.
+        </p>
+      </div>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ================================================================= -->
+<!-- 5. Ad slot 2                                                       -->
+<!-- ================================================================= -->
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+<div class="ad-container ad-result-2">Advertisement</div>
+
+<!-- ================================================================= -->
+<!-- 6. Input summary + try again                                       -->
+<!-- ================================================================= -->
+<section class="card input-card">
+  <h2 class="card-title">Details used for this reading</h2>
+  <dl class="input-list">
+    <div class="input-row"><dt>Name</dt><dd>{{ user_data.last_name }} {{ user_data.first_name }}</dd></div>
+    <div class="input-row"><dt>Date of birth</dt><dd>{{ user_data.birth_year }}-{{ '%02d' % user_data.birth_month }}-{{ '%02d' % user_data.birth_day }}</dd></div>
+    <div class="input-row"><dt>Time of birth</dt><dd>{{ hour_label }}</dd></div>
+    <div class="input-row"><dt>Gender</dt><dd>{{ gender_label }}</dd></div>
+    <div class="input-row"><dt>Place of birth</dt><dd>{{ prefecture_label }}</dd></div>
+    <div class="input-row"><dt>Reading date</dt><dd>{{ user_data.today.strftime('%B %d, %Y') }}</dd></div>
+  </dl>
+  <a class="submit-button link-button" href="{{ url_for('index_en') }}">Get another reading</a>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+{% endblock %}

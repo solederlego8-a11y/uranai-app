@@ -1380,3 +1380,16 @@ code {
     font-size: 17px;
   }
 }
+
+/* --------------------------------------------------------- 言語切替リンク */
+.lang-switch {
+  padding: 3px 10px !important;
+  border: 1px solid rgba(230, 210, 154, 0.5);
+  border-radius: 999px;
+  font-size: 12px !important;
+  letter-spacing: 0.08em;
+}
+
+.footer-nav .lang-switch {
+  border-color: rgba(246, 243, 236, 0.35);
+}

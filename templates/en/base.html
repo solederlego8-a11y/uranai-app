@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Today's Fortune | 11 Divination Systems Combined{% endblock %}</title>
+  <meta name="description" content="Name analysis, Four Pillars of Destiny, Western astrology and 8 more traditions combined into one verdict: today's score, lucky colour, lucky item and lucky direction.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% if adsense_client_id %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ adsense_client_id }}"
+          crossorigin="anonymous"></script>
+  {% endif %}
+</head>
+<body>
+  <div id="loading-overlay" class="loading-overlay" hidden>
+    <div class="loading-box">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <p class="loading-text">Consulting eleven traditions at once...</p>
+      <p class="loading-note">On first visit the server may take up to 30 seconds to wake up.</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('index_en') }}">
+        <span class="brand-mark">卜</span>
+        <span class="brand-text">
+          <strong>Today's Fortune</strong>
+          <small>10 Divination Systems + Name Analysis</small>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="{{ url_for('index_en') }}">Get your reading</a>
+        <a href="{{ url_for('about_en') }}">About</a>
+        <a href="{{ url_for('index') }}" class="lang-switch">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+  <div class="container">
+    <div class="ad-container ad-header">Advertisement</div>
+  </div>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer">
+        <strong>Disclaimer:</strong>
+        The readings on this site are provided for entertainment purposes only.
+        They are calculated using traditional formulas and simplified astronomical
+        approximations from each divination system, and no scientific validity is
+        claimed or guaranteed. Please do not rely on these results for medical,
+        legal, financial, or other important decisions. This site accepts no
+        liability for any loss arising from the use of its results.
+      </p>
+      <nav class="footer-nav">
+        <a href="{{ url_for('index_en') }}">Home</a>
+        <a href="{{ url_for('about_en') }}">About</a>
+        <a href="{{ url_for('privacy_en') }}">Privacy Policy</a>
+        <a href="{{ url_for('contact_en') }}">Contact / Operator Info</a>
+        <a href="{{ url_for('index') }}">日本語版</a>
+      </nav>
+      <p class="copyright">&copy; Today's Fortune</p>
+    </div>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
