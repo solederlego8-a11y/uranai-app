@@ -93,17 +93,25 @@
     </div>
 
     <div class="field">
-      <label class="field-label" for="prefecture">⑤ Place of birth (Japanese prefecture)<span class="optional">Optional</span></label>
+      <label class="field-label" for="prefecture">⑤ Place of birth<span class="optional">Optional</span></label>
       <select id="prefecture" name="prefecture">
-        <option value="unknown">Unknown / outside Japan</option>
-        {% for value, label in prefectures %}
-        <option value="{{ value }}" {% if form.get('prefecture') == value %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
+        <option value="unknown">Unknown / not listed</option>
+        <optgroup label="Major cities worldwide">
+          {% for value, label in world_cities %}
+          <option value="{{ value }}" {% if form.get('prefecture') == value %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </optgroup>
+        <optgroup label="Japan (by prefecture)">
+          {% for value, label in prefectures %}
+          <option value="{{ value }}" {% if form.get('prefecture') == value %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </optgroup>
       </select>
       <p class="field-note">
-        Used for the Ascendant approximation in Western and Vedic astrology. If you
-        were born outside Japan, choose "Unknown / outside Japan" — we'll use
-        Tokyo (139.69°E / 35.69°N) as a substitute coordinate.
+        Used for the Ascendant approximation in Western and Vedic astrology. Pick
+        the city closest to where you were born; if your city isn't listed or you'd
+        rather not say, choose "Unknown / not listed" and we'll use Tokyo
+        (139.69°E / 35.69°N) as a substitute coordinate.
       </p>
     </div>
 

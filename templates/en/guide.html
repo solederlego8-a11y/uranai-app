@@ -1,0 +1,70 @@
+{% extends "en/base.html" %}
+{% block title %}{{ guide.title }} | Today's Fortune{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ url_for('index_en') }}">Home</a>
+  <span aria-hidden="true">›</span>
+  <a href="{{ url_for('guides_en') }}">Divination Guides</a>
+  <span aria-hidden="true">›</span>
+  <span>{{ guide.module }}</span>
+</nav>
+
+<article class="card guide-article">
+  <p class="guide-tag">{{ guide.module }}</p>
+  <h1 class="guide-title">{{ guide.title }}</h1>
+  <p class="guide-lead">{{ guide.lead }}</p>
+
+  <nav class="guide-toc" aria-label="Table of contents">
+    <p class="guide-toc-title">Contents</p>
+    <ol>
+      {% for section in guide.sections %}
+      <li><a href="#section-{{ loop.index }}">{{ section.heading }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+
+  {% for section in guide.sections %}
+  <section class="guide-section" id="section-{{ loop.index }}">
+    <h2 class="guide-heading">{{ section.heading }}</h2>
+    {% for paragraph in section.paragraphs %}
+    <p class="guide-paragraph">{{ paragraph }}</p>
+    {% endfor %}
+  </section>
+  {% endfor %}
+
+  <p class="guide-disclaimer">
+    * This article introduces the ideas behind this divination tradition and makes
+    no claim to scientific validity. Please enjoy your reading as entertainment.
+  </p>
+</article>
+
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
+<div class="ad-container ad-guide">Advertisement</div>
+
+<section class="card">
+  <h2 class="card-title">Try a {{ guide.module }} reading of your own</h2>
+  <p>
+    This site's combined reading calculates {{ guide.module }} together with ten
+    other traditions in one go. Enter five details and you can check your
+    individual {{ guide.module }} result from the "see the individual readings"
+    section too.
+  </p>
+  <a class="submit-button link-button" href="{{ url_for('index_en') }}">Get Today's Fortune</a>
+</section>
+
+<section class="card">
+  <h2 class="card-title">Read about the other traditions</h2>
+  <ul class="guide-related">
+    {% for other in others %}
+    <li>
+      <a href="{{ url_for('guide_detail_en', slug=other.slug) }}">
+        <strong>{{ other.module }}</strong>
+        <span>{{ other.description }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="guide-card-link" href="{{ url_for('guides_en') }}">Back to all guides</a>
+</section>
+{% endblock %}

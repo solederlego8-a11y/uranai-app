@@ -126,8 +126,98 @@ DEFAULT_GEO = (139.69, 35.69)  # 出生地不明時は東京で代替
 
 
 def get_geo(prefecture: str) -> tuple:
-    """都道府県名から (経度, 緯度) を返す。不明時は東京。"""
-    return PREFECTURE_GEO.get(prefecture, DEFAULT_GEO)
+    """都道府県名（または海外都市キー）から (経度, 緯度) を返す。不明時は東京。"""
+    if prefecture in PREFECTURE_GEO:
+        return PREFECTURE_GEO[prefecture]
+    if prefecture in WORLD_CITY_GEO:
+        return WORLD_CITY_GEO[prefecture]
+    return DEFAULT_GEO
+
+
+# ---------------------------------------------------------------------------
+# 海外都市 -> 経緯度・表示ラベル（英語版サイトの出生地選択肢を拡張するためのもの）
+#
+# 日本語版（都道府県のみ）のロジック・選択肢には一切影響しない。
+# キーはASCIIの識別子とし、都道府県の漢字キーと衝突しないようにする。
+# ---------------------------------------------------------------------------
+WORLD_CITIES = [
+    "new_york", "los_angeles", "chicago", "toronto", "vancouver", "mexico_city",
+    "sao_paulo", "buenos_aires", "lima", "bogota", "santiago",
+    "london", "paris", "berlin", "madrid", "rome", "amsterdam", "moscow",
+    "istanbul", "stockholm", "warsaw", "lisbon", "dublin", "vienna", "athens",
+    "zurich",
+    "beijing", "shanghai", "hong_kong", "taipei", "seoul", "singapore",
+    "bangkok", "jakarta", "manila", "kuala_lumpur", "mumbai", "new_delhi",
+    "dubai", "tel_aviv", "ho_chi_minh_city",
+    "sydney", "melbourne", "auckland",
+    "cairo", "lagos", "nairobi", "johannesburg", "casablanca",
+]
+
+WORLD_CITY_LABEL = {
+    "new_york": "New York, USA", "los_angeles": "Los Angeles, USA",
+    "chicago": "Chicago, USA", "toronto": "Toronto, Canada",
+    "vancouver": "Vancouver, Canada", "mexico_city": "Mexico City, Mexico",
+    "sao_paulo": "São Paulo, Brazil", "buenos_aires": "Buenos Aires, Argentina",
+    "lima": "Lima, Peru", "bogota": "Bogotá, Colombia",
+    "santiago": "Santiago, Chile",
+    "london": "London, UK", "paris": "Paris, France",
+    "berlin": "Berlin, Germany", "madrid": "Madrid, Spain",
+    "rome": "Rome, Italy", "amsterdam": "Amsterdam, Netherlands",
+    "moscow": "Moscow, Russia", "istanbul": "Istanbul, Turkey",
+    "stockholm": "Stockholm, Sweden", "warsaw": "Warsaw, Poland",
+    "lisbon": "Lisbon, Portugal", "dublin": "Dublin, Ireland",
+    "vienna": "Vienna, Austria", "athens": "Athens, Greece",
+    "zurich": "Zurich, Switzerland",
+    "beijing": "Beijing, China", "shanghai": "Shanghai, China",
+    "hong_kong": "Hong Kong", "taipei": "Taipei, Taiwan",
+    "seoul": "Seoul, South Korea", "singapore": "Singapore",
+    "bangkok": "Bangkok, Thailand", "jakarta": "Jakarta, Indonesia",
+    "manila": "Manila, Philippines", "kuala_lumpur": "Kuala Lumpur, Malaysia",
+    "mumbai": "Mumbai, India", "new_delhi": "New Delhi, India",
+    "dubai": "Dubai, UAE", "tel_aviv": "Tel Aviv, Israel",
+    "ho_chi_minh_city": "Ho Chi Minh City, Vietnam",
+    "sydney": "Sydney, Australia", "melbourne": "Melbourne, Australia",
+    "auckland": "Auckland, New Zealand",
+    "cairo": "Cairo, Egypt", "lagos": "Lagos, Nigeria",
+    "nairobi": "Nairobi, Kenya", "johannesburg": "Johannesburg, South Africa",
+    "casablanca": "Casablanca, Morocco",
+}
+
+# (経度, 緯度)
+WORLD_CITY_GEO = {
+    "new_york": (-74.01, 40.71), "los_angeles": (-118.24, 34.05),
+    "chicago": (-87.63, 41.88), "toronto": (-79.38, 43.65),
+    "vancouver": (-123.12, 49.28), "mexico_city": (-99.13, 19.43),
+    "sao_paulo": (-46.63, -23.55), "buenos_aires": (-58.38, -34.60),
+    "lima": (-77.03, -12.05), "bogota": (-74.08, 4.71),
+    "santiago": (-70.65, -33.45),
+    "london": (-0.13, 51.51), "paris": (2.35, 48.86),
+    "berlin": (13.40, 52.52), "madrid": (-3.70, 40.42),
+    "rome": (12.50, 41.90), "amsterdam": (4.90, 52.37),
+    "moscow": (37.62, 55.75), "istanbul": (28.98, 41.01),
+    "stockholm": (18.07, 59.33), "warsaw": (21.01, 52.23),
+    "lisbon": (-9.14, 38.72), "dublin": (-6.27, 53.35),
+    "vienna": (16.37, 48.21), "athens": (23.73, 37.98),
+    "zurich": (8.54, 47.38),
+    "beijing": (116.41, 39.90), "shanghai": (121.47, 31.23),
+    "hong_kong": (114.17, 22.28), "taipei": (121.56, 25.03),
+    "seoul": (126.98, 37.57), "singapore": (103.82, 1.35),
+    "bangkok": (100.50, 13.76), "jakarta": (106.85, -6.21),
+    "manila": (120.98, 14.60), "kuala_lumpur": (101.69, 3.14),
+    "mumbai": (72.88, 19.08), "new_delhi": (77.21, 28.61),
+    "dubai": (55.27, 25.20), "tel_aviv": (34.78, 32.08),
+    "ho_chi_minh_city": (106.66, 10.82),
+    "sydney": (151.21, -33.87), "melbourne": (144.96, -37.81),
+    "auckland": (174.76, -36.85),
+    "cairo": (31.24, 30.04), "lagos": (3.38, 6.52),
+    "nairobi": (36.82, -1.29), "johannesburg": (28.05, -26.20),
+    "casablanca": (-7.59, 33.57),
+}
+
+
+def world_city_label(key: str) -> str:
+    """海外都市キーから表示ラベル（英語）を返す。未知語はそのまま返す。"""
+    return WORLD_CITY_LABEL.get(key, key)
 
 
 # ---------------------------------------------------------------------------

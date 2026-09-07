@@ -10,11 +10,12 @@ import os
 from datetime import date, datetime
 
 import pytz
-from flask import Flask, Response, render_template, request
+from flask import Flask, Response, render_template, request, url_for
 
 from uranai import MODULES, build_report
 from uranai.aggregator import CATEGORY_LABEL
 from uranai.guides import GUIDES, get_guide
+from uranai.guides_en import GUIDES_EN, get_guide_en
 from uranai.i18n import (
     GENDER_EN,
     PREFECTURE_EN,
@@ -22,7 +23,7 @@ from uranai.i18n import (
     prefecture_en,
     translate_report,
 )
-from uranai.utils import PREFECTURES
+from uranai.utils import PREFECTURES, WORLD_CITIES, world_city_label
 
 app = Flask(__name__)
 
@@ -63,6 +64,55 @@ def inject_site_config():
         "contact_email": CONTACT_EMAIL,
     }
 
+
+# ---------------------------------------------------------------------------
+# hreflang / canonical タグ用の日英ページ対応表
+#
+# 各エンドポイントについて「対になるもう一方の言語のエンドポイント」を
+# 定義し、テンプレート側で <link rel="alternate" hreflang="..."> と
+# <link rel="canonical"> を自動的に出力できるようにする。
+# 対応するページが存在しないエンドポイント（/result 等、フォーム送信専用の
+# ページ）は辞書に含めず、テンプレート側は None を安全に無視する。
+# ---------------------------------------------------------------------------
+HREFLANG_PAIR = {
+    "index": "index_en", "index_en": "index",
+    "about": "about_en", "about_en": "about",
+    "privacy": "privacy_en", "privacy_en": "privacy",
+    "contact": "contact_en", "contact_en": "contact",
+    "guides": "guides_en", "guides_en": "guides",
+    "guide_detail": "guide_detail_en", "guide_detail_en": "guide_detail",
+}
+EN_ENDPOINTS = {"index_en", "about_en", "privacy_en", "contact_en",
+                 "guides_en", "guide_detail_en"}
+
+
+@app.context_processor
+def inject_hreflang():
+    """現在のページに対応する日本語版・英語版URLをテンプレートへ渡す。"""
+    endpoint = request.endpoint
+    view_args = request.view_args or {}
+    ja_url = en_url = canonical_url = None
+    if endpoint:
+        try:
+            canonical_url = url_for(endpoint, **view_args, _external=True)
+        except Exception:
+            canonical_url = None
+        pair = HREFLANG_PAIR.get(endpoint)
+        if pair:
+            try:
+                pair_url = url_for(pair, **view_args, _external=True)
+            except Exception:
+                pair_url = None
+            if endpoint in EN_ENDPOINTS:
+                en_url, ja_url = canonical_url, pair_url
+            else:
+                ja_url, en_url = canonical_url, pair_url
+    return {
+        "canonical_url": canonical_url,
+        "hreflang_ja": ja_url,
+        "hreflang_en": en_url,
+    }
+
 GENDER_CHOICES = [
     ("male", "男性"),
     ("female", "女性"),
@@ -79,6 +129,10 @@ HOUR_CHOICES = [("", "不明")] + [(str(h), "%d時台" % h) for h in range(24)]
 GENDER_CHOICES_EN = [(value, GENDER_EN[value]) for value, _ in GENDER_CHOICES]
 HOUR_CHOICES_EN = [("", "Unknown")] + [(str(h), "%d:00" % h) for h in range(24)]
 PREFECTURES_EN = [(pref, prefecture_en(pref)) for pref in PREFECTURES]
+# 英語版のみ：日本の都道府県に加えて、世界の主要都市も出生地として選べるようにする
+# （日本語版の選択肢・ロジックには一切影響しない）。
+WORLD_CITIES_EN = [(city, world_city_label(city)) for city in WORLD_CITIES]
+VALID_BIRTHPLACES = set(PREFECTURES) | set(WORLD_CITIES)
 
 ERROR_MESSAGES_JA = {
     "name_required": "姓と名の両方を入力してください。",
@@ -124,6 +178,7 @@ def _form_context_en(form=None, error=None) -> dict:
     """英語版入力フォームの描画に必要なコンテキストを組み立てる。"""
     return {
         "prefectures": PREFECTURES_EN,
+        "world_cities": WORLD_CITIES_EN,
         "genders": GENDER_CHOICES_EN,
         "hours": HOUR_CHOICES_EN,
         "year_min": YEAR_MIN,
@@ -181,8 +236,10 @@ def parse_user_data(form, lang: str = "ja") -> tuple:
         gender = "unknown"
 
     prefecture = form.get("prefecture") or "unknown"
-    if prefecture not in PREFECTURES:
-        prefecture = "unknown"  # 「不明・海外」は東京（東経139.69度）で代替
+    if prefecture not in VALID_BIRTHPLACES:
+        # 英語版では世界の主要都市も選択できる（VALID_BIRTHPLACES に含まれる）。
+        # それ以外の「不明・海外」は東京（東経139.69度）で代替する。
+        prefecture = "unknown"
 
     return {
         "last_name": last_name,
@@ -273,9 +330,13 @@ def result_en():
     gender_label = GENDER_EN.get(user_data["gender"], "Prefer not to say")
     hour_label = ("Unknown (calculated as noon)" if user_data["birth_hour"] is None
                   else "%d:00" % user_data["birth_hour"])
-    prefecture_label = (prefecture_en(user_data["prefecture"])
-                        if user_data["prefecture"] in PREFECTURES
-                        else "Unknown / overseas (Tokyo used as a substitute)")
+    _pref = user_data["prefecture"]
+    if _pref in PREFECTURES:
+        prefecture_label = prefecture_en(_pref)
+    elif _pref in WORLD_CITIES:
+        prefecture_label = world_city_label(_pref)
+    else:
+        prefecture_label = "Unknown / overseas (Tokyo used as a substitute)"
 
     return render_template(
         "en/result.html",
@@ -328,13 +389,33 @@ def guide_detail(slug):
     return render_template("guide.html", guide=guide, others=rotated[:4])
 
 
+@app.route("/en/guides", methods=["GET"])
+def guides_en():
+    """英語版：占術ガイドの一覧を表示する。"""
+    return render_template("en/guides.html", guides=GUIDES_EN)
+
+
+@app.route("/en/guides/<slug>", methods=["GET"])
+def guide_detail_en(slug):
+    """英語版：占術ガイドの個別記事を表示する。"""
+    guide = get_guide_en(slug)
+    if guide is None:
+        return render_template("en/index.html", **_form_context_en(
+            error="Sorry, we couldn't find that article.")), 404
+    others = [g for g in GUIDES_EN if g["slug"] != slug]
+    start = [g["slug"] for g in GUIDES_EN].index(slug)
+    rotated = others[start:] + others[:start]
+    return render_template("en/guide.html", guide=guide, others=rotated[:4])
+
+
 @app.route("/sitemap.xml", methods=["GET"])
 def sitemap_xml():
     """検索エンジン向けの sitemap.xml を生成する。"""
     base = request.url_root.rstrip("/")
     paths = ["/", "/about", "/guides", "/privacy", "/contact",
-              "/en/", "/en/about", "/en/privacy", "/en/contact"]
+              "/en/", "/en/about", "/en/privacy", "/en/contact", "/en/guides"]
     paths += ["/guides/%s" % g["slug"] for g in GUIDES]
+    paths += ["/en/guides/%s" % g["slug"] for g in GUIDES_EN]
     lastmod = today_jst().isoformat()
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

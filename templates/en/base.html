@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Today's Fortune | 11 Divination Systems Combined{% endblock %}</title>
   <meta name="description" content="Name analysis, Four Pillars of Destiny, Western astrology and 8 more traditions combined into one verdict: today's score, lucky colour, lucky item and lucky direction.">
+  {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+  {% if hreflang_en %}<link rel="alternate" hreflang="en" href="{{ hreflang_en }}">{% endif %}
+  {% if hreflang_ja %}<link rel="alternate" hreflang="ja" href="{{ hreflang_ja }}">{% endif %}
+  {% if hreflang_ja %}<link rel="alternate" hreflang="x-default" href="{{ hreflang_ja }}">{% endif %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% if adsense_client_id %}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ adsense_client_id }}"
@@ -31,6 +35,7 @@
       </a>
       <nav class="site-nav">
         <a href="{{ url_for('index_en') }}">Get your reading</a>
+        <a href="{{ url_for('guides_en') }}">Guides</a>
         <a href="{{ url_for('about_en') }}">About</a>
         <a href="{{ url_for('index') }}" class="lang-switch">日本語</a>
       </nav>
@@ -59,6 +64,7 @@
       </p>
       <nav class="footer-nav">
         <a href="{{ url_for('index_en') }}">Home</a>
+        <a href="{{ url_for('guides_en') }}">Guides</a>
         <a href="{{ url_for('about_en') }}">About</a>
         <a href="{{ url_for('privacy_en') }}">Privacy Policy</a>
         <a href="{{ url_for('contact_en') }}">Contact / Operator Info</a>
