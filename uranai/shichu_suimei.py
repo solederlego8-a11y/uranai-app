@@ -169,8 +169,11 @@ def calculate(user_data: dict) -> dict:
             "nisshu": nisshu,
             "nisshu_element": nisshu_element,
             "balance": balance,
+            "strongest_element": strongest,
+            "weakest_element": weakest,
             "today_pillar": utils.sexagenary_name(today_index),
             "tsuuhensei": star,
+            "branch_score": branch_score,
             "hour_known": hour is not None,
         },
     }

@@ -113,10 +113,7 @@
 <section class="detail-section">
   <h2 class="section-title">See the individual readings</h2>
   <p class="section-note">
-    Each tradition's own score and lucky elements, translated below. Tap to expand.
-    <strong>The full written explanation for each system is currently available in
-    Japanese only</strong> — switch to the <a href="{{ url_for('index') }}">Japanese version</a>
-    to read the complete text once you've entered your details there.
+    Each tradition's own score, lucky elements, and full reading — tap to expand.
   </p>
 
   <div class="accordion">
@@ -138,12 +135,16 @@
           <li><span>Direction</span>{{ item.lucky_dir_en }}</li>
         </ul>
 
+        {% if item.detail_en %}
+        <p class="item-detail">{{ item.detail_en }}</p>
+        {% else %}
         <p class="item-detail">
           The full reading from {{ item.name_en }} — including the reasoning
           behind today's score — is written in Japanese. If you'd like the
           complete text, enter your details on the
           <a href="{{ url_for('index') }}">Japanese version</a> of this page.
         </p>
+        {% endif %}
       </div>
     </details>
     {% endfor %}

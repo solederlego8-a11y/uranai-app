@@ -19,6 +19,8 @@
 """
 from __future__ import annotations
 
+from . import i18n_detail
+
 # ---------------------------------------------------------------------------
 # 語彙辞書
 # ---------------------------------------------------------------------------
@@ -439,6 +441,7 @@ def translate_report(report: dict, user_data: dict) -> dict:
         module_name_en(k): v for k, v in report["score_breakdown"].items()
     }
 
+    gender = user_data.get("gender", "unknown")
     detail_en = []
     for item_result in report["detail_results"]:
         d = dict(item_result)
@@ -446,6 +449,9 @@ def translate_report(report: dict, user_data: dict) -> dict:
         d["lucky_color_en"] = color_en(item_result["lucky_color"])
         d["lucky_item_en"] = item_en(item_result["lucky_item"])
         d["lucky_dir_en"] = dir_en(item_result["lucky_dir"])
+        d["detail_en"] = i18n_detail.build_detail_en(
+            item_result["name"], item_result.get("raw"), item_result["score"], gender,
+        )
         detail_en.append(d)
     en["detail_results_en"] = detail_en
 

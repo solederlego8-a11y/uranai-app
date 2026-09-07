@@ -227,6 +227,8 @@ def calculate(user_data: dict) -> dict:
             "today_day_star": STAR_NAMES[today_day_star],
             "seat": seat,
             "lucky_directions": ["%s（%s）" % (d, s) for d, s in kichi],
+            "lucky_directions_list": kichi,
             "element": honmei_el,
+            "day_score": day_score,
         },
     }

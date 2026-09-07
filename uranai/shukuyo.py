@@ -155,6 +155,10 @@ def calculate(user_data: dict) -> dict:
             "natal_shuku": SHUKU[natal],
             "today_shuku": SHUKU[transit],
             "relation": relation,
+            "distance": (transit - natal) % 27,
             "lunar_birth": "%d年%d月%d日" % lunar,
+            "lunar_year": lunar[0],
+            "lunar_month": lunar[1],
+            "lunar_day": lunar[2],
         },
     }

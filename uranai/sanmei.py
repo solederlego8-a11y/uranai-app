@@ -180,5 +180,7 @@ def calculate(user_data: dict) -> dict:
             "is_tenchusatsu_today": is_tenchusatsu,
             "jintai_zu": jintai,
             "today_star": today_star,
+            "branch_score": branch_score,
+            "tenchu_dir": tenchu_dir,
         },
     }
