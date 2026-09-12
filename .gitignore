@@ -11,3 +11,6 @@ Thumbs.db
 .vscode/
 *.log
 instance/
+
+# regenerate with: python tests/gen_cases.py
+tests/fixtures/cases.json

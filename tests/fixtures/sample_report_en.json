@@ -1,0 +1,888 @@
+{
+ "input": {
+  "last_name": "山田",
+  "first_name": "太郎",
+  "birth_year": 1990,
+  "birth_month": 5,
+  "birth_day": 15,
+  "birth_hour": null,
+  "gender": "male",
+  "prefecture": "東京都",
+  "today": "2026-09-11"
+ },
+ "report": {
+  "total_score": 74,
+  "score_rank": "中吉",
+  "lucky_color": "緑",
+  "lucky_color_hex": "#2E8B57",
+  "lucky_item": "赤いペン",
+  "lucky_dir": "北",
+  "lucky_number": 5,
+  "today_keywords": [
+   "完成と慈愛",
+   "木の気",
+   "総格大吉",
+   "人格9画",
+   "安定"
+  ],
+  "category_scores": {
+   "love": 81,
+   "work": 78,
+   "money": 74,
+   "health": 70
+  },
+  "overall_message": "落ち着いて力を発揮できる日です。「完成と慈愛」と「木の気」が心の余裕を作ってくれるため、普段なら苛立つ場面でも、一呼吸置いて対応できます。その差が信用になります。本日のラッキーカラーは「緑」、ラッキーアイテムは「赤いペン」、ラッキー方位は「北」、ラッキーナンバーは5です。緑色を身に着けるか視界に入る場所に置き、赤いペンを持ち歩いてください。外出や打ち合わせの際は北の方角を意識すると、今日の運の流れに乗りやすくなります。",
+  "score_breakdown": {
+   "姓名判断": 51,
+   "西洋占星術": 79,
+   "四柱推命": 67,
+   "紫微斗数": 41,
+   "九星気学": 86,
+   "算命学": 88,
+   "数秘術": 78,
+   "インド占星術": 87,
+   "宿曜占星術": 100,
+   "マヤ暦占い": 100,
+   "チベット占星術": 55
+  },
+  "detail_results": [
+   {
+    "name": "姓名判断",
+    "summary": "総格21画「大吉」。人格9画が今日の対人運を導きます。",
+    "detail": "あなたの姓名は天格8画（吉）、人格9画（大凶）、地格13画（吉）、外格12画（大凶）、総格21画（大吉）で構成されています。中心となる人格は「完成と慈愛。人の痛みを引き受ける包容の力」を示し、対人関係の場面であなたの持ち味が最もよく現れます。地格は幼少期から培われた素質、外格は他人から見えるあなたの印象、総格は人生全体の総決算を表します。本日は総格21画と今日の暦（通日254日目）の呼応が6番目の位相にあり、名前の力を内側に溜めておくべきという流れになります。名前が持つ木の五行は緑色と響き合いますので、身に着けるもの・持ち歩くものにその色を一点加えると、名前本来の力が発揮されやすくなります。",
+    "lucky_color": "緑",
+    "lucky_item": "布製のトートバッグ",
+    "lucky_dir": "南",
+    "score": 51,
+    "keywords": [
+     "完成と慈愛",
+     "木の気",
+     "総格大吉",
+     "人格9画"
+    ],
+    "raw": {
+     "kaku": {
+      "天格": 8,
+      "人格": 9,
+      "地格": 13,
+      "外格": 12,
+      "総格": 21
+     },
+     "fortunes": {
+      "天格": "吉",
+      "人格": "大凶",
+      "地格": "吉",
+      "外格": "大凶",
+      "総格": "大吉"
+     },
+     "element": "木",
+     "full_name": "山田太郎",
+     "stroke_detail": {
+      "last_name": {
+       "山": 3,
+       "田": 5
+      },
+      "first_name": {
+       "太": 4,
+       "郎": 9
+      }
+     }
+    }
+   },
+   {
+    "name": "西洋占星術",
+    "summary": "牡牛座のあなたに今日の太陽はトライン。追い風の流れです。",
+    "detail": "あなたの出生図は太陽が牡牛座、月が牡羊座、アセンダントが牡牛座という配置です。太陽は人生で目指す方向性、月は素の感情、アセンダントは他人が最初に受け取るあなたの印象を示します。本日、天空の太陽は乙女座を運行しており、あなたの出生太陽牡牛座との角度はトライン（120度）を形成しています。これは「トライン（120度）」という質を持つ関係で、自分から動くほど良い結果につながる配置です。また月星座牡羊座との関係も重なり、感情面では些細なことが気になりやすい傾向が出ます。アセンダント牡牛座は地のエレメントに属するため、行動の起点を北の方角に置くと、今日のあなたの魅力が最も自然に伝わります。身に着ける色は緑を選んでください。",
+    "lucky_color": "緑",
+    "lucky_item": "赤いペン",
+    "lucky_dir": "北",
+    "score": 79,
+    "keywords": [
+     "安定",
+     "先手",
+     "トライン",
+     "地のエレメント"
+    ],
+    "raw": {
+     "sun_sign": "牡牛座",
+     "moon_sign": "牡羊座",
+     "ascendant": "牡牛座",
+     "transit_sun": "乙女座",
+     "aspect": "トライン（120度）",
+     "element": "地",
+     "longitude": 139.69,
+     "latitude": 35.69
+    }
+   },
+   {
+    "name": "四柱推命",
+    "summary": "日主乙。今日の日柱癸酉は「偏印」の巡りです。",
+    "detail": "あなたの命式は年柱庚午・月柱辛巳・日柱乙丑・時柱丁丑です。中心となる日主は乙で、草花のようにしなやかで、環境に合わせて生き抜く適応力を本質として持っています。五行のバランスは木1・火3・土2・金2・水0となり、火（情熱と表現の気）が最も強く、水がやや不足しています。水を補う行動を意識すると命式全体が安定します。本日の日柱は癸酉で、日主乙から見ると「偏印」にあたります。気が散りやすい日。ひとつに絞ると成果が出ます。地支の関係は86点の相性で、対人面はスムーズに進みます。性別による立ち位置としては、陽の立場から積極的に動くほど命式が整いやすい傾向が出ています。緑色を身に着け、南の方角を意識すると、今日の巡りをうまく味方につけられます。",
+    "lucky_color": "緑",
+    "lucky_item": "シルバーのアクセサリー",
+    "lucky_dir": "南",
+    "score": 67,
+    "keywords": [
+     "偏印",
+     "木の日主",
+     "火旺",
+     "日柱乙丑"
+    ],
+    "raw": {
+     "pillars": {
+      "年柱": "庚午",
+      "月柱": "辛巳",
+      "日柱": "乙丑",
+      "時柱": "丁丑"
+     },
+     "nisshu": "乙",
+     "nisshu_element": "木",
+     "balance": {
+      "木": 1,
+      "火": 3,
+      "土": 2,
+      "金": 2,
+      "水": 0
+     },
+     "strongest_element": "火",
+     "weakest_element": "水",
+     "today_pillar": "癸酉",
+     "tsuuhensei": "偏印",
+     "branch_score": 86,
+     "hour_known": false
+    }
+   },
+   {
+    "name": "紫微斗数",
+    "summary": "命宮は戌宮、主星天相。今日は奴僕宮宮の巡りです。",
+    "detail": "あなたの生年月日を旧暦に変換すると1990年4月21日となり、命宮は戌宮（十二支の戌）に定まります。命宮に座するのは天相で、補佐の星。人を支える立場で最も力を発揮します。副星として武曲が同宮し、福徳宮には天府が入っています。命宮の五行は土であり、これが人生の基調となる気質を決めています。男性（陽年生まれ）の命式は運の巡り方が順行となるため、自分から先に動くほど流れに乗れます。本日は流日が奴僕宮宮（命宮から7つ目）に巡っており、内側を整えることに時間を使うべき配置です。この巡りでは奴僕宮宮のテーマ（人に頼る力と委任）を心がけると運勢が整います。身に着ける色は黄、方角は北西を意識してください。",
+    "lucky_color": "黄",
+    "lucky_item": "白いシャツ",
+    "lucky_dir": "北西",
+    "score": 41,
+    "keywords": [
+     "天相",
+     "武曲",
+     "奴僕宮",
+     "土の命宮"
+    ],
+    "raw": {
+     "lunar_birth": "1990年4月21日",
+     "lunar_year": 1990,
+     "lunar_month": 4,
+     "lunar_day": 21,
+     "meikyuu_branch": "戌",
+     "main_star": "天相",
+     "sub_star": "武曲",
+     "body_star": "天府",
+     "element": "土",
+     "today_palace": "奴僕宮",
+     "distance": 7,
+     "forward": true,
+     "layout": {
+      "命宮": [
+       "天相",
+       "武曲"
+      ],
+      "兄弟宮": [
+       "天梁",
+       "天同"
+      ],
+      "夫妻宮": [
+       "七殺",
+       "廉貞"
+      ],
+      "子女宮": [
+       "破軍",
+       "天府"
+      ],
+      "財帛宮": [
+       "紫微",
+       "太陰"
+      ],
+      "疾厄宮": [
+       "天機",
+       "貪狼"
+      ],
+      "遷移宮": [
+       "太陽",
+       "巨門"
+      ],
+      "奴僕宮": [
+       "武曲",
+       "天相"
+      ],
+      "官禄宮": [
+       "天同",
+       "天梁"
+      ],
+      "田宅宮": [
+       "廉貞",
+       "七殺"
+      ],
+      "福徳宮": [
+       "天府",
+       "破軍"
+      ],
+      "父母宮": [
+       "太陰",
+       "紫微"
+      ]
+     },
+     "yin_yang": "陽"
+    }
+   },
+   {
+    "name": "九星気学",
+    "summary": "本命星二黒土星。今日の日盤は六白金星の巡りです。",
+    "detail": "あなたの本命星は二黒土星、月命星は八白土星です。本命星は生涯の基本性質を、月命星は幼少期に培われた内面の傾向を示します。二黒土星の本質は「大地のように受け止め、こつこつ育てる母性と実務力」にあります。本日の暦は、年盤の中宮が二黒土星、月盤の中宮が四緑木星、日盤の中宮が六白金星という配置です。本命星二黒土星の五行土と日盤中宮六白金星の五行金の関係は「相生（与える）」であり、本日は積極的に人と会い、動くほど運が開けます。あなたの本命星は今日の盤で北に回座しています。月盤から導いた本日の吉方位は北（九紫火星）・北東（七赤金星）・南（八白土星）です。外出や打ち合わせはこの方角を意識し、黄色の小物を身に着けると、気学でいう「方位の恩恵」を受け取りやすくなります。",
+    "lucky_color": "黄",
+    "lucky_item": "小さな石のお守り",
+    "lucky_dir": "北",
+    "score": 86,
+    "keywords": [
+     "二黒土星",
+     "八白土星（月命）",
+     "土の気",
+     "吉方位北"
+    ],
+    "raw": {
+     "honmei": "二黒土星",
+     "getsumei": "八白土星",
+     "today_year_star": "二黒土星",
+     "today_month_star": "四緑木星",
+     "today_day_star": "六白金星",
+     "seat": "北",
+     "lucky_directions": [
+      "北（九紫火星）",
+      "北東（七赤金星）",
+      "南（八白土星）"
+     ],
+     "lucky_directions_list": [
+      [
+       "北",
+       "九紫火星"
+      ],
+      [
+       "北東",
+       "七赤金星"
+      ],
+      [
+       "南",
+       "八白土星"
+      ]
+     ],
+     "element": "土",
+     "day_score": 80
+    }
+   },
+   {
+    "name": "算命学",
+    "summary": "戌亥天中殺。今日は龍高星の巡りです。",
+    "detail": "あなたの日柱は乙丑で、日主は乙（五行は木）です。人体星図は中央（胸）に車騎星、北（頭）に牽牛星、南（腹）に鳳閣星、東に車騎星、西に牽牛星が配置されます。中心となる主星は車騎星で、突進力の星。動きながら考えるスピード型です。あなたの天中殺は戌亥天中殺で、天とのつながりを試される時期。精神性と学びがテーマになります。本日は癸酉日にあたり、日干から見た巡りの星は龍高星です。本日は天中殺を外れており、通常どおり動いて差し支えありません。地支の相性は86点で、人間関係が追い風になります。天中殺の方位である北西は今日は避け、その反対の南東に向かって動くと運気が整います。身に着ける色は日主の五行木に対応する緑を選んでください。",
+    "lucky_color": "緑",
+    "lucky_item": "歩きやすい靴",
+    "lucky_dir": "南東",
+    "score": 88,
+    "keywords": [
+     "車騎星",
+     "龍高星",
+     "戌亥天中殺",
+     "通常日"
+    ],
+    "raw": {
+     "nisshu": "乙",
+     "day_pillar": "乙丑",
+     "tenchusatsu": "戌亥天中殺",
+     "is_tenchusatsu_today": false,
+     "jintai_zu": {
+      "中央（胸）": "車騎星",
+      "北（頭）": "牽牛星",
+      "南（腹）": "鳳閣星",
+      "東（右手）": "車騎星",
+      "西（左手）": "牽牛星"
+     },
+     "today_star": "龍高星",
+     "branch_score": 86,
+     "tenchu_dir": "北西"
+    }
+   },
+   {
+    "name": "数秘術",
+    "summary": "LP3／D1／今日のPD5。動く日です。",
+    "detail": "あなたのライフパスナンバーは3です。表現者。楽しませ、創り出すことで運が回ります。お名前「山田太郎」をヘボン式ローマ字に変換すると「yamatatarou」となり、アルファベットを数値化して還元したデスティニーナンバーは1になります。デスティニーナンバーは、生まれ持った才能をどう社会で使うかを示す数です。そして本日のパーソナルデーナンバーは、ライフパス3＋今日の月9＋今日の日11を還元した5です。これは今日一日のテーマそのものを表し、動く日。予定を変えてでも外に出る価値があります。ライフパスとパーソナルデーの差は4で、本来の自分と今日のテーマに少し距離があるため、意識的な切り替えが必要です。今日は5番の力を意識的に使ってください。持ち物は赤いペン、色は黄、方角は西が後押しになります。",
+    "lucky_color": "黄",
+    "lucky_item": "赤いペン",
+    "lucky_dir": "西",
+    "score": 78,
+    "keywords": [
+     "LP3",
+     "表現者",
+     "PD5",
+     "動く日"
+    ],
+    "raw": {
+     "life_path_number": 3,
+     "destiny_number": 1,
+     "personal_day_number": 5,
+     "romaji": "yamatatarou"
+    }
+   },
+   {
+    "name": "インド占星術",
+    "summary": "メーシャ／ヴィシャーカー。今日のターラーはアティミトラです。",
+    "detail": "インド占星術ではアヤナムシャ（歳差補正、約23.85度）を差し引いたサイデリアル方式を用います。あなたの太陽ラーシはメーシャ（牡羊）、支配星は火星です。生まれ月のナクシャトラ（月宿）は第16宿のヴィシャーカーで、その象意は「枝分かれ。目標達成の執念」です。ラグナ（上昇宮）はメーシャ（牡羊）となります。出生時刻が不明のため、ラグナは太陽ラーシと同一として扱っています。本日、月はシャタビシャー（第24宿）を運行しており、あなたの本命宿から数えて9番目にあたるため、ターラーは「アティミトラ（親友）」となります。積極的な行動が実を結ぶ配置です。太陽ラーシの関係は4サイン離れており、気力が充実しやすい配置です。本日は東の方角を向いて一日の予定を立て、金色を身近に置くことで、宿の主星からの加護を受け取りやすくなります。",
+    "lucky_color": "金",
+    "lucky_item": "赤い糸のブレスレット",
+    "lucky_dir": "東",
+    "score": 87,
+    "keywords": [
+     "メーシャ",
+     "ヴィシャーカー",
+     "アティミトラ",
+     "火星"
+    ],
+    "raw": {
+     "rashi": "メーシャ（牡羊）",
+     "rashi_lord": "火星",
+     "nakshatra": "ヴィシャーカー",
+     "nakshatra_number": 16,
+     "lagna": "メーシャ（牡羊）",
+     "today_nakshatra": "シャタビシャー",
+     "tara": "アティミトラ（親友）",
+     "ayanamsa": 23.85
+    }
+   },
+   {
+    "name": "宿曜占星術",
+    "summary": "本命宿は柳宿。今日は「栄」の関係の日です。",
+    "detail": "あなたの生年月日を旧暦に直すと1990年4月21日となり、本命宿は柳宿に定まります。柳宿は感受性が鋭く、好き嫌いがはっきりした芸術肌です。宿曜経では、本命宿と今日の宿との距離によって一日の質が決まると考えます。本日の宿は婁宿で、あなたの本命宿から数えて19番目にあたり、関係は「栄」です。最も栄える日。人からの評価・収入・成果が集まります。重要な予定はこの日に寄せてよいでしょう。宿曜の実践では、この関係を知ったうえで一日の予定の「重さ」を調整することが要点になります。本日は緑色を身に着け、北の方角に意識を向けると、本命宿の加護が働きやすくなります。",
+    "lucky_color": "緑",
+    "lucky_item": "小さな植木鉢",
+    "lucky_dir": "北",
+    "score": 100,
+    "keywords": [
+     "柳宿",
+     "栄の日",
+     "婁宿巡り",
+     "最も栄える日"
+    ],
+    "raw": {
+     "natal_shuku": "柳宿",
+     "today_shuku": "婁宿",
+     "relation": "栄",
+     "distance": 19,
+     "lunar_birth": "1990年4月21日",
+     "lunar_year": 1990,
+     "lunar_month": 4,
+     "lunar_day": 21
+    }
+   },
+   {
+    "name": "マヤ暦占い",
+    "summary": "KIN247 黄色い星・宇宙の音13。今日はKIN255です。",
+    "detail": "マヤの神聖暦ツォルキンでは、260 日で一巡する暦の中のどの位置に生まれたかで本質を読みます。あなたのキンナンバーはKIN247で、紋章は「黄色い星」、銀河の音は13（宇宙）です。紋章黄色い星が示すのは「調和と芸術。美しく整える力」で、これがあなたの生まれ持った才能の方向です。音13は「存在の音。すべてを超えて在るがままでいるときです」を意味し、物事への取り組み方の癖を表します。本日はKIN255で、紋章は黄色い戦士、音は8（銀河）が巡っています。あなたのキンとの差は8（13日周期上の位置）で、自然体でいるほど流れに乗れる位置です。紋章の系統色は黄で、本日の黄と共鳴しています。今日は南の方角に意識を向け、何も入れない空のポケットを持ち歩くと、あなた本来のリズムに戻りやすくなります。",
+    "lucky_color": "黄",
+    "lucky_item": "何も入れない空のポケット",
+    "lucky_dir": "南",
+    "score": 100,
+    "keywords": [
+     "黄色い星",
+     "宇宙の音",
+     "KIN247",
+     "調和と芸術"
+    ],
+    "raw": {
+     "kin": 247,
+     "glyph": "黄色い星",
+     "tone": 13,
+     "tone_name": "宇宙",
+     "today_kin": 255,
+     "today_glyph": "黄色い戦士"
+    }
+   },
+   {
+    "name": "チベット占星術",
+    "summary": "ウマ年・金の元素・ケン（乾）。今日は鶏年の巡りです。",
+    "detail": "チベット占星術では、十二支・五大元素・九宮数（メワ）・八卦（パルカ）の4 つの要素を組み合わせて運命を読みます。あなたはウマ年の生まれで、五大元素は金です。断つ力。決断と純化を司り、無駄を削ぎ落とします。九宮数は2で、黒のメワ。障害を乗り越えることで力が増します。八卦はケン（乾）を算出しました（男性式で計算）。天の卦。統率力と強い意志を持ちます。本日は癸酉（鶏年）の日で、あなたのウマとの十二支相性は46点です。無理な接触は避け、距離を保つのが得策です。また、あなたの元素金と本日の天干の五行水の関係は「相生（与える）」であり、エネルギーが満ちやすい日です。パルカケン（乾）が示す北西の方角へ向かい、金属のペンダントを身につけると、チベット暦でいう「ラ（魂の力）」が高まる一日になります。",
+    "lucky_color": "白",
+    "lucky_item": "金属のペンダント",
+    "lucky_dir": "北西",
+    "score": 55,
+    "keywords": [
+     "ウマ年",
+     "金の元素",
+     "メワ2",
+     "ケン"
+    ],
+    "raw": {
+     "animal": "ウマ",
+     "element": "金",
+     "mewa": 2,
+     "parkha": "ケン（乾）",
+     "today_animal": "鶏",
+     "affinity": 46
+    }
+   }
+  ],
+  "score_rank_en": "Good Fortune",
+  "lucky_color_en": "Green",
+  "lucky_item_en": "a red pen",
+  "lucky_dir_en": "North",
+  "overall_message_en": "A calm, composed day. Situations that would normally irritate you are easier to handle with a breath first — and that composure builds trust. Today's lucky colour is Green, your lucky item is a red pen, your lucky direction is North, and your lucky number is 5. Keep Green somewhere visible, carry a red pen with you, and let North guide the direction you head in today. Before bed tonight, try writing down three things that went well today. It makes the flow of luck easier to see.",
+  "category_scores_en": {
+   "Love": 81,
+   "Work": 78,
+   "Money": 74,
+   "Health": 70
+  },
+  "score_breakdown_en": {
+   "Name Analysis (Kumazaki Method)": 51,
+   "Western Astrology": 79,
+   "Four Pillars of Destiny (BaZi)": 67,
+   "Zi Wei Dou Shu": 41,
+   "Nine Star Ki": 86,
+   "Sanmei-gaku": 88,
+   "Numerology": 78,
+   "Vedic Astrology": 87,
+   "Sukuyo Astrology": 100,
+   "Mayan Calendar (Tzolk'in)": 100,
+   "Tibetan Astrology": 55
+  },
+  "detail_results_en": [
+   {
+    "name": "姓名判断",
+    "summary": "総格21画「大吉」。人格9画が今日の対人運を導きます。",
+    "detail": "あなたの姓名は天格8画（吉）、人格9画（大凶）、地格13画（吉）、外格12画（大凶）、総格21画（大吉）で構成されています。中心となる人格は「完成と慈愛。人の痛みを引き受ける包容の力」を示し、対人関係の場面であなたの持ち味が最もよく現れます。地格は幼少期から培われた素質、外格は他人から見えるあなたの印象、総格は人生全体の総決算を表します。本日は総格21画と今日の暦（通日254日目）の呼応が6番目の位相にあり、名前の力を内側に溜めておくべきという流れになります。名前が持つ木の五行は緑色と響き合いますので、身に着けるもの・持ち歩くものにその色を一点加えると、名前本来の力が発揮されやすくなります。",
+    "lucky_color": "緑",
+    "lucky_item": "布製のトートバッグ",
+    "lucky_dir": "南",
+    "score": 51,
+    "keywords": [
+     "完成と慈愛",
+     "木の気",
+     "総格大吉",
+     "人格9画"
+    ],
+    "raw": {
+     "kaku": {
+      "天格": 8,
+      "人格": 9,
+      "地格": 13,
+      "外格": 12,
+      "総格": 21
+     },
+     "fortunes": {
+      "天格": "吉",
+      "人格": "大凶",
+      "地格": "吉",
+      "外格": "大凶",
+      "総格": "大吉"
+     },
+     "element": "木",
+     "full_name": "山田太郎",
+     "stroke_detail": {
+      "last_name": {
+       "山": 3,
+       "田": 5
+      },
+      "first_name": {
+       "太": 4,
+       "郎": 9
+      }
+     }
+    },
+    "name_en": "Name Analysis (Kumazaki Method)",
+    "lucky_color_en": "Green",
+    "lucky_item_en": "a cloth tote bag",
+    "lucky_dir_en": "South",
+    "detail_en": "In the Kumazaki method of Japanese name analysis, your name's kanji strokes are split into five grids: Heaven 8 (Fortune), Personality 9 (Great Misfortune), Earth 13 (Fortune), Outer 12 (Great Misfortune) and Total 21 (Great Fortune). The Personality Grid is the one that shows most clearly in face-to-face situations, the Earth Grid reflects traits formed in childhood, the Outer Grid is the impression others form of you, and the Total Grid sums up your life as a whole. Your name's overall element is Wood, which pairs with your lucky colour below. Today's resonance between your Total Grid and the calendar works out to a score of 51 out of 100 for this tradition — wear a touch of your lucky colour to help the name's natural strength come through more easily today."
+   },
+   {
+    "name": "西洋占星術",
+    "summary": "牡牛座のあなたに今日の太陽はトライン。追い風の流れです。",
+    "detail": "あなたの出生図は太陽が牡牛座、月が牡羊座、アセンダントが牡牛座という配置です。太陽は人生で目指す方向性、月は素の感情、アセンダントは他人が最初に受け取るあなたの印象を示します。本日、天空の太陽は乙女座を運行しており、あなたの出生太陽牡牛座との角度はトライン（120度）を形成しています。これは「トライン（120度）」という質を持つ関係で、自分から動くほど良い結果につながる配置です。また月星座牡羊座との関係も重なり、感情面では些細なことが気になりやすい傾向が出ます。アセンダント牡牛座は地のエレメントに属するため、行動の起点を北の方角に置くと、今日のあなたの魅力が最も自然に伝わります。身に着ける色は緑を選んでください。",
+    "lucky_color": "緑",
+    "lucky_item": "赤いペン",
+    "lucky_dir": "北",
+    "score": 79,
+    "keywords": [
+     "安定",
+     "先手",
+     "トライン",
+     "地のエレメント"
+    ],
+    "raw": {
+     "sun_sign": "牡牛座",
+     "moon_sign": "牡羊座",
+     "ascendant": "牡牛座",
+     "transit_sun": "乙女座",
+     "aspect": "トライン（120度）",
+     "element": "地",
+     "longitude": 139.69,
+     "latitude": 35.69
+    },
+    "name_en": "Western Astrology",
+    "lucky_color_en": "Green",
+    "lucky_item_en": "a red pen",
+    "lucky_dir_en": "North",
+    "detail_en": "Your natal chart places the Sun in Taurus, the Moon in Aries, and your Ascendant in Taurus. The Sun shows the direction you're aiming for in life, the Moon your unguarded emotional nature, and the Ascendant the impression you make on people who are meeting you for the first time. Today the transiting Sun is passing through Virgo, forming a Trine (120°) with your natal Sun — this is a configuration that rewards taking the initiative yourself. Your Ascendant's element is Earth, which is why today's lucky direction points that way; a score of 79 out of 100 for Western Astrology reflects how favourably this configuration is working out for you today."
+   },
+   {
+    "name": "四柱推命",
+    "summary": "日主乙。今日の日柱癸酉は「偏印」の巡りです。",
+    "detail": "あなたの命式は年柱庚午・月柱辛巳・日柱乙丑・時柱丁丑です。中心となる日主は乙で、草花のようにしなやかで、環境に合わせて生き抜く適応力を本質として持っています。五行のバランスは木1・火3・土2・金2・水0となり、火（情熱と表現の気）が最も強く、水がやや不足しています。水を補う行動を意識すると命式全体が安定します。本日の日柱は癸酉で、日主乙から見ると「偏印」にあたります。気が散りやすい日。ひとつに絞ると成果が出ます。地支の関係は86点の相性で、対人面はスムーズに進みます。性別による立ち位置としては、陽の立場から積極的に動くほど命式が整いやすい傾向が出ています。緑色を身に着け、南の方角を意識すると、今日の巡りをうまく味方につけられます。",
+    "lucky_color": "緑",
+    "lucky_item": "シルバーのアクセサリー",
+    "lucky_dir": "南",
+    "score": 67,
+    "keywords": [
+     "偏印",
+     "木の日主",
+     "火旺",
+     "日柱乙丑"
+    ],
+    "raw": {
+     "pillars": {
+      "年柱": "庚午",
+      "月柱": "辛巳",
+      "日柱": "乙丑",
+      "時柱": "丁丑"
+     },
+     "nisshu": "乙",
+     "nisshu_element": "木",
+     "balance": {
+      "木": 1,
+      "火": 3,
+      "土": 2,
+      "金": 2,
+      "水": 0
+     },
+     "strongest_element": "火",
+     "weakest_element": "水",
+     "today_pillar": "癸酉",
+     "tsuuhensei": "偏印",
+     "branch_score": 86,
+     "hour_known": false
+    },
+    "name_en": "Four Pillars of Destiny (BaZi)",
+    "lucky_color_en": "Green",
+    "lucky_item_en": "a silver accessory",
+    "lucky_dir_en": "South",
+    "detail_en": "Your Four Pillars (BaZi) are Year Geng Horse (Yang Metal), Month Xin Snake (Yin Metal), Day Yi Ox (Yin Wood) and Hour Ding Ox (Yin Fire) (estimated, since your birth time was not given). Your Day Master — the stem of your Day Pillar — is Yi (Yin Wood), which forms the core of your chart's personality. Across the Five Elements your chart reads Wood 1, Fire 3, Earth 2, Metal 2, Water 0, with Fire the strongest and Water running a little low; consciously bringing in more Water helps balance the whole chart. Today's Day Pillar is Gui Rooster (Yin Water), and seen from your Day Master this relationship is classified as your 'Indirect Resource' — this is a day that favours action and follow-through. The branch compatibility between today and your Day Pillar scores 86 out of 100, meaning interpersonal matters should go smoothly. Today's reading for Four Pillars of Destiny comes to 67 out of 100."
+   },
+   {
+    "name": "紫微斗数",
+    "summary": "命宮は戌宮、主星天相。今日は奴僕宮宮の巡りです。",
+    "detail": "あなたの生年月日を旧暦に変換すると1990年4月21日となり、命宮は戌宮（十二支の戌）に定まります。命宮に座するのは天相で、補佐の星。人を支える立場で最も力を発揮します。副星として武曲が同宮し、福徳宮には天府が入っています。命宮の五行は土であり、これが人生の基調となる気質を決めています。男性（陽年生まれ）の命式は運の巡り方が順行となるため、自分から先に動くほど流れに乗れます。本日は流日が奴僕宮宮（命宮から7つ目）に巡っており、内側を整えることに時間を使うべき配置です。この巡りでは奴僕宮宮のテーマ（人に頼る力と委任）を心がけると運勢が整います。身に着ける色は黄、方角は北西を意識してください。",
+    "lucky_color": "黄",
+    "lucky_item": "白いシャツ",
+    "lucky_dir": "北西",
+    "score": 41,
+    "keywords": [
+     "天相",
+     "武曲",
+     "奴僕宮",
+     "土の命宮"
+    ],
+    "raw": {
+     "lunar_birth": "1990年4月21日",
+     "lunar_year": 1990,
+     "lunar_month": 4,
+     "lunar_day": 21,
+     "meikyuu_branch": "戌",
+     "main_star": "天相",
+     "sub_star": "武曲",
+     "body_star": "天府",
+     "element": "土",
+     "today_palace": "奴僕宮",
+     "distance": 7,
+     "forward": true,
+     "layout": {
+      "命宮": [
+       "天相",
+       "武曲"
+      ],
+      "兄弟宮": [
+       "天梁",
+       "天同"
+      ],
+      "夫妻宮": [
+       "七殺",
+       "廉貞"
+      ],
+      "子女宮": [
+       "破軍",
+       "天府"
+      ],
+      "財帛宮": [
+       "紫微",
+       "太陰"
+      ],
+      "疾厄宮": [
+       "天機",
+       "貪狼"
+      ],
+      "遷移宮": [
+       "太陽",
+       "巨門"
+      ],
+      "奴僕宮": [
+       "武曲",
+       "天相"
+      ],
+      "官禄宮": [
+       "天同",
+       "天梁"
+      ],
+      "田宅宮": [
+       "廉貞",
+       "七殺"
+      ],
+      "福徳宮": [
+       "天府",
+       "破軍"
+      ],
+      "父母宮": [
+       "太陰",
+       "紫微"
+      ]
+     },
+     "yin_yang": "陽"
+    },
+    "name_en": "Zi Wei Dou Shu",
+    "lucky_color_en": "Yellow",
+    "lucky_item_en": "a white shirt",
+    "lucky_dir_en": "Northwest",
+    "detail_en": "On the lunar calendar this is 1990-04-21, and your Life Palace falls in the Dog branch, ruled by the element Earth. The Minister Star (Tian Xiang) occupies your Life Palace, with the Military Talent Star (Wu Qu) alongside it, while your Fortune Palace (governing peace of mind and enjoyment) holds the Treasury Star (Tian Fu). Your chart runs on Yang energy, and reads as moving forward this year — meaning acting on your own initiative tends to align you with the flow this year. Today's transiting palace is your Friends Palace, which suggests today's energy is better spent quietly getting your own situation in order. Zi Wei Dou Shu gives today a score of 41 out of 100; your lucky colour and direction below are drawn from your Life Palace's ruling element."
+   },
+   {
+    "name": "九星気学",
+    "summary": "本命星二黒土星。今日の日盤は六白金星の巡りです。",
+    "detail": "あなたの本命星は二黒土星、月命星は八白土星です。本命星は生涯の基本性質を、月命星は幼少期に培われた内面の傾向を示します。二黒土星の本質は「大地のように受け止め、こつこつ育てる母性と実務力」にあります。本日の暦は、年盤の中宮が二黒土星、月盤の中宮が四緑木星、日盤の中宮が六白金星という配置です。本命星二黒土星の五行土と日盤中宮六白金星の五行金の関係は「相生（与える）」であり、本日は積極的に人と会い、動くほど運が開けます。あなたの本命星は今日の盤で北に回座しています。月盤から導いた本日の吉方位は北（九紫火星）・北東（七赤金星）・南（八白土星）です。外出や打ち合わせはこの方角を意識し、黄色の小物を身に着けると、気学でいう「方位の恩恵」を受け取りやすくなります。",
+    "lucky_color": "黄",
+    "lucky_item": "小さな石のお守り",
+    "lucky_dir": "北",
+    "score": 86,
+    "keywords": [
+     "二黒土星",
+     "八白土星（月命）",
+     "土の気",
+     "吉方位北"
+    ],
+    "raw": {
+     "honmei": "二黒土星",
+     "getsumei": "八白土星",
+     "today_year_star": "二黒土星",
+     "today_month_star": "四緑木星",
+     "today_day_star": "六白金星",
+     "seat": "北",
+     "lucky_directions": [
+      "北（九紫火星）",
+      "北東（七赤金星）",
+      "南（八白土星）"
+     ],
+     "lucky_directions_list": [
+      [
+       "北",
+       "九紫火星"
+      ],
+      [
+       "北東",
+       "七赤金星"
+      ],
+      [
+       "南",
+       "八白土星"
+      ]
+     ],
+     "element": "土",
+     "day_score": 80
+    },
+    "name_en": "Nine Star Ki",
+    "lucky_color_en": "Yellow",
+    "lucky_item_en": "a small stone charm",
+    "lucky_dir_en": "North",
+    "detail_en": "Your Birth Star (Honmei-sei) is the Two Black Earth Star, and your Month Star (Getsumei-sei) is the Eight White Earth Star — the Birth Star sets your basic lifelong nature, while the Month Star reflects tendencies formed in early childhood. Today's chart carries the Two Black Earth Star as the year's central star, the Four Green Wood Star for the month, and the Six White Metal Star for the day. Your Birth Star is currently seated in the North direction on today's chart. Based on this month's chart, today's most favourable directions are: North (Nine Purple Fire Star), Northeast (Seven Red Metal Star), South (Eight White Earth Star). Nine Star Ki scores today at 86 out of 100 — moving around and meeting people tends to open doors today."
+   },
+   {
+    "name": "算命学",
+    "summary": "戌亥天中殺。今日は龍高星の巡りです。",
+    "detail": "あなたの日柱は乙丑で、日主は乙（五行は木）です。人体星図は中央（胸）に車騎星、北（頭）に牽牛星、南（腹）に鳳閣星、東に車騎星、西に牽牛星が配置されます。中心となる主星は車騎星で、突進力の星。動きながら考えるスピード型です。あなたの天中殺は戌亥天中殺で、天とのつながりを試される時期。精神性と学びがテーマになります。本日は癸酉日にあたり、日干から見た巡りの星は龍高星です。本日は天中殺を外れており、通常どおり動いて差し支えありません。地支の相性は86点で、人間関係が追い風になります。天中殺の方位である北西は今日は避け、その反対の南東に向かって動くと運気が整います。身に着ける色は日主の五行木に対応する緑を選んでください。",
+    "lucky_color": "緑",
+    "lucky_item": "歩きやすい靴",
+    "lucky_dir": "南東",
+    "score": 88,
+    "keywords": [
+     "車騎星",
+     "龍高星",
+     "戌亥天中殺",
+     "通常日"
+    ],
+    "raw": {
+     "nisshu": "乙",
+     "day_pillar": "乙丑",
+     "tenchusatsu": "戌亥天中殺",
+     "is_tenchusatsu_today": false,
+     "jintai_zu": {
+      "中央（胸）": "車騎星",
+      "北（頭）": "牽牛星",
+      "南（腹）": "鳳閣星",
+      "東（右手）": "車騎星",
+      "西（左手）": "牽牛星"
+     },
+     "today_star": "龍高星",
+     "branch_score": 86,
+     "tenchu_dir": "北西"
+    },
+    "name_en": "Sanmei-gaku",
+    "lucky_color_en": "Green",
+    "lucky_item_en": "comfortable walking shoes",
+    "lucky_dir_en": "Southeast",
+    "detail_en": "Your Day Pillar is Yi Ox (Yin Wood), and your Sanmei-gaku chart maps five stars onto your body: Chest (Centre): Star of Speed, Head (North): Star of Honour, Abdomen (South): Star of Ease, Right Hand (East): Star of Speed, Left Hand (West): Star of Honour. Your Tenchusatsu (Void) period is the Dog-Pig Void — this marks the two branch-years when the everyday rules of cause and effect loosen, and matters of spirituality, friendship, family, or your own foundations (depending on which Void you carry) come under review instead. Today falls outside your Void period, so there's no need to hold back from acting as usual. Today's star, seen from your Day Master, is the Star of Exploration, and today's branch compatibility with your Day Pillar scores 86 out of 100. Sanmei-gaku puts today's reading at 88 out of 100."
+   },
+   {
+    "name": "数秘術",
+    "summary": "LP3／D1／今日のPD5。動く日です。",
+    "detail": "あなたのライフパスナンバーは3です。表現者。楽しませ、創り出すことで運が回ります。お名前「山田太郎」をヘボン式ローマ字に変換すると「yamatatarou」となり、アルファベットを数値化して還元したデスティニーナンバーは1になります。デスティニーナンバーは、生まれ持った才能をどう社会で使うかを示す数です。そして本日のパーソナルデーナンバーは、ライフパス3＋今日の月9＋今日の日11を還元した5です。これは今日一日のテーマそのものを表し、動く日。予定を変えてでも外に出る価値があります。ライフパスとパーソナルデーの差は4で、本来の自分と今日のテーマに少し距離があるため、意識的な切り替えが必要です。今日は5番の力を意識的に使ってください。持ち物は赤いペン、色は黄、方角は西が後押しになります。",
+    "lucky_color": "黄",
+    "lucky_item": "赤いペン",
+    "lucky_dir": "西",
+    "score": 78,
+    "keywords": [
+     "LP3",
+     "表現者",
+     "PD5",
+     "動く日"
+    ],
+    "raw": {
+     "life_path_number": 3,
+     "destiny_number": 1,
+     "personal_day_number": 5,
+     "romaji": "yamatatarou"
+    },
+    "name_en": "Numerology",
+    "lucky_color_en": "Yellow",
+    "lucky_item_en": "a red pen",
+    "lucky_dir_en": "West",
+    "detail_en": "Your Life Path Number is 3: The Performer — you bring luck by entertaining and creating. Romanising your name using the Hepburn system gives \"yamatatarou\"; converting each letter to a number and reducing it produces a Destiny Number of 1, which reflects how your innate talents are best put to use in the world. Today's Personal Day Number — your Life Path plus today's month and day, reduced — comes to 5: a day to move — it's worth changing your plans just to get outside. This is today's theme in a single number. Numerology gives today a score of 78 out of 100."
+   },
+   {
+    "name": "インド占星術",
+    "summary": "メーシャ／ヴィシャーカー。今日のターラーはアティミトラです。",
+    "detail": "インド占星術ではアヤナムシャ（歳差補正、約23.85度）を差し引いたサイデリアル方式を用います。あなたの太陽ラーシはメーシャ（牡羊）、支配星は火星です。生まれ月のナクシャトラ（月宿）は第16宿のヴィシャーカーで、その象意は「枝分かれ。目標達成の執念」です。ラグナ（上昇宮）はメーシャ（牡羊）となります。出生時刻が不明のため、ラグナは太陽ラーシと同一として扱っています。本日、月はシャタビシャー（第24宿）を運行しており、あなたの本命宿から数えて9番目にあたるため、ターラーは「アティミトラ（親友）」となります。積極的な行動が実を結ぶ配置です。太陽ラーシの関係は4サイン離れており、気力が充実しやすい配置です。本日は東の方角を向いて一日の予定を立て、金色を身近に置くことで、宿の主星からの加護を受け取りやすくなります。",
+    "lucky_color": "金",
+    "lucky_item": "赤い糸のブレスレット",
+    "lucky_dir": "東",
+    "score": 87,
+    "keywords": [
+     "メーシャ",
+     "ヴィシャーカー",
+     "アティミトラ",
+     "火星"
+    ],
+    "raw": {
+     "rashi": "メーシャ（牡羊）",
+     "rashi_lord": "火星",
+     "nakshatra": "ヴィシャーカー",
+     "nakshatra_number": 16,
+     "lagna": "メーシャ（牡羊）",
+     "today_nakshatra": "シャタビシャー",
+     "tara": "アティミトラ（親友）",
+     "ayanamsa": 23.85
+    },
+    "name_en": "Vedic Astrology",
+    "lucky_color_en": "Gold",
+    "lucky_item_en": "a red-thread bracelet",
+    "lucky_dir_en": "East",
+    "detail_en": "Vedic astrology uses the sidereal zodiac, subtracting the ayanamsa (precession correction, about 23.85°) from the tropical positions used in Western astrology. Your sidereal Sun sign (Rashi) is Mesha (Aries), ruled by Mars. Your birth-month Nakshatra (lunar mansion) is the 16th house, Vishakha. Your Lagna (rising sign) works out to Mesha (Aries). Today the Moon is transiting Shatabhisha, and counting from your birth Nakshatra this puts today's Tarabala (lunar strength) at Ati-Mitra (Best Friend) — a configuration that favours decisive action today. Vedic Astrology gives today a score of 87 out of 100."
+   },
+   {
+    "name": "宿曜占星術",
+    "summary": "本命宿は柳宿。今日は「栄」の関係の日です。",
+    "detail": "あなたの生年月日を旧暦に直すと1990年4月21日となり、本命宿は柳宿に定まります。柳宿は感受性が鋭く、好き嫌いがはっきりした芸術肌です。宿曜経では、本命宿と今日の宿との距離によって一日の質が決まると考えます。本日の宿は婁宿で、あなたの本命宿から数えて19番目にあたり、関係は「栄」です。最も栄える日。人からの評価・収入・成果が集まります。重要な予定はこの日に寄せてよいでしょう。宿曜の実践では、この関係を知ったうえで一日の予定の「重さ」を調整することが要点になります。本日は緑色を身に着け、北の方角に意識を向けると、本命宿の加護が働きやすくなります。",
+    "lucky_color": "緑",
+    "lucky_item": "小さな植木鉢",
+    "lucky_dir": "北",
+    "score": 100,
+    "keywords": [
+     "柳宿",
+     "栄の日",
+     "婁宿巡り",
+     "最も栄える日"
+    ],
+    "raw": {
+     "natal_shuku": "柳宿",
+     "today_shuku": "婁宿",
+     "relation": "栄",
+     "distance": 19,
+     "lunar_birth": "1990年4月21日",
+     "lunar_year": 1990,
+     "lunar_month": 4,
+     "lunar_day": 21
+    },
+    "name_en": "Sukuyo Astrology",
+    "lucky_color_en": "Green",
+    "lucky_item_en": "a small potted plant",
+    "lucky_dir_en": "North",
+    "detail_en": "Converted to the lunar calendar, you were born on 1990-04-21, and your birth mansion (Honmyou-shuku) is the Willow Mansion. Sukuyo astrology reads the quality of a day from the distance between your birth mansion and today's mansion. Today's mansion is the Bond Mansion, which sits 19 places on from your birth mansion, putting today's relationship at 'Prosperity' — your most prosperous day — recognition, income and results tend to gather. Sukuyo Astrology scores today at 100 out of 100."
+   },
+   {
+    "name": "マヤ暦占い",
+    "summary": "KIN247 黄色い星・宇宙の音13。今日はKIN255です。",
+    "detail": "マヤの神聖暦ツォルキンでは、260 日で一巡する暦の中のどの位置に生まれたかで本質を読みます。あなたのキンナンバーはKIN247で、紋章は「黄色い星」、銀河の音は13（宇宙）です。紋章黄色い星が示すのは「調和と芸術。美しく整える力」で、これがあなたの生まれ持った才能の方向です。音13は「存在の音。すべてを超えて在るがままでいるときです」を意味し、物事への取り組み方の癖を表します。本日はKIN255で、紋章は黄色い戦士、音は8（銀河）が巡っています。あなたのキンとの差は8（13日周期上の位置）で、自然体でいるほど流れに乗れる位置です。紋章の系統色は黄で、本日の黄と共鳴しています。今日は南の方角に意識を向け、何も入れない空のポケットを持ち歩くと、あなた本来のリズムに戻りやすくなります。",
+    "lucky_color": "黄",
+    "lucky_item": "何も入れない空のポケット",
+    "lucky_dir": "南",
+    "score": 100,
+    "keywords": [
+     "黄色い星",
+     "宇宙の音",
+     "KIN247",
+     "調和と芸術"
+    ],
+    "raw": {
+     "kin": 247,
+     "glyph": "黄色い星",
+     "tone": 13,
+     "tone_name": "宇宙",
+     "today_kin": 255,
+     "today_glyph": "黄色い戦士"
+    },
+    "name_en": "Mayan Calendar (Tzolk'in)",
+    "lucky_color_en": "Yellow",
+    "lucky_item_en": "an empty pocket",
+    "lucky_dir_en": "South",
+    "detail_en": "In the Mayan Tzolk'in — a 260-day sacred calendar — your birth is marked by KIN 247: the Yellow Star glyph carrying the Cosmic galactic tone (tone 13). The glyph shows the direction of your innate gifts, and the tone shows your habitual way of approaching things. Today is KIN 255, the Yellow Warrior glyph. The Mayan Calendar gives today a score of 100 out of 100 — you're likely to feel especially in sync with your own natural rhythm today."
+   },
+   {
+    "name": "チベット占星術",
+    "summary": "ウマ年・金の元素・ケン（乾）。今日は鶏年の巡りです。",
+    "detail": "チベット占星術では、十二支・五大元素・九宮数（メワ）・八卦（パルカ）の4 つの要素を組み合わせて運命を読みます。あなたはウマ年の生まれで、五大元素は金です。断つ力。決断と純化を司り、無駄を削ぎ落とします。九宮数は2で、黒のメワ。障害を乗り越えることで力が増します。八卦はケン（乾）を算出しました（男性式で計算）。天の卦。統率力と強い意志を持ちます。本日は癸酉（鶏年）の日で、あなたのウマとの十二支相性は46点です。無理な接触は避け、距離を保つのが得策です。また、あなたの元素金と本日の天干の五行水の関係は「相生（与える）」であり、エネルギーが満ちやすい日です。パルカケン（乾）が示す北西の方角へ向かい、金属のペンダントを身につけると、チベット暦でいう「ラ（魂の力）」が高まる一日になります。",
+    "lucky_color": "白",
+    "lucky_item": "金属のペンダント",
+    "lucky_dir": "北西",
+    "score": 55,
+    "keywords": [
+     "ウマ年",
+     "金の元素",
+     "メワ2",
+     "ケン"
+    ],
+    "raw": {
+     "animal": "ウマ",
+     "element": "金",
+     "mewa": 2,
+     "parkha": "ケン（乾）",
+     "today_animal": "鶏",
+     "affinity": 46
+    },
+    "name_en": "Tibetan Astrology",
+    "lucky_color_en": "White",
+    "lucky_item_en": "a metal pendant",
+    "lucky_dir_en": "Northwest",
+    "detail_en": "Tibetan astrology reads your fate from four factors together: your animal year, your element, your Mewa (magic-square number), and your Parkha (trigram). You were born in the Year of the Horse, with the element Metal. Your Mewa is 2: Black Mewa — strength grows through overcoming obstacles. Your Parkha works out to Ken (Heaven). Today is a Rooster day, and your animal-year compatibility with today scores 46 out of 100 — it's best to keep a little distance rather than force any contact today. Tibetan Astrology gives today an overall score of 55 out of 100."
+   }
+  ]
+ }
+}
