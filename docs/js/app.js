@@ -274,6 +274,54 @@
   /* ------------------------------------------------------------------ */
   /* result.html（日本語）— templates/result.html の描画を移植            */
   /* ------------------------------------------------------------------ */
+  // シェアURLは氏名・生年月日を含む結果URLではなくトップページを使う
+  var SITE_JA = "https://solederlego8-a11y.github.io/uranai-app/";
+  var SITE_EN = "https://solederlego8-a11y.github.io/uranai-app/en/";
+
+  function shareLinks(text, url, hashtags) {
+    var x = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) +
+      "&url=" + encodeURIComponent(url) + (hashtags ? "&hashtags=" + encodeURIComponent(hashtags) : "");
+    var line = "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(url) +
+      "&text=" + encodeURIComponent(text);
+    return { x: x, line: line };
+  }
+
+  function shareBlockJa(report, today) {
+    var text = formatDateJa(today) + "の総合鑑定は【" + report.score_rank + "】" + report.total_score + "点。" +
+      "ラッキーカラーは" + report.lucky_color + "、ラッキーアイテムは" + report.lucky_item + "。" +
+      "11種の占術をまとめて鑑定できます。";
+    var links = shareLinks(text, SITE_JA, "今日の総合鑑定");
+    return [
+      '  <div class="share-block">',
+      '    <p class="share-title">結果をシェアする</p>',
+      '    <div class="share-buttons">',
+      '      <a class="share-btn share-x" href="' + esc(links.x) + '" target="_blank" rel="noopener" data-share="x">Xでシェア</a>',
+      '      <a class="share-btn share-line" href="' + esc(links.line) + '" target="_blank" rel="noopener" data-share="line">LINEで送る</a>',
+      "    </div>",
+      '    <p class="share-note">お名前や生年月日は含まれません。共有されるのは結果の要約とサイトのURLだけです。</p>',
+      '    <p class="return-note">運勢は日付ごとに変わります。<a href="' + esc(SITE_JA) + '">明日もう一度占う</a>ときのために、このサイトをブックマークしておくと便利です。</p>',
+      "  </div>"
+    ].join("\n");
+  }
+
+  function shareBlockEn(report, today) {
+    var text = "My reading for " + formatDateEn(today) + ": " + (report.score_rank_en || report.score_rank) +
+      " (" + report.total_score + "/100). Lucky color " + (report.lucky_color_en || report.lucky_color) +
+      ", lucky item " + (report.lucky_item_en || report.lucky_item) + ". 11 divination systems in one reading.";
+    var links = shareLinks(text, SITE_EN, "TodaysFortune");
+    return [
+      '  <div class="share-block">',
+      '    <p class="share-title">Share your reading</p>',
+      '    <div class="share-buttons">',
+      '      <a class="share-btn share-x" href="' + esc(links.x) + '" target="_blank" rel="noopener" data-share="x">Share on X</a>',
+      '      <a class="share-btn share-line" href="' + esc(links.line) + '" target="_blank" rel="noopener" data-share="line">Share on LINE</a>',
+      "    </div>",
+      '    <p class="share-note">Your name and birth date are not included. Only the summary and the site URL are shared.</p>',
+      '    <p class="return-note">Readings change every day. Bookmark this site to <a href="' + esc(SITE_EN) + '">come back tomorrow</a>.</p>',
+      "  </div>"
+    ].join("\n");
+  }
+
   function renderResultJa(report, userData, today) {
     var U = window.Uranai || {};
     var categoryLabel = U.CATEGORY_LABEL || { love: "恋愛運", work: "仕事運", money: "金運", health: "健康運" };
@@ -339,6 +387,8 @@
     });
     h.push("    </ul>");
     h.push("  </div>");
+
+    h.push(shareBlockJa(report, today));
 
     h.push('  <p class="verdict-disclaimer">※本鑑定はエンターテインメントを目的としたものであり、科学的根拠を保証するものではありません。</p>');
     h.push("</section>");
@@ -492,6 +542,8 @@
     h.push("    </ul>");
     h.push("  </div>");
 
+    h.push(shareBlockEn(report, today));
+
     h.push('  <p class="verdict-disclaimer">* This reading is provided for entertainment purposes only and does not carry any scientific validity claim.</p>');
     h.push("</section>");
 
@@ -599,6 +651,15 @@
     }
     root.innerHTML = isEnglish ? renderResultEn(report, userData, today)
                                : renderResultJa(report, userData, today);
+    root.addEventListener("click", function (ev) {
+      var a = ev.target.closest("[data-share], .consult-button");
+      if (!a || typeof window.gtag !== "function") return;
+      window.gtag("event", a.dataset.share ? "share" : "consult_click", {
+        method: a.dataset.share || "coconala",
+        content_type: "reading",
+        lang: lang
+      });
+    });
   }
 
   if (page === "index") {

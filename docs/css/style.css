@@ -386,6 +386,58 @@ select:focus {
   margin-top: 20px;
 }
 
+.share-block {
+  margin: 26px 0 8px;
+  padding: 18px 18px 14px;
+  border: 1px dashed var(--gold-soft);
+  border-radius: 12px;
+  background: rgba(201, 162, 39, 0.06);
+}
+
+.share-title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--enji);
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.share-btn {
+  display: inline-block;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--white);
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.share-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.share-x { background: #111; }
+.share-line { background: #06c755; }
+
+.share-note,
+.return-note {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.return-note a { color: var(--enji); }
+
 .consult-card {
   border: 1px solid var(--gold-soft);
   background: linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
