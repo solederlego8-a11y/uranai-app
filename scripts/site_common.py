@@ -287,7 +287,8 @@ def render_page(*, lang: str, from_dir: str, page: str, content: str,
             '        <a href="%(guides)s">占術ガイド</a>\n'
             '        <a href="%(about)s">このサイトについて</a>\n'
             '        <a href="%(privacy)s">プライバシーポリシー</a>\n'
-            '        <a href="%(contact)s">お問い合わせ・運営者情報</a>\n'
+            '        <a href="%(contact)s">お問い合わせ・運営者情報</a>
+        <a href="https://solederlego8-a11y.github.io/">運営メディア一覧</a>\n'
             '      </nav>\n'
             '      <p class="copyright">&copy; 今日の総合鑑定</p>\n'
             '    </div>\n'
