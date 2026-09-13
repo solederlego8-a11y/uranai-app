@@ -16,10 +16,10 @@
   var FIELDS = ["last_name", "first_name", "birth_year", "birth_month", "birth_day",
                 "birth_hour", "gender", "prefecture"];
   var YEAR_MIN = 1900;
-  // 個別相談への誘導（A8.net ココナラ電話占い）。href が空の間は描画しない。
-  // A8 に当サイトを登録し、そのサイト向けに生成した a8mat リンクを設定すること。
+  // 個別相談への誘導（A8.net ココナラ電話占い、プログラムID s00000012624002）。
+  // 2026-09-13: A8提携承認済み（提携日2026/09/04）につき「総合占い」サイト向けの実リンクを設定。
   var CONSULT_CTA = {
-    href: "",
+    href: "https://coconala.com/categories/3?service_class=1&from_ad=affiliate&utm_source=a8&utm_medium=affiliate&utm_campaign=buyer_s00000012624002&waad=w4E3PjxQ",
     pixel: ""
   };
   var MONTHS_EN =["January", "February", "March", "April", "May", "June", "July",
