@@ -16,6 +16,7 @@ from uranai import MODULES, build_report
 from uranai.aggregator import CATEGORY_LABEL
 from uranai.guides import GUIDES, get_guide
 from uranai.guides_en import GUIDES_EN, get_guide_en
+from uranai.guides_extra import get_extra_sections
 from uranai.i18n import (
     GENDER_EN,
     PREFECTURE_EN,
@@ -386,7 +387,8 @@ def guide_detail(slug):
     others = [g for g in GUIDES if g["slug"] != slug]
     start = [g["slug"] for g in GUIDES].index(slug)
     rotated = others[start:] + others[:start]
-    return render_template("guide.html", guide=guide, others=rotated[:4])
+    return render_template("guide.html", guide=guide, others=rotated[:4],
+                           extra_sections=get_extra_sections("ja", slug))
 
 
 @app.route("/en/guides", methods=["GET"])
@@ -405,7 +407,8 @@ def guide_detail_en(slug):
     others = [g for g in GUIDES_EN if g["slug"] != slug]
     start = [g["slug"] for g in GUIDES_EN].index(slug)
     rotated = others[start:] + others[:start]
-    return render_template("en/guide.html", guide=guide, others=rotated[:4])
+    return render_template("en/guide.html", guide=guide, others=rotated[:4],
+                           extra_sections=get_extra_sections("en", slug))
 
 
 @app.route("/sitemap.xml", methods=["GET"])

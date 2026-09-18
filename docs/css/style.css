@@ -1487,3 +1487,5 @@ code {
 .guide-table{width:100%;border-collapse:collapse;font-size:14px;min-width:420px;}
 .guide-table th,.guide-table td{padding:8px 10px;border:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.7;}
 .guide-table thead th{background:var(--paper-dark);font-weight:700;}
+/* 広告承認前は空のプレースホルダーを表示しない */
+.ad-container:empty{display:none;}

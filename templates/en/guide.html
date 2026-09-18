@@ -22,6 +22,9 @@
       {% for section in guide.sections %}
       <li><a href="#section-{{ loop.index }}">{{ section.heading }}</a></li>
       {% endfor %}
+      {% for section in extra_sections %}
+      <li><a href="#section-{{ guide.sections|length + loop.index }}">{{ section.heading }}</a></li>
+      {% endfor %}
     </ol>
   </nav>
 
@@ -34,6 +37,13 @@
   </section>
   {% endfor %}
 
+  {% for section in extra_sections %}
+  <section class="guide-section" id="section-{{ guide.sections|length + loop.index }}">
+    <h2 class="guide-heading">{{ section.heading }}</h2>
+    {{ section.html|safe }}
+  </section>
+  {% endfor %}
+
   <p class="guide-disclaimer">
     * This article introduces the ideas behind this divination tradition and makes
     no claim to scientific validity. Please enjoy your reading as entertainment.
@@ -41,7 +51,7 @@
 </article>
 
 <!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX -->
-<div class="ad-container ad-guide">Advertisement</div>
+<div class="ad-container ad-guide"></div>
 
 <section class="card">
   <h2 class="card-title">Try a {{ guide.module }} reading of your own</h2>
