@@ -87,6 +87,21 @@ EN_ENDPOINTS = {"index_en", "about_en", "privacy_en", "contact_en",
                  "guides_en", "guide_detail_en"}
 
 
+# 正規URLは GitHub Pages 版（docs/）に統一する（2026-09-18）。
+# Render 版は同じ内容の複製にあたるため、canonical / hreflang / og:url は
+# すべて GitHub Pages 側の URL を指す。GitHub Pages は静的ファイルなので
+# "/" → "/index.html" 相当、"/guides/x" → "/guides/x.html" に写像する。
+CANONICAL_BASE = "https://solederlego8-a11y.github.io/uranai-app"
+
+
+def _canonical_for(endpoint, view_args):
+    """Flask のエンドポイントを GitHub Pages 版の URL に変換する。"""
+    path = url_for(endpoint, **view_args)
+    if path in ("/", "/en/"):
+        return CANONICAL_BASE + path
+    return CANONICAL_BASE + path.rstrip("/") + ".html"
+
+
 @app.context_processor
 def inject_hreflang():
     """現在のページに対応する日本語版・英語版URLをテンプレートへ渡す。"""
@@ -95,13 +110,13 @@ def inject_hreflang():
     ja_url = en_url = canonical_url = None
     if endpoint:
         try:
-            canonical_url = url_for(endpoint, **view_args, _external=True)
+            canonical_url = _canonical_for(endpoint, view_args)
         except Exception:
             canonical_url = None
         pair = HREFLANG_PAIR.get(endpoint)
         if pair:
             try:
-                pair_url = url_for(pair, **view_args, _external=True)
+                pair_url = _canonical_for(pair, view_args)
             except Exception:
                 pair_url = None
             if endpoint in EN_ENDPOINTS:
