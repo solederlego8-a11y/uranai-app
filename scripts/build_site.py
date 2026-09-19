@@ -443,6 +443,17 @@ def about_ja() -> str:
         '</section>\n'
         '\n'
         '<section class="card">\n'
+        '  <h2 class="card-title">編集方針・ガイド記事の作り方</h2>\n'
+        '  <ul class="about-modules">\n'
+        '    <li><strong>出典</strong>：各占術ガイドは、古典・一般に流通している解説書の体系に沿って記述し、特定の流派の見解を「唯一の正解」として扱いません。歴史・制度に関する記述は公的機関や辞典類の公開情報を参照します。</li>\n'
+        '    <li><strong>書かないこと</strong>：架空の鑑定師・監修者、架空の利用者の声、的中率などの数値実績は掲載しません。健康・医療・投資・法律に関する断定的な助言も行いません。</li>\n'
+        '    <li><strong>AIの利用</strong>：ガイド記事の下書きと構成に生成AIを利用し、公開前に運営者が内容と表現を確認しています。鑑定結果の文面は、各占術の計算結果に対応する定型文をブラウザ内で組み合わせて生成しています。</li>\n'
+        '    <li><strong>広告</strong>：当サイトは広告（Google AdSense・アフィリエイトリンク）を掲載しています。広告リンクには【PR】表記を付け、広告主の表記を引用する形で紹介します。広告の有無は鑑定結果の内容に影響しません。</li>\n'
+        '    <li><strong>更新・訂正</strong>：誤りのご指摘は<a href="$contact">お問い合わせ</a>から受け付け、確認のうえ訂正します。運営者が運営する他のサイトは<a href="https://solederlego8-a11y.github.io/">運営メディア一覧</a>に掲載しています。</li>\n'
+        '  </ul>\n'
+        '</section>\n'
+        '\n'
+        '<section class="card">\n'
         '  <h2 class="card-title">免責事項</h2>\n'
         '  <p>\n'
         '    当サイトが提供する鑑定結果は、<strong>エンターテインメントを目的としたもの</strong>です。\n'
@@ -452,7 +463,7 @@ def about_ja() -> str:
         '  </p>\n'
         '  <a class="submit-button link-button" href="$index">占ってみる</a>\n'
         '</section>\n'
-    ).substitute(modules=modules, index=L.index)
+    ).substitute(modules=modules, index=L.index, contact=L.contact)
     return render_page(
         lang="ja", from_dir="", page="about", content=content,
         canonical_path="about.html", pair_path="en/about.html",
