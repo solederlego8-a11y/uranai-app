@@ -19,8 +19,8 @@
   // 個別相談への誘導（A8.net ココナラ電話占い、プログラムID s00000012624002）。
   // 2026-09-13: A8提携承認済み（提携日2026/09/04）につき「総合占い」サイト向けの実リンクを設定。
   var CONSULT_CTA = {
-    href: "https://coconala.com/categories/3?service_class=1&from_ad=affiliate&utm_source=a8&utm_medium=affiliate&utm_campaign=buyer_s00000012624002&waad=w4E3PjxQ",
-    pixel: ""
+    href: "https://px.a8.net/svt/ejp?a8mat=4BC36N+CM9UFM+2PEO+BWVTE",
+    pixel: "https://www16.a8.net/0.gif?a8mat=4BC36N+CM9UFM+2PEO+BWVTE"
   };
   var MONTHS_EN =["January", "February", "March", "April", "May", "June", "July",
                    "August", "September", "October", "November", "December"];
@@ -456,8 +456,8 @@
       h.push('<section class="card consult-card">');
       h.push('  <p class="consult-label">この結果をもっと深く知りたい方へ</p>');
       h.push('  <h2 class="card-title">恋愛・仕事の具体的な悩みは、占い師に直接相談できます</h2>');
-      h.push('  <p class="consult-text">今日の鑑定は、お名前と生年月日から11種の占術を機械的に算出した自動鑑定です。「この結果は自分の状況にどう当てはまるのか」「今の悩みに対して具体的にどう動けばいいのか」といった個別の相談は、実力派の占い師に電話で直接聞けるサービスがあります。初回は最大30分無料で試せるため、まず一度話してみてから続けるかどうかを決められます。</p>');
-      h.push('  <a class="submit-button link-button consult-button" href="' + esc(CONSULT_CTA.href) + '" rel="nofollow sponsored" target="_blank">電話占いで個別に相談する（初回最大30分無料）</a>');
+      h.push('  <p class="consult-text">今日の鑑定は、お名前と生年月日から11種の占術を機械的に算出した自動鑑定です。「この結果は自分の状況にどう当てはまるのか」「今の悩みに対して具体的にどう動けばいいのか」といった個別の相談は、実力派の占い師に電話で直接聞けるサービスがあります。ココナラの電話占いは、広告主の案内によれば新規会員登録で3,000円分の無料クーポンが受け取れ、1分100円からの料金設定とされています（条件・最新の内容は公式サイトでご確認ください）。</p>');
+      h.push('  <a class="submit-button link-button consult-button" href="' + esc(CONSULT_CTA.href) + '" rel="nofollow sponsored" target="_blank">電話占い【ココナラ】の公式サイトを見る【PR】</a>');
       if (CONSULT_CTA.pixel) {
         h.push('  <img src="' + esc(CONSULT_CTA.pixel) + '" width="1" height="1" alt="" style="border:0">');
       }
