@@ -87,19 +87,20 @@ EN_ENDPOINTS = {"index_en", "about_en", "privacy_en", "contact_en",
                  "guides_en", "guide_detail_en"}
 
 
-# 正規URLは GitHub Pages 版（docs/）に統一する（2026-09-18）。
-# Render 版は同じ内容の複製にあたるため、canonical / hreflang / og:url は
-# すべて GitHub Pages 側の URL を指す。GitHub Pages は静的ファイルなので
-# "/" → "/index.html" 相当、"/guides/x" → "/guides/x.html" に写像する。
-CANONICAL_BASE = "https://solederlego8-a11y.github.io/uranai-app"
+# 正規URLはこのサイト自身（Render 版）。
+#
+# 2026-09-18 に一度 canonical を GitHub Pages 版へ向けたが、AdSense に登録・
+# 審査中だったのはこの Render 版であり、全ページが「正規URLは別ドメイン」と
+# 宣言している状態になったため、審査で「有用性の低いコンテンツ」と判定された
+# （2026-09-30 の不承認の原因）。AdSense の審査対象サイトは自己 canonical で
+# なければならないため、自サイトを指すように戻す。
+# プロキシ（Cloudflare）配下でもスキーム・ホストがぶれないよう明示的に定義する。
+CANONICAL_BASE = "https://uranai-app-lpbh.onrender.com"
 
 
 def _canonical_for(endpoint, view_args):
-    """Flask のエンドポイントを GitHub Pages 版の URL に変換する。"""
-    path = url_for(endpoint, **view_args)
-    if path in ("/", "/en/"):
-        return CANONICAL_BASE + path
-    return CANONICAL_BASE + path.rstrip("/") + ".html"
+    """Flask のエンドポイントを自サイトの絶対URLに変換する。"""
+    return CANONICAL_BASE + url_for(endpoint, **view_args)
 
 
 @app.context_processor
