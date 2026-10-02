@@ -26,6 +26,7 @@ from site_common import (  # noqa: E402
     render_page, today_jst, write_file,
 )
 from build_guides import build_guides  # noqa: E402
+from build_blog import blog_sitemap_paths, build_blog  # noqa: E402
 from uranai import MODULES  # noqa: E402
 from uranai.guides import GUIDES  # noqa: E402
 from uranai.guides_en import GUIDES_EN  # noqa: E402
@@ -1019,6 +1020,7 @@ def sitemap_xml() -> str:
     paths = list(SITE_PATHS)
     paths += ["guides/%s.html" % g["slug"] for g in GUIDES]
     paths += ["en/guides/%s.html" % g["slug"] for g in GUIDES_EN]
+    paths += blog_sitemap_paths()
     lastmod = today_jst().isoformat()
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -1072,6 +1074,7 @@ def build_site() -> list:
     for rel, text in pages.items():
         written.append(write_file(rel, text))
     written += build_guides()
+    written += build_blog(patch_existing=False)  # guides.html・ガイド記事・sitemap は上で生成済み
     return written
 
 

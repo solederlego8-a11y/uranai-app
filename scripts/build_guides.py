@@ -17,6 +17,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from site_common import Links, esc, render_page, write_file  # noqa: E402
 from uranai.guides import GUIDES  # noqa: E402
 from uranai.guides_en import GUIDES_EN  # noqa: E402
+from uranai import blog  # noqa: E402
+from build_blog import make_urls  # noqa: E402
 
 
 def _related(guides: list, slug: str) -> list:
@@ -100,6 +102,7 @@ def guide_page_ja(guide: dict) -> str:
         '  <a class="submit-button link-button" href="%(index)s">今日の総合鑑定を見る</a>\n'
         '</section>\n'
         '\n'
+        '%(blog_related)s'
         '<section class="card">\n'
         '  <h2 class="card-title">ほかの占術の解説を読む</h2>\n'
         '  <ul class="guide-related">\n'
@@ -111,6 +114,7 @@ def guide_page_ja(guide: dict) -> str:
         "index": L.index, "guides": L.guides, "module": module,
         "title": esc(guide["title"]), "lead": esc(guide["lead"]),
         "toc": toc, "sections": sections, "related": related,
+        "blog_related": blog.guide_related_section(slug, make_urls("guides")),
     }
 
     return render_page(
@@ -155,6 +159,7 @@ def guides_index_ja() -> str:
         '  </p>\n'
         '</section>\n'
         '\n'
+        '%(blog_index)s'
         '<section class="guide-index">\n'
         '%(cards)s'
         '</section>\n'
@@ -167,7 +172,8 @@ def guides_index_ja() -> str:
         '  </p>\n'
         '  <a class="submit-button link-button" href="%(index)s">今日の総合鑑定を見る</a>\n'
         '</section>\n'
-    ) % {"cards": cards, "index": L.index}
+    ) % {"cards": cards, "index": L.index,
+         "blog_index": blog.blog_index_section(make_urls(""))}
 
     return render_page(
         lang="ja", from_dir="", page="guides", content=content,

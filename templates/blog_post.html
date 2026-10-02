@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}｜今日の総合鑑定{% endblock %}
+{% block meta_description %}{{ post.description }}{% endblock %}
+{% block head_extra %}{{ head_jsonld|safe }}{% endblock %}
+
+{% block content %}
+{# 本文と外枠は uranai/blog.py（article_html）で生成し、静的版 docs/blog/ と同じHTMLを出す #}
+{{ main_html|safe }}
+{% endblock %}

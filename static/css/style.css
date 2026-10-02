@@ -1402,3 +1402,25 @@ code {
 .guide-table thead th{background:var(--paper-dark);font-weight:700;}
 /* 広告承認前は空のプレースホルダーを表示しない */
 .ad-container:empty{display:none;}
+
+/* consult-card（docs/css にのみあった結果ページ用スタイルを Flask 版にも反映） */
+.consult-card{border:1px solid var(--gold-soft);background:linear-gradient(180deg,var(--white) 0%,var(--paper) 100%);}
+.consult-label{margin:0 0 6px;font-size:12px;letter-spacing:0.2em;color:var(--enji);}
+.consult-card .card-title{margin-top:0;}
+.consult-text{margin:0 0 6px;font-size:15px;line-height:1.9;color:var(--ink);}
+.consult-button{margin-top:18px;letter-spacing:0.08em;}
+.consult-note{margin:12px 0 0;text-align:center;font-size:12px;color:var(--ink-soft);}
+
+/* ===== ブログ記事・PR商材ボックス（2026-10-03 追加。static/ と docs/ の両方に同じ内容） ===== */
+.aff-box{margin:22px 0;padding:20px 20px 16px;border:1px solid var(--gold-soft);border-radius:12px;background:linear-gradient(180deg,var(--white) 0%,var(--paper) 100%);}
+.aff-box .consult-label{margin:0 0 6px;font-size:12px;letter-spacing:0.2em;color:var(--enji);}
+.aff-title{margin:0 0 8px;font-size:17px;font-weight:700;color:var(--navy);line-height:1.6;}
+.aff-lead{margin:0 0 8px;font-size:14.5px;line-height:1.9;color:var(--ink);}
+.aff-facts{margin:0 0 6px;padding-left:1.2em;font-size:14px;line-height:1.8;color:var(--ink);}
+.aff-box .consult-button{display:block;margin-top:14px;letter-spacing:0.06em;}
+.aff-box .consult-note{margin:10px 0 0;text-align:center;font-size:12px;color:var(--ink-soft);}
+.aff-inline{color:var(--enji);text-decoration:underline;}
+.pr-notice{margin:0 0 16px;padding:8px 12px;border-left:3px solid var(--gold-soft);background:var(--paper);font-size:12.5px;color:var(--ink-soft);line-height:1.8;}
+.blog-meta{margin:0 0 12px;font-size:12.5px;color:var(--ink-soft);}
+.guide-article ul.guide-list{margin:0 0 16px;padding-left:1.3em;font-size:15px;line-height:1.9;}
+.guide-article .guide-paragraph a{color:var(--enji);}

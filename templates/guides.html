@@ -4,7 +4,7 @@
 
 {% block content %}
 <section class="hero">
-  <p class="hero-lead">占術ガイド</p>
+  <p class="hero-lead">ブログ・占術ガイド</p>
   <h1 class="hero-title">11種の占い方を<br><span class="accent">ひとつずつ解説</span></h1>
   <p class="hero-desc">
     当サイトの総合鑑定で使っている11種の占術について、
@@ -13,6 +13,8 @@
     鑑定結果に出てきた用語の意味を調べたいときにもご利用ください。
   </p>
 </section>
+
+{{ blog_section|safe }}
 
 <section class="guide-index">
   {% for guide in guides %}

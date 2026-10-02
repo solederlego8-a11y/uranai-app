@@ -17,6 +17,7 @@ from uranai.aggregator import CATEGORY_LABEL
 from uranai.guides import GUIDES, get_guide
 from uranai.guides_en import GUIDES_EN, get_guide_en
 from uranai.guides_extra import get_extra_sections
+from uranai import blog as blog_data
 from uranai.i18n import (
     GENDER_EN,
     PREFECTURE_EN,
@@ -389,7 +390,8 @@ def contact_en():
 @app.route("/guides", methods=["GET"])
 def guides():
     """占術ガイドの一覧を表示する。"""
-    return render_template("guides.html", guides=GUIDES)
+    return render_template("guides.html", guides=GUIDES,
+                           blog_section=blog_data.blog_index_section(_blog_url))
 
 
 @app.route("/guides/<slug>", methods=["GET"])
@@ -404,7 +406,44 @@ def guide_detail(slug):
     start = [g["slug"] for g in GUIDES].index(slug)
     rotated = others[start:] + others[:start]
     return render_template("guide.html", guide=guide, others=rotated[:4],
-                           extra_sections=get_extra_sections("ja", slug))
+                           extra_sections=get_extra_sections("ja", slug),
+                           blog_related=blog_data.guide_related_section(slug, _blog_url))
+
+
+def _blog_url(kind, arg):
+    """ブログ本文のプレースホルダー（{{guide:slug}} 等）を Flask の URL に変換する。"""
+    if kind == "home":
+        return url_for("index")
+    if kind == "blog_index":
+        return url_for("guides") + "#blog"
+    if kind == "picks":
+        return url_for("picks")
+    if kind == "guide":
+        return url_for("guide_detail", slug=arg)
+    if kind == "post":
+        return url_for("blog_post", slug=arg)
+    raise ValueError(kind)
+
+
+@app.route("/blog/<slug>", methods=["GET"])
+def blog_post(slug):
+    """ブログ記事（購入・申込み前の疑問に答える記事）を表示する。"""
+    post = blog_data.get_post(slug)
+    if post is None:
+        return render_template("index.html", **_form_context(
+            error="お探しの記事は見つかりませんでした。")), 404
+    body = blog_data.render_body(blog_data.load_body(slug), _blog_url)
+    canonical = _canonical_for("blog_post", {"slug": slug})
+    return render_template("blog_post.html", post=post,
+                           main_html=blog_data.article_html(post, body, _blog_url),
+                           head_jsonld=blog_data.jsonld(post, canonical, body))
+
+
+@app.route("/picks", methods=["GET"])
+def picks():
+    """記事で紹介しているサービス・アイテムの一覧（PR）を表示する。"""
+    return render_template("picks.html", main_html=blog_data.picks_html(_blog_url),
+                           title=blog_data.PICKS_TITLE, description=blog_data.PICKS_DESC)
 
 
 @app.route("/en/guides", methods=["GET"])
@@ -434,6 +473,7 @@ def sitemap_xml():
     paths = ["/", "/about", "/guides", "/privacy", "/contact",
               "/en/", "/en/about", "/en/privacy", "/en/contact", "/en/guides"]
     paths += ["/guides/%s" % g["slug"] for g in GUIDES]
+    paths += ["/blog/%s" % p["slug"] for p in blog_data.POSTS] + ["/picks"]
     paths += ["/en/guides/%s" % g["slug"] for g in GUIDES_EN]
     lastmod = today_jst().isoformat()
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
