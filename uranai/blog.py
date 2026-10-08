@@ -11,7 +11,7 @@ docs/blog/<slug>.html・docs/picks.html を生成）の共通データ源。
     {{cta:<商材キー>}}               … PR 商材ボックス
     {{link:<商材キー>|リンク文字列}}   … 本文中の PR テキストリンク
 
-アフィリエイトリンクは growth_plan/affiliate/a8-links-2026-10-02.json（site=005）と
+アフィリエイトリンクは growth_plan/affiliate/a8-links-2026-10-02.json・a8-links-2026-10-09.json（site=005）と
 楽天2件のみ。ここに無いリンクを作らない・推測しない。成果報酬額は書かない。
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ import re
 
 CONTENT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "blog_content")
 
-CHECKED_ON = "2026年10月3日"
+CHECKED_ON = "2026年10月3日〜9日"
 
 # ---------------------------------------------------------------------------
 # PR 商材（A8: websiteId 005 / 楽天）
@@ -167,12 +167,191 @@ PRODUCTS = {
         ],
         "enabled": True,
     },
+    # ---- 2026-10-09 追加（a8-links-2026-10-09.json の site=005）。Morning Booster は広告主の実体を確認できず見送り→KKday で代替 ----
+    "coconala_denwa": {
+        "name": "ココナラ電話占い",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BC36N+CM9UFM+2PEO+C3BAQ",
+        "pixel": "https://www10.a8.net/0.gif?a8mat=4BC36N+CM9UFM+2PEO+C3BAQ",
+        "button": "ココナラ電話占いのページを見る",
+        "lead": "ココナラが提供する電話占いです。占い師の料金・口コミ・予約可否は占い師ごとの詳細ページで確認できます。",
+        "facts": [
+            "鑑定料は1分100円（税込）から。占い師ごとに設定（ココナラ公式マガジン 2026年9月28日付）",
+            "アプリからの通話は無料。電話からかける場合は1分20円のシステム利用料がかかる",
+            "支払いは後払いのみ。クレジットカードは「すぐに電話」と予約の両方で利用可",
+            "新規登録向けの3,000円分クーポン（有効期限1週間）は、電話占いページの専用バナーから登録した場合のみ付与（公式マガジンの記載。現行条件は移動先で確認）",
+        ],
+        "enabled": True,
+    },
+    "sara_school": {
+        "name": "SARAスクール（占い師・スピリチュアル講座）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=3T4RCE+23M5OY+4N6C+787AA",
+        "pixel": "https://www19.a8.net/0.gif?a8mat=3T4RCE+23M5OY+4N6C+787AA",
+        "button": "SARAスクールの公式サイトを見る",
+        "lead": "自宅で学ぶ通信講座のスクールです。公式サイトには占い師・スピリチュアル分野の講座が掲載されています。",
+        "facts": [
+            "公式サイトの占い師・スピリチュアル講座は22講座（タロット、手相、西洋占星術、風水師、四柱推命、九星気学、姓名判断など）",
+            "基本コースは修了後に各資格試験を別途受験、プラチナコースは試験が免除され課題提出で資格授与（公式の案内）",
+            "受講料以外の追加料金はなし。ただし資格カード・認定証は資格協会から別途購入（公式FAQ）",
+            "受講料・期間・返金条件は講座ごとに異なるため、資料請求・申込み画面で確認する",
+        ],
+        "enabled": True,
+    },
+    "ryo_sekkei": {
+        "name": "諒設計アーキテクトラーニング（風水セラピスト講座ほか）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=3T4RCE+247LAQ+4N6C+C8VWY",
+        "pixel": "https://www16.a8.net/0.gif?a8mat=3T4RCE+247LAQ+4N6C+C8VWY",
+        "button": "諒設計アーキテクトラーニングの公式サイトを見る",
+        "lead": "通信講座の学校です。公式サイトの「占い師・スピリチュアル」カテゴリに風水関連の講座が掲載されています。",
+        "facts": [
+            "公式サイトに「風水セラピスト」のほか、タロットカード士、数秘術鑑定士、四柱推命占術士などの講座を掲載",
+            "風水に関する資格は国家資格ではなく民間資格",
+            "受講料・コース・最短期間は講座ごとに異なるため、公式の講座ページ・資料で確認する",
+        ],
+        "enabled": True,
+    },
+    "hana_no_kai": {
+        "name": "華の会メール",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BE70R+5YFWY+1T5K+25ES2Q",
+        "pixel": "https://www18.a8.net/0.gif?a8mat=4BE70R+5YFWY+1T5K+25ES2Q",
+        "button": "華の会メールの公式サイトを見る",
+        "lead": "30代以上の恋活・婚活向けの出会いサイトです。広告主は中高年向けのサイトとして案内しています。",
+        "facts": [
+            "女性は無料と公式に記載。男性の料金は公式ページで確認する",
+            "年齢確認として公的な身分証の提示が必要と案内。30歳未満は利用できない旨の注記あり（登録年齢の表記は公式で確認）",
+            "公式サイトにインターネット異性紹介事業の届出表示あり",
+        ],
+        "enabled": True,
+    },
+    "tasuhana": {
+        "name": "タスハナ（+hana・花の定期便）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BCDBM+FKUFPU+4XOY+5YJRM",
+        "pixel": "https://www14.a8.net/0.gif?a8mat=4BCDBM+FKUFPU+4XOY+5YJRM",
+        "button": "タスハナの公式サイトを見る",
+        "lead": "暮らしに花を足すことをコンセプトにした、花の定期便です。",
+        "facts": [
+            "料金・送料・配送頻度・対象エリア・解約条件はプランや時期で変わるため、申込み前に公式サイトで確認する",
+            "比較記事では、解約に最低の配送回数が必要と紹介される例がある（公式の最新条件を確認）",
+        ],
+        "enabled": True,
+    },
+    "hugravi": {
+        "name": "ハグラビ（ウェイトブランケット）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BE70R+4EYUDU+5XHK+BWVTE",
+        "pixel": "https://www17.a8.net/0.gif?a8mat=4BE70R+4EYUDU+5XHK+BWVTE",
+        "button": "ハグラビの公式サイトを見る",
+        "lead": "重みで体を包む「重いふとん」タイプのウェイトブランケットです。",
+        "facts": [
+            "販売店の掲載では、Sサイズ（122×198cm）が約6.8kg、Mサイズ（152×203cm）が約9.0kg",
+            "重さは体重に合わせて選ぶ商品。サイズ・価格・返品条件・洗濯方法は公式サイトで確認する",
+            "睡眠の質の改善や健康への効果を保証するものではありません",
+        ],
+        "enabled": True,
+    },
+    "motton": {
+        "name": "高反発まくら モットン",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=3T4QKD+9DKVV6+3606+NYHDU",
+        "pixel": "https://www15.a8.net/0.gif?a8mat=3T4QKD+9DKVV6+3606+NYHDU",
+        "button": "モットンの公式サイトを見る",
+        "lead": "高反発素材を使い、中のシートで高さを調整するタイプの枕です。",
+        "facts": [
+            "高さの調整はシートの抜き差しで行う方式（比較記事の説明。調整幅は公式で確認）",
+            "返金保証は公式サイトでの購入が対象と紹介する記事が多い。期間・条件の数え方は公式で確認する",
+            "肩こりや睡眠への効果を保証するものではありません",
+        ],
+        "enabled": True,
+    },
+    "jalan": {
+        "name": "じゃらんnet（国内宿泊予約）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=3T4QKD+AJ987M+14CS+67JUA",
+        "pixel": "https://www17.a8.net/0.gif?a8mat=3T4QKD+AJ987M+14CS+67JUA",
+        "button": "じゃらんnetで宿を探す",
+        "lead": "国内の宿をインターネットで予約できる宿泊予約サイトです。",
+        "facts": [
+            "宿ごとにプラン・料金・キャンセル規定が異なる",
+            "宿泊日の直前はキャンセル料がかかる宿もあるため、予約前にプランごとの規定を確認する",
+        ],
+        "enabled": True,
+    },
+    "asoview": {
+        "name": "アソビュー（レジャー・体験予約）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=3T4QKD+B9GATU+455G+67C4I",
+        "pixel": "https://www12.a8.net/0.gif?a8mat=3T4QKD+B9GATU+455G+67C4I",
+        "button": "アソビュー！で体験を探す",
+        "lead": "レジャー施設や体験アクティビティを予約できるサイトです。「日本最大級」は広告主の表記です。",
+        "facts": [
+            "体験やチケットごとに料金・開催日・キャンセル規定が異なる",
+            "天候や開催状況による中止・変更の扱いは、各商品ページで確認する",
+        ],
+        "enabled": True,
+    },
+    "kkday": {
+        "name": "KKday（海外・国内の現地ツアー・体験予約）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=3T4S4T+7K37BM+52F8+5YJRM",
+        "pixel": "https://www17.a8.net/0.gif?a8mat=3T4S4T+7K37BM+52F8+5YJRM",
+        "button": "KKdayで現地ツアーを探す",
+        "lead": "旅行先の現地ツアーや体験、チケットを予約できるサイトです。海外の寺院・聖地めぐりのツアーを探すときの選択肢になります。",
+        "facts": [
+            "ツアーごとに催行会社・料金・集合場所・キャンセル規定が異なる",
+            "最少催行人数に満たない場合の中止や、返金の扱いは各商品ページで確認する",
+        ],
+        "enabled": True,
+    },
 }
 
 # ---------------------------------------------------------------------------
 # ブログ記事のメタ情報（新しい順）
 # ---------------------------------------------------------------------------
 POSTS = [
+    {
+        "slug": "power-spot-ryokou-yado-taiken-yoyaku",
+        "tag": "旅と開運",
+        "title": "パワースポット旅行は宿と体験をどう予約する？日帰り・一泊の段取りとキャンセル規定の確認点",
+        "description": "神社めぐりなどのパワースポット旅行で、宿と体験をどの順番で予約するか、日帰りと一泊の違い、じゃらんnet・アソビュー！で予約する前に確認したいキャンセル規定や天候の扱いを整理しました。",
+        "keyword": "パワースポット 旅行 宿 予約 体験",
+        "published": "2026-10-09",
+    },
+    {
+        "slug": "shinshitsu-fusui-makura-weighted-blanket-hana",
+        "tag": "暮らしと風水",
+        "title": "寝室の風水は何から整える？枕・ウェイトブランケット・花の定期便の選び方と申し込み前の確認点",
+        "description": "風水の寝室づくりの基本（掃除・換気・整理整頓・枕の向き）を整理し、高さ調整できる枕、ウェイトブランケットの重さの目安、花の定期便の解約条件など、購入前に確認したい点をまとめました。",
+        "keyword": "寝室 風水 枕 ウェイトブランケット 花 定期便",
+        "published": "2026-10-09",
+    },
+    {
+        "slug": "hana-no-kai-mail-touroku-mae-kakunin",
+        "tag": "恋愛占いのあとに",
+        "title": "華の会メールに登録する前に確認したいこと：年齢条件・女性無料・年齢確認と詐欺への注意",
+        "description": "30代以上向けの出会いサイト「華の会メール」について、公式サイトで確認できた年齢条件・料金の仕組み・年齢確認と、ロマンス詐欺・投資詐欺を避けるための基本、占いの結果を行動に生かす方法を整理しました。",
+        "keyword": "華の会メール 登録前 年齢確認 女性無料",
+        "published": "2026-10-09",
+    },
+    {
+        "slug": "fusui-shikaku-tsushin-kouza-hikaku",
+        "tag": "占いを学ぶ",
+        "title": "風水の資格は通信講座で取れる？SARAスクールと諒設計アーキテクトラーニングの選び方と申し込み前の確認点",
+        "description": "風水や占術の資格は民間資格です。公式サイトで講座が確認できるSARAスクールと諒設計アーキテクトラーニングを例に、基本コースとプラチナコースの違い、追加費用、返金条件など申し込み前の比較項目を整理しました。",
+        "keyword": "風水 資格 通信講座 比較",
+        "published": "2026-10-09",
+    },
+    {
+        "slug": "coconala-denwa-uranai-hatsukai-coupon-nanpun",
+        "tag": "有料占いの選び方",
+        "title": "ココナラ電話占いの初回クーポンは何分使える？専用バナーの条件・通話料・後払いの注意点",
+        "description": "ココナラ公式マガジンの記載をもとに、電話占いの初回3,000円分クーポンで話せる時間の計算、付与されない登録経路、有効期限1週間の段取り、料金が膨らまないためのルールを整理しました。",
+        "keyword": "電話占い 初回 クーポン 何分",
+        "published": "2026-10-09",
+    },
     {
         "slug": "mail-uranai-denwa-uranai-dochira",
         "tag": "有料占いの選び方",
@@ -217,12 +396,15 @@ POSTS = [
 
 # 既存の占術ガイドから関連ブログ記事へ張る内部リンク（ガイド slug → 記事 slug）
 GUIDE_RELATED_POSTS = {
-    "kyusei-kigaku": ["takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata"],
-    "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata"],
-    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "mail-uranai-denwa-uranai-dochira"],
-    "suuhi": ["mail-uranai-denwa-uranai-dochira"],
-    "sanmei": ["takashima-ekidan-hongoyomi-chigai"],
-    "seimei": ["matching-app-shashin-satsuei-hikaku"],
+    "kyusei-kigaku": ["takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
+                      "power-spot-ryokou-yado-taiken-yoyaku", "shinshitsu-fusui-makura-weighted-blanket-hana"],
+    "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata", "hana-no-kai-mail-touroku-mae-kakunin"],
+    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "mail-uranai-denwa-uranai-dochira",
+                     "fusui-shikaku-tsushin-kouza-hikaku"],
+    "suuhi": ["mail-uranai-denwa-uranai-dochira", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
+    "sanmei": ["takashima-ekidan-hongoyomi-chigai", "fusui-shikaku-tsushin-kouza-hikaku"],
+    "seimei": ["matching-app-shashin-satsuei-hikaku", "hana-no-kai-mail-touroku-mae-kakunin"],
+    "shichu-suimei": ["fusui-shikaku-tsushin-kouza-hikaku", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
 }
 
 
@@ -433,8 +615,8 @@ def article_html(post: dict, body: str, urls) -> str:
 
 
 PICKS_TITLE = "記事で紹介しているサービス・アイテム一覧【PR】"
-PICKS_DESC = ("今日の総合鑑定のブログ記事で紹介している占い相談サービス・タロットカード・暦・財布・"
-              "写真撮影サービスなどを、公式ページで確認できた価格・内容とあわせて一覧にしました。")
+PICKS_DESC = ("今日の総合鑑定のブログ記事で紹介している占い相談サービス・通信講座・タロットカード・暦・財布・"
+              "寝具・旅行予約・写真撮影サービスなどを、公式ページで確認できた価格・内容とあわせて一覧にしました。")
 
 
 def picks_html(urls) -> str:
