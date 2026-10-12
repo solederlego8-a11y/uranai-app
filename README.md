@@ -78,3 +78,63 @@ static/                  CSS・JS
 
 当サイトが提供する鑑定結果は、エンターテインメントを目的としたものです。
 各占術は文化的・歴史的な体系であり、その内容について科学的根拠を保証するものではありません。
+
+<!-- article-index:start -->
+## 今日の総合鑑定 公開中のページ一覧
+
+無料の総合占いと占術ガイド、占いの前後に役立つブログ。
+
+サイト: https://solederlego8-a11y.github.io/uranai-app/
+
+### top
+- [今日の総合鑑定｜5項目の入力で11種の占術をまとめて鑑定](https://solederlego8-a11y.github.io/uranai-app/)
+- [このサイトについて](https://solederlego8-a11y.github.io/uranai-app/about.html)
+- [占い方の解説一覧｜11種の占術をやさしく読み解く](https://solederlego8-a11y.github.io/uranai-app/guides.html)
+- [プライバシーポリシー](https://solederlego8-a11y.github.io/uranai-app/privacy.html)
+- [お問い合わせ・運営者情報](https://solederlego8-a11y.github.io/uranai-app/contact.html)
+- [記事で紹介しているサービス・アイテム一覧【PR】](https://solederlego8-a11y.github.io/uranai-app/picks.html)
+
+### blog
+- [メール占いと電話占いはどっちがいい？相談内容別の選び方と料金の考え方](https://solederlego8-a11y.github.io/uranai-app/blog/mail-uranai-denwa-uranai-dochira.html)
+- [タロットカード初心者はどれを買う？ライダー版と日本語解説書付きを選ぶ理由](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-card-shoshinsha-erabikata.html)
+- [高島易断の本暦・開運本暦・運勢本暦の違いは？令和九年版の選び方](https://solederlego8-a11y.github.io/uranai-app/blog/takashima-ekidan-hongoyomi-chigai.html)
+- [財布を新調する日は暦でどう選ぶ？寅の日・一粒万倍日・天赦日の調べ方](https://solederlego8-a11y.github.io/uranai-app/blog/saifu-shinchou-hi-koyomi-erabikata.html)
+- [マッチングアプリの写真撮影サービスは使うべき？料金とプランの比較と申し込み前の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/matching-app-shashin-satsuei-hikaku.html)
+- [パワースポット旅行は宿と体験をどう予約する？日帰り・一泊の段取りとキャンセル規定の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/power-spot-ryokou-yado-taiken-yoyaku.html)
+- [寝室の風水は何から整える？枕・ウェイトブランケット・花の定期便の選び方と申し込み前の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/shinshitsu-fusui-makura-weighted-blanket-hana.html)
+- [華の会メールに登録する前に確認したいこと：年齢条件・女性無料・年齢確認と詐欺への注意](https://solederlego8-a11y.github.io/uranai-app/blog/hana-no-kai-mail-touroku-mae-kakunin.html)
+- [風水の資格は通信講座で取れる？SARAスクールと諒設計アーキテクトラーニングの選び方と申し込み前の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/fusui-shikaku-tsushin-kouza-hikaku.html)
+- [ココナラ電話占いの初回クーポンは何分使える？専用バナーの条件・通話料・後払いの注意点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-denwa-uranai-hatsukai-coupon-nanpun.html)
+
+### en
+- [Today's Fortune | Combine 11 Divination Systems in One Reading](https://solederlego8-a11y.github.io/uranai-app/en/)
+- [About This Site | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/about.html)
+- [Privacy Policy | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/privacy.html)
+- [Contact / Operator Info | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/contact.html)
+- [Divination Guides | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides.html)
+- [What Is BaZi (Four Pillars of Destiny)? Reading Your Chart from Birth Data | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/shichu-suimei.html)
+- [Western Astrology 101: Sun Sign, Moon Sign and Ascendant | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/seiyo-uranai.html)
+- [The Five Grids of Japanese Name Analysis: Heaven, Personality, Earth, Outer and Total | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/seimei.html)
+- [Nine Star Ki: Finding Your Birth Star, from One White Water to Nine Purple Fire | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/kyusei-kigaku.html)
+- [What Is Zi Wei Dou Shu? Reading Your Chart Through the Life Palace and 14 Main Stars | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/shibi-tosuu.html)
+- [Tenchusatsu in Sanmei-gaku: Reading the Body Star Chart and the Void Periods | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/sanmei.html)
+- [The Life Path Number in Numerology: How It's Calculated, and What 11, 22 and 33 Mean | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/suuhi.html)
+- [The 27 Lunar Mansions of Sukuyo Astrology: Your Birth Mansion and Its Relationships | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/shukuyo.html)
+- [What Is Your KIN Number? The 20 Glyphs and 13 Galactic Tones of the Mayan Calendar | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/maya.html)
+- [What Is Vedic Astrology (Jyotish)? The Ayanamsa and the 27 Nakshatras | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/india-uranai.html)
+- [What Is Tibetan Astrology? Reading Fate Through Element, Mewa and Parkha | Today's Fortune](https://solederlego8-a11y.github.io/uranai-app/en/guides/tibet.html)
+
+### guides
+- [四柱推命とは｜生年月日時から命式を立てる東洋占術の基本](https://solederlego8-a11y.github.io/uranai-app/guides/shichu-suimei.html)
+- [西洋占星術とは｜太陽星座・月星座・アセンダントの違い](https://solederlego8-a11y.github.io/uranai-app/guides/seiyo-uranai.html)
+- [姓名判断の五格とは｜天格・人格・地格・外格・総格の読み方](https://solederlego8-a11y.github.io/uranai-app/guides/seimei.html)
+- [九星気学の本命星とは｜一白水星から九紫火星までの調べ方](https://solederlego8-a11y.github.io/uranai-app/guides/kyusei-kigaku.html)
+- [紫微斗数とは｜命宮と14主星で読む中国の占星術](https://solederlego8-a11y.github.io/uranai-app/guides/shibi-tosuu.html)
+- [算命学の天中殺とは｜人体星図と空亡の読み方](https://solederlego8-a11y.github.io/uranai-app/guides/sanmei.html)
+- [数秘術のライフパスナンバーとは｜計算方法と11・22・33の意味](https://solederlego8-a11y.github.io/uranai-app/guides/suuhi.html)
+- [宿曜占星術の27宿とは｜本命宿と相性の読み方](https://solederlego8-a11y.github.io/uranai-app/guides/shukuyo.html)
+- [マヤ暦占いのKINとは｜20の紋章と13の銀河の音](https://solederlego8-a11y.github.io/uranai-app/guides/maya.html)
+- [インド占星術（ジョーティシュ）とは｜アヤナムシャと27ナクシャトラ](https://solederlego8-a11y.github.io/uranai-app/guides/india-uranai.html)
+- [チベット占星術とは｜五大元素・メワ・パルカで読む運命](https://solederlego8-a11y.github.io/uranai-app/guides/tibet.html)
+
+<!-- article-index:end -->
