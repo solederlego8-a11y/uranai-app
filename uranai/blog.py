@@ -22,7 +22,7 @@ import re
 
 CONTENT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "blog_content")
 
-CHECKED_ON = "2026年10月3日〜9日"
+CHECKED_ON = "2026年10月3日〜13日"
 
 # ---------------------------------------------------------------------------
 # PR 商材（A8: websiteId 005 / 楽天）
@@ -306,12 +306,148 @@ PRODUCTS = {
         ],
         "enabled": True,
     },
+    # ---- 2026-10-13 追加（a8-links-2026-10-13.json の site=005）。hanamel・なつみかん・ソルトウェディングは公式情報を確認できず見送り ----
+    "jtrip": {
+        "name": "J-TRIP（ジェイトリップ・JALで行く国内ツアー）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BCDBM+FG2YVM+40T2+6DRLU",
+        "pixel": "https://www17.a8.net/0.gif?a8mat=4BCDBM+FG2YVM+40T2+6DRLU",
+        "button": "J-TRIPの公式サイトを見る",
+        "lead": "JALの航空便とホテルを組み合わせた国内パッケージツアーを扱うサービスです。",
+        "facts": [
+            "公式サイトによると、北海道から沖縄までの各地が対象。出発地は東京・大阪・中部・四国・九州・北海道から選べ、2〜5日間",
+            "「予約当日23時まで無料キープ＆キャンセル無料」の案内あり（対象と条件は申し込み画面で確認）",
+            "取消料の金額は旅行条件書で確認する",
+        ],
+        "enabled": True,
+    },
+    "airtrip_tour": {
+        "name": "エアトリ国内ツアー",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BCDBM+F4RQDU+AD2+2HB8GI",
+        "pixel": "https://www10.a8.net/0.gif?a8mat=4BCDBM+F4RQDU+AD2+2HB8GI",
+        "button": "エアトリの国内ツアーを見る",
+        "lead": "航空券などを扱う旅行予約サービス「エアトリ」の国内ツアーです。「格安」は広告主の表記です。",
+        "facts": [
+            "ツアーごとに旅行会社・料金・含まれる内容が異なる",
+            "取消料は商品ごとの旅行条件書で確認する（国内航空券のキャンセル案内とは別の規定が適用される場合がある）",
+        ],
+        "enabled": True,
+    },
+    "needs_tour": {
+        "name": "ニーズツアー（国内旅行・沖縄旅行）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BCDBM+F46AS2+AD2+2BD44I",
+        "pixel": "https://www16.a8.net/0.gif?a8mat=4BCDBM+F46AS2+AD2+2BD44I",
+        "button": "ニーズツアーを見る",
+        "lead": "沖縄・北海道などの国内旅行を扱う旅行会社です。",
+        "facts": [
+            "旅行比較サイトの掲載情報では、運営は株式会社かんざし。ツアーによって適用される旅行条件書が異なる場合がある",
+            "取消料は申し込むツアーの旅行条件書で確認する（広告文の記載と一致するかも確認）",
+        ],
+        "enabled": True,
+    },
+    "kobe_cruise": {
+        "name": "THE KOBE CRUISE（神戸のレストランクルーズ）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BCDBM+FM1AXE+59HO+5YRHE",
+        "pixel": "https://www12.a8.net/0.gif?a8mat=4BCDBM+FM1AXE+59HO+5YRHE",
+        "button": "THE KOBE CRUISEの公式サイトを見る",
+        "lead": "神戸港のレストランクルーズです。",
+        "facts": [
+            "公式ページ（確認日2026年10月13日）では、コンチェルトが毎日運航。ルミナス神戸2は「チャーターのみ運航」と案内",
+            "時間帯はランチ・ティー・トワイライト・ナイト。所要は約1時間30分〜1時間45分",
+            "予約はWebまたは電話（078-360-5600、10:00〜19:00）。キャンセル規定は予約時に確認",
+        ],
+        "enabled": True,
+    },
+    "nenga_kazoku": {
+        "name": "年賀家族2027（写真入り年賀状）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BE70R+5FVPW2+2ZQM+NTJWY",
+        "pixel": "https://www14.a8.net/0.gif?a8mat=4BE70R+5FVPW2+2ZQM+NTJWY",
+        "button": "年賀家族2027の公式サイトを見る",
+        "lead": "写真入りのデザイナーズ年賀状を注文できるサービスです。",
+        "facts": [
+            "確認日2026年10月13日時点で、超早期割引は基本料金13,000円が6,760円（48%OFF）、期限は10月27日16:00と案内",
+            "年賀はがきを含む注文は予約販売で、11月2日以降に順次出荷",
+            "宛名印刷・投函代行は無料と案内。仕上がりが気になる場合の再印刷保障あり",
+        ],
+        "enabled": True,
+    },
+    "hyacca": {
+        "name": "HYACCA（結婚祝い・内祝いのギフトショップ）",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BE70R+17GR0Y+5VGS+5YJRM",
+        "pixel": "https://www13.a8.net/0.gif?a8mat=4BE70R+17GR0Y+5VGS+5YJRM",
+        "button": "HYACCAの公式サイトを見る",
+        "lead": "結婚・出産のお祝いや内祝いなどのギフトを扱うオンラインギフトショップです。",
+        "facts": [
+            "公式ページ（確認日2026年10月13日）掲載の価格は、結婚祝いが税込4,400円〜14,979円、結婚内祝いが税込2,754円〜約10,278円",
+            "のし対応は商品による。メッセージカードは注文前にプレビューで確認できると案内",
+            "ギフトボックスは送料無料（最短翌日発送）。返品・交換の条件は公式ページで確認",
+        ],
+        "enabled": True,
+    },
+    "tsutaekata_shokyu": {
+        "name": "伝え方コミュニケーション検定・初級",
+        "asp": "a8",
+        "href": "https://px.a8.net/svt/ejp?a8mat=4BCDBM+EDDSK2+4K7E+C4LLE",
+        "pixel": "https://www10.a8.net/0.gif?a8mat=4BCDBM+EDDSK2+4K7E+C4LLE",
+        "button": "伝え方コミュニケーション検定・初級の公式サイトを見る",
+        "lead": "日本ライフコミュニケーション協会のオンライン講座と検定の初級です。「ウェブ3時間で資格取得」は広告主の表記です。",
+        "facts": [
+            "受講料・内容・試験方法は初級のページで確認する（中級とは異なる）",
+            "民間資格であり、取得による効果を保証するものではありません",
+        ],
+        "enabled": True,
+    },
 }
 
 # ---------------------------------------------------------------------------
 # ブログ記事のメタ情報（新しい順）
 # ---------------------------------------------------------------------------
 POSTS = [
+    {
+        "slug": "uranai-kekka-kodo-erabikata-hub",
+        "tag": "選び方まとめ",
+        "title": "占いのあとにお金を使う前に｜目的別の選び方と判断フロー表",
+        "description": "占いの結果を見たあとの「次の一手」を、相談・学び・旅行・記念日・年賀状・お祝い・道具・出会いの状況別に整理。申し込み前に確認する総額・期間・解約条件の3点と、無料でできることを紹介します。",
+        "keyword": "占い 結果 行動 選び方 申し込み前 確認",
+        "published": "2026-10-13",
+    },
+    {
+        "slug": "kokunai-tour-kojin-tehai-dochira",
+        "tag": "旅と開運",
+        "title": "国内旅行はツアーか個人手配か｜判断基準と取消料の確認点",
+        "description": "国内旅行のパッケージツアーと個人手配の違いを、費用・自由度・キャンセルで比較。J-TRIP・エアトリ国内ツアー・ニーズツアーを申し込む前に旅行条件書で確認する点と、方位や吉日で日程を決める人の注意をまとめました。",
+        "keyword": "国内旅行 ツアー 個人手配 どっち 取消料",
+        "published": "2026-10-13",
+    },
+    {
+        "slug": "nengajo-2027-shashin-hayawari-kazoku",
+        "tag": "暮らしと暦",
+        "title": "写真入り年賀状2027は早割で頼むべき？注文前の判断基準5つ",
+        "description": "2027年（未年）の写真入り年賀状を「年賀家族2027」で注文する前の判断基準を整理。公式ページで確認できた早割の期限、出荷時期、宛名印刷・投函代行、再印刷保障と、総額の計算方法を紹介します。",
+        "keyword": "年賀状 2027 写真入り 早割 注文",
+        "published": "2026-10-13",
+    },
+    {
+        "slug": "kobe-dinner-cruise-kinenbi-yoyaku-mae",
+        "tag": "旅と開運",
+        "title": "神戸のレストランクルーズは記念日向き？予約前の確認点5つ",
+        "description": "THE KOBE CRUISEの公式ページで確認できた運航状況・時間帯・料金の見方・予約方法をもとに、記念日のクルーズ予約前に確認したい5つの点と、キャンセル規定・天候への備えを整理しました。",
+        "keyword": "神戸 レストランクルーズ 記念日 予約 キャンセル",
+        "published": "2026-10-13",
+    },
+    {
+        "slug": "kekkon-iwai-uchiiwai-yosan-noshi",
+        "tag": "暮らしと暦",
+        "title": "結婚祝いと内祝いの予算はいくら？のし・配送の確認点",
+        "description": "結婚祝いと結婚内祝いの違い、予算の決め方、のし・メッセージカードの確認点を整理。HYACCAの公式ページで確認できた価格帯・送料・返品交換の案内とあわせて、注文前のチェックリストを紹介します。",
+        "keyword": "結婚祝い 内祝い 予算 のし 選び方",
+        "published": "2026-10-13",
+    },
     {
         "slug": "power-spot-ryokou-yado-taiken-yoyaku",
         "tag": "旅と開運",
@@ -396,14 +532,14 @@ POSTS = [
 
 # 既存の占術ガイドから関連ブログ記事へ張る内部リンク（ガイド slug → 記事 slug）
 GUIDE_RELATED_POSTS = {
-    "kyusei-kigaku": ["takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
+    "kyusei-kigaku": ["kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
                       "power-spot-ryokou-yado-taiken-yoyaku", "shinshitsu-fusui-makura-weighted-blanket-hana"],
     "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata", "hana-no-kai-mail-touroku-mae-kakunin"],
     "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "mail-uranai-denwa-uranai-dochira",
                      "fusui-shikaku-tsushin-kouza-hikaku"],
     "suuhi": ["mail-uranai-denwa-uranai-dochira", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
     "sanmei": ["takashima-ekidan-hongoyomi-chigai", "fusui-shikaku-tsushin-kouza-hikaku"],
-    "seimei": ["matching-app-shashin-satsuei-hikaku", "hana-no-kai-mail-touroku-mae-kakunin"],
+    "seimei": ["uranai-kekka-kodo-erabikata-hub", "matching-app-shashin-satsuei-hikaku", "hana-no-kai-mail-touroku-mae-kakunin"],
     "shichu-suimei": ["fusui-shikaku-tsushin-kouza-hikaku", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
 }
 
@@ -616,7 +752,7 @@ def article_html(post: dict, body: str, urls) -> str:
 
 PICKS_TITLE = "記事で紹介しているサービス・アイテム一覧【PR】"
 PICKS_DESC = ("今日の総合鑑定のブログ記事で紹介している占い相談サービス・通信講座・タロットカード・暦・財布・"
-              "寝具・旅行予約・写真撮影サービスなどを、公式ページで確認できた価格・内容とあわせて一覧にしました。")
+              "寝具・旅行予約・年賀状・ギフト・写真撮影サービスなどを、公式ページで確認できた価格・内容とあわせて一覧にしました。")
 
 
 def picks_html(urls) -> str:
