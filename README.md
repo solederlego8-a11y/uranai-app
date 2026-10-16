@@ -82,7 +82,7 @@ static/                  CSS・JS
 <!-- article-index:start -->
 ## 今日の総合鑑定 公開中のページ一覧
 
-無料の総合占いと占術ガイド、占いの前後に役立つブログ。
+無料占いと占術ガイド
 
 サイト: https://solederlego8-a11y.github.io/uranai-app/
 
@@ -105,6 +105,13 @@ static/                  CSS・JS
 - [華の会メールに登録する前に確認したいこと：年齢条件・女性無料・年齢確認と詐欺への注意](https://solederlego8-a11y.github.io/uranai-app/blog/hana-no-kai-mail-touroku-mae-kakunin.html)
 - [風水の資格は通信講座で取れる？SARAスクールと諒設計アーキテクトラーニングの選び方と申し込み前の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/fusui-shikaku-tsushin-kouza-hikaku.html)
 - [ココナラ電話占いの初回クーポンは何分使える？専用バナーの条件・通話料・後払いの注意点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-denwa-uranai-hatsukai-coupon-nanpun.html)
+- [占いのあとにお金を使う前に｜目的別の選び方と判断フロー表](https://solederlego8-a11y.github.io/uranai-app/blog/uranai-kekka-kodo-erabikata-hub.html)
+- [国内旅行はツアーか個人手配か｜判断基準と取消料の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/kokunai-tour-kojin-tehai-dochira.html)
+- [写真入り年賀状2027は早割で頼むべき？注文前の判断基準5つ](https://solederlego8-a11y.github.io/uranai-app/blog/nengajo-2027-shashin-hayawari-kazoku.html)
+- [神戸のレストランクルーズは記念日向き？予約前の確認点5つ](https://solederlego8-a11y.github.io/uranai-app/blog/kobe-dinner-cruise-kinenbi-yoyaku-mae.html)
+- [結婚祝いと内祝いの予算はいくら？のし・配送の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/kekkon-iwai-uchiiwai-yosan-noshi.html)
+- [ココナラ占いのキャンセル・返金は？当たらない・違うと感じたときの確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-cancel-henkin-atanaranai.html)
+- [高島易断の暦はいつ買う？どこで買う？令和九年版がいらない人の判断基準](https://solederlego8-a11y.github.io/uranai-app/blog/takashima-ekidan-koyomi-itsu-doko-iranai.html)
 
 ### en
 - [Today's Fortune | Combine 11 Divination Systems in One Reading](https://solederlego8-a11y.github.io/uranai-app/en/)
