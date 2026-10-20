@@ -532,6 +532,12 @@ def gsc_verification():
                     mimetype="text/html")
 
 
+@app.route("/bd252c8b8412fc9a1737a05be3a24559.txt", methods=["GET"])
+def indexnow_key():
+    """IndexNow の所有確認キー。"""
+    return Response("bd252c8b8412fc9a1737a05be3a24559", mimetype="text/plain")
+
+
 @app.route("/robots.txt", methods=["GET"])
 def robots_txt():
     """クローラ向けの robots.txt を配信する。"""
