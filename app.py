@@ -525,6 +525,13 @@ def ads_txt():
     return Response(body, mimetype="text/plain")
 
 
+@app.route("/google62a60d3c7c3e4508.html", methods=["GET"])
+def gsc_verification():
+    """Search Console の所有権確認ファイル（削除すると認証が外れる）。"""
+    return Response("google-site-verification: google62a60d3c7c3e4508.html",
+                    mimetype="text/html")
+
+
 @app.route("/robots.txt", methods=["GET"])
 def robots_txt():
     """クローラ向けの robots.txt を配信する。"""
