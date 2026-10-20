@@ -22,7 +22,7 @@ import re
 
 CONTENT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "blog_content")
 
-CHECKED_ON = "2026年10月3日〜16日"
+CHECKED_ON = "2026年10月3日〜20日"
 
 # ---------------------------------------------------------------------------
 # PR 商材（A8: websiteId 005 / 楽天）
@@ -409,6 +409,30 @@ PRODUCTS = {
 # ---------------------------------------------------------------------------
 POSTS = [
     {
+        "slug": "coconala-uranai-henshin-konai-nannichi",
+        "tag": "有料占いの選び方",
+        "title": "ココナラ占いの返信が来ないとき何日待つ？キャンセルできる条件と手順",
+        "description": "ココナラ占いの出品者から返信が来ないとき、運営のお知らせで確認できた条件（購入から48時間、出品者の最後の連絡から4日以上、リクエスト後24時間）を出典つきで整理。先にすること、返金の考え方、依頼前の確認点を紹介します。",
+        "keyword": "ココナラ 占い 返信 来ない 何日待つ キャンセル",
+        "published": "2026-10-20",
+    },
+    {
+        "slug": "tarot-22mai-78mai-shoshinsha-dochira",
+        "tag": "タロットの選び方",
+        "title": "タロットカード初心者は22枚と78枚どっち？買う前の確認点と選び方",
+        "description": "タロットの枚数構成（大アルカナ22枚＋小アルカナ56枚）を出典つきで整理し、22枚セットと78枚フルデッキの違い、状況別の選び方、購入前に商品ページで確認する枚数表示と解説書の範囲を紹介します。",
+        "keyword": "タロットカード 22枚 78枚 初心者 どっち",
+        "published": "2026-10-20",
+    },
+    {
+        "slug": "muryo-uranai-kanteishi-message-yamerarenai",
+        "tag": "有料占いの選び方",
+        "title": "無料占いの鑑定士からのメッセージが止まらない時は？やめ方と相談先",
+        "description": "国民生活センターの公表資料で確認できた、無料占いから有料に誘導される5つの手口と公表事例、メッセージが止まらないときの対応、消費者ホットライン188などの相談先、有料占いを選ぶ前の確認点を整理します。",
+        "keyword": "無料占い 鑑定士 メッセージ 止まらない やめたい",
+        "published": "2026-10-20",
+    },
+    {
         "slug": "coconala-uranai-tokumei-kojin-joho",
         "tag": "有料占いの選び方",
         "title": "ココナラ占いは匿名で相談できる？生年月日や本名を伝える前の確認点",
@@ -575,7 +599,7 @@ GUIDE_RELATED_POSTS = {
     "kyusei-kigaku": ["kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
                       "power-spot-ryokou-yado-taiken-yoyaku", "shinshitsu-fusui-makura-weighted-blanket-hana"],
     "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata", "hana-no-kai-mail-touroku-mae-kakunin"],
-    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "mail-uranai-denwa-uranai-dochira",
+    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "tarot-22mai-78mai-shoshinsha-dochira", "mail-uranai-denwa-uranai-dochira",
                      "fusui-shikaku-tsushin-kouza-hikaku"],
     "suuhi": ["mail-uranai-denwa-uranai-dochira", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
     "sanmei": ["takashima-ekidan-hongoyomi-chigai", "fusui-shikaku-tsushin-kouza-hikaku"],
