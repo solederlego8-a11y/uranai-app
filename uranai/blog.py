@@ -409,6 +409,14 @@ PRODUCTS = {
 # ---------------------------------------------------------------------------
 POSTS = [
     {
+        "slug": "tarot-kaisetsusho-nihongo-dore",
+        "tag": "タロットの選び方",
+        "title": "タロットカードの日本語解説書はどれ？付属本で確認する4点と比較表",
+        "description": "タロットの日本語解説書を選ぶときに確認する4点（扱う札の範囲・ページ数・スプレッド・絵柄の系統）と、販売ページや出版情報で確認できた商品の枚数・解説書・価格の一覧を、確認できなかった項目も含めて整理します。",
+        "keyword": "タロットカード 解説書 日本語 どれ",
+        "published": "2026-10-21",
+    },
+    {
         "slug": "coconala-uranai-henshin-konai-nannichi",
         "tag": "有料占いの選び方",
         "title": "ココナラ占いの返信が来ないとき何日待つ？キャンセルできる条件と手順",
@@ -599,7 +607,7 @@ GUIDE_RELATED_POSTS = {
     "kyusei-kigaku": ["kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
                       "power-spot-ryokou-yado-taiken-yoyaku", "shinshitsu-fusui-makura-weighted-blanket-hana"],
     "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata", "hana-no-kai-mail-touroku-mae-kakunin"],
-    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "tarot-22mai-78mai-shoshinsha-dochira", "mail-uranai-denwa-uranai-dochira",
+    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "tarot-22mai-78mai-shoshinsha-dochira", "tarot-kaisetsusho-nihongo-dore", "mail-uranai-denwa-uranai-dochira",
                      "fusui-shikaku-tsushin-kouza-hikaku"],
     "suuhi": ["mail-uranai-denwa-uranai-dochira", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
     "sanmei": ["takashima-ekidan-hongoyomi-chigai", "fusui-shikaku-tsushin-kouza-hikaku"],
