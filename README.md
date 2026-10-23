@@ -96,7 +96,7 @@ static/                  CSS・JS
 
 ### blog
 - [メール占いと電話占いはどっちがいい？相談内容別の選び方と料金の考え方](https://solederlego8-a11y.github.io/uranai-app/blog/mail-uranai-denwa-uranai-dochira.html)
-- [タロットカード初心者はどれを買う？ライダー版と日本語解説書付きを選ぶ理由](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-card-shoshinsha-erabikata.html)
+- [タロットカード初心者はどれを買う？1組目はライダー版78枚が無難な理由](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-card-shoshinsha-erabikata.html)
 - [高島易断の本暦・開運本暦・運勢本暦の違いは？令和九年版の選び方](https://solederlego8-a11y.github.io/uranai-app/blog/takashima-ekidan-hongoyomi-chigai.html)
 - [財布を新調する日は暦でどう選ぶ？寅の日・一粒万倍日・天赦日の調べ方](https://solederlego8-a11y.github.io/uranai-app/blog/saifu-shinchou-hi-koyomi-erabikata.html)
 - [マッチングアプリの写真撮影サービスは使うべき？料金とプランの比較と申し込み前の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/matching-app-shashin-satsuei-hikaku.html)
@@ -112,6 +112,16 @@ static/                  CSS・JS
 - [結婚祝いと内祝いの予算はいくら？のし・配送の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/kekkon-iwai-uchiiwai-yosan-noshi.html)
 - [ココナラ占いのキャンセル・返金は？当たらない・違うと感じたときの確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-cancel-henkin-atanaranai.html)
 - [高島易断の暦はいつ買う？どこで買う？令和九年版がいらない人の判断基準](https://solederlego8-a11y.github.io/uranai-app/blog/takashima-ekidan-koyomi-itsu-doko-iranai.html)
+- [ココナラ占いは匿名で相談できる？生年月日や本名を伝える前の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-tokumei-kojin-joho.html)
+- [高島易断の暦はKindleと紙どっち？令和九年版の選び方と確認点](https://solederlego8-a11y.github.io/uranai-app/blog/takashima-ekidan-koyomi-kindle-kami-dochira.html)
+- [ライダー版とウェイト版のタロットは違う？名前の由来と選び方](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-rider-waite-han-chigai-namae.html)
+- [ココナラ占いの返信が来ないとき何日待つ？キャンセルできる条件と手順](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-henshin-konai-nannichi.html)
+- [タロットカード初心者は22枚と78枚どっち？買う前の確認点と選び方](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-22mai-78mai-shoshinsha-dochira.html)
+- [無料占いの鑑定士からのメッセージが止まらない時は？やめ方と相談先](https://solederlego8-a11y.github.io/uranai-app/blog/muryo-uranai-kanteishi-message-yamerarenai.html)
+- [タロットカードの日本語解説書はどれ？付属本で確認する4点と比較表](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-kaisetsusho-nihongo-dore.html)
+- [ココナラ占いの支払い方法は？クレジットカード明細の表記と購入後に確認できること](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-shiharai-card-meisai.html)
+- [タロットカードの浄化は必要？新品でしない場合と傷めない方法の比較表](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-card-jouka-hitsuyou-shinpin.html)
+- [ココナラ占いの追加質問は追加料金がかかる？有料オプション・おひねりの確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-tsuika-shitsumon-ryokin.html)
 
 ### en
 - [Today's Fortune | Combine 11 Divination Systems in One Reading](https://solederlego8-a11y.github.io/uranai-app/en/)
