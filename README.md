@@ -82,7 +82,7 @@ static/                  CSS・JS
 <!-- article-index:start -->
 ## 今日の総合鑑定 公開中のページ一覧
 
-無料占いと占術ガイド
+生年月日などの入力から11種の占術をまとめて鑑定する無料占いサイト
 
 サイト: https://solederlego8-a11y.github.io/uranai-app/
 
@@ -122,6 +122,10 @@ static/                  CSS・JS
 - [ココナラ占いの支払い方法は？クレジットカード明細の表記と購入後に確認できること](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-shiharai-card-meisai.html)
 - [タロットカードの浄化は必要？新品でしない場合と傷めない方法の比較表](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-card-jouka-hitsuyou-shinpin.html)
 - [ココナラ占いの追加質問は追加料金がかかる？有料オプション・おひねりの確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-tsuika-shitsumon-ryokin.html)
+- [ココナラ電話占いで電話番号は相手に伝わる？アプリ通話と電話通話の違い](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-denwa-uranai-denwabango-tsutawaru.html)
+- [タロットの逆位置は使わなくていい？正位置だけで読む場合の考え方と注意点](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-gyakuichi-tsukawanai-seiichi-dake.html)
+- [タロットで同じカードが何度も出る？引き直しの考え方を8ページで比較](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-onaji-card-nandomo-deru-hikinaoshi.html)
+- [ココナラ占いで評価しないとどうなる？任意か・期限10日・公開の仕組み](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-hyouka-shinai-dounaru.html)
 
 ### en
 - [Today's Fortune | Combine 11 Divination Systems in One Reading](https://solederlego8-a11y.github.io/uranai-app/en/)
