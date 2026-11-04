@@ -12,7 +12,7 @@ from datetime import date, datetime
 import pytz
 from flask import Flask, Response, render_template, request, url_for
 
-from uranai import MODULES, build_report
+from uranai import MODULES, build_report, zodiac_data
 from uranai.aggregator import CATEGORY_LABEL
 from uranai.guides import GUIDES, get_guide
 from uranai.guides_en import GUIDES_EN, get_guide_en
@@ -466,6 +466,47 @@ def guide_detail_en(slug):
                            extra_sections=get_extra_sections("en", slug))
 
 
+@app.route("/today/", methods=["GET"])
+def today_hub():
+    """12星座の今日の運勢ハブページ。"""
+    return render_template("today_hub.html", signs=zodiac_data.ZODIAC_SIGNS, today=today_jst())
+
+
+@app.route("/today/zodiac/<sign>/", methods=["GET"])
+def today_zodiac(sign):
+    """特定の星座の今日の運勢ページ。"""
+    sign_data = zodiac_data.get_sign(sign)
+    if sign_data is None:
+        return render_template("index.html", **_form_context(
+            error="お探しのページは見つかりませんでした。")), 404
+    today = today_jst()
+    user_data = {
+        "last_name": sign_data["last_name"],
+        "first_name": sign_data["first_name"],
+        "birth_year": 1990,
+        "birth_month": sign_data["birth_month"],
+        "birth_day": sign_data["birth_day"],
+        "birth_hour": None,
+        "gender": "unknown",
+        "prefecture": "unknown",
+        "today": today,
+    }
+    report = build_report(user_data)
+    seiyo_result = next(
+        (r for r in report["detail_results"] if r["name"] == "西洋占星術"), None
+    )
+    today_str = "%d年%d月%d日" % (today.year, today.month, today.day)
+    return render_template(
+        "today_zodiac.html",
+        sign=sign_data,
+        report=report,
+        seiyo_result=seiyo_result,
+        today=today,
+        today_str=today_str,
+        all_signs=zodiac_data.ZODIAC_SIGNS,
+    )
+
+
 @app.route("/sitemap.xml", methods=["GET"])
 def sitemap_xml():
     """検索エンジン向けの sitemap.xml を生成する。"""
@@ -475,6 +516,7 @@ def sitemap_xml():
     paths += ["/guides/%s" % g["slug"] for g in GUIDES]
     paths += ["/blog/%s" % p["slug"] for p in blog_data.POSTS] + ["/picks"]
     paths += ["/en/guides/%s" % g["slug"] for g in GUIDES_EN]
+    paths += ["/today/"] + ["/today/zodiac/%s/" % s["slug"] for s in zodiac_data.ZODIAC_SIGNS]
     lastmod = today_jst().isoformat()
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

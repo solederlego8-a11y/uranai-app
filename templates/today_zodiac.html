@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}{{ sign.name }}の今日の運勢（{{ today_str }}）｜総合スコア{{ report.total_score }}点{% endblock %}
+{% block meta_description %}{{ today_str }}の{{ sign.name }}の運勢。総合評価{{ report.score_rank }}（{{ report.total_score }}点）。ラッキーカラー：{{ report.lucky_color }}、ラッキーアイテム：{{ report.lucky_item }}、ラッキー方位：{{ report.lucky_dir }}、ラッキーナンバー：{{ report.lucky_number }}。{% endblock %}
+
+{% block head_extra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ sign.name }}の今日の運勢（{{ today_str }}）",
+  "url": "{{ canonical_url }}",
+  "dateModified": "{{ today.isoformat() }}",
+  "description": "{{ today_str }}の{{ sign.name }}の運勢。総合評価{{ report.score_rank }}（{{ report.total_score }}点）。"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="パンくず">
+  <a href="{{ url_for('index') }}">トップ</a> &rsaquo;
+  <a href="{{ url_for('today_hub') }}">12星座の今日の運勢</a> &rsaquo;
+  <span>{{ sign.name }}</span>
+</nav>
+
+<section class="hero">
+  <p class="hero-lead">{{ today_str }}</p>
+  <h1 class="hero-title">
+    <span class="zodiac-symbol-large">{{ sign.symbol }}</span>
+    {{ sign.name }}の<br><span class="accent">今日の運勢</span>
+  </h1>
+  <p class="hero-desc">{{ sign.date_range }}生まれ ／ {{ sign.element }}のエレメント ／ 守護星：{{ sign.ruling_planet }}</p>
+</section>
+
+{# 総合スコア #}
+<section class="card result-summary">
+  <h2 class="card-title">総合評価</h2>
+  <div class="score-block">
+    <span class="score-rank rank-{{ report.score_rank }}">{{ report.score_rank }}</span>
+    <span class="score-number">{{ report.total_score }}<small>点</small></span>
+  </div>
+  <p class="overall-message">{{ report.overall_message }}</p>
+
+  <dl class="lucky-items">
+    <div class="lucky-item">
+      <dt>ラッキーカラー</dt>
+      <dd>
+        {% if report.lucky_color_hex %}
+        <span class="color-dot" style="background:{{ report.lucky_color_hex }};"></span>
+        {% endif %}
+        {{ report.lucky_color }}
+      </dd>
+    </div>
+    <div class="lucky-item">
+      <dt>ラッキーアイテム</dt>
+      <dd>{{ report.lucky_item }}</dd>
+    </div>
+    <div class="lucky-item">
+      <dt>ラッキー方位</dt>
+      <dd>{{ report.lucky_dir }}</dd>
+    </div>
+    <div class="lucky-item">
+      <dt>ラッキーナンバー</dt>
+      <dd>{{ report.lucky_number }}</dd>
+    </div>
+  </dl>
+</section>
+
+{# カテゴリ別スコア #}
+<section class="card">
+  <h2 class="card-title">分野別スコア</h2>
+  <dl class="category-scores">
+    {% for label, score in report.category_scores.items() %}
+    <div class="cat-row">
+      <dt>{{ label }}</dt>
+      <dd>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:{{ score }}%;" aria-label="{{ score }}点"></div>
+        </div>
+        <span class="cat-score-num">{{ score }}点</span>
+      </dd>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+
+{# 西洋占星術の詳細（星座固有コンテンツ） #}
+{% if seiyo_result %}
+<section class="card">
+  <h2 class="card-title">西洋占星術からのメッセージ</h2>
+  <p class="module-summary">{{ seiyo_result.summary }}</p>
+  <p class="module-detail">{{ seiyo_result.detail }}</p>
+  <ul class="keyword-list">
+    {% for kw in seiyo_result.keywords %}
+    <li class="keyword-chip">{{ kw }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{# 星座の解説ブロック #}
+<section class="card">
+  <h2 class="card-title">{{ sign.name }}について</h2>
+  <p>{{ sign.description }}</p>
+  <ul class="trait-list">
+    {% for trait in sign.traits %}
+    <li class="trait-chip">{{ trait }}</li>
+    {% endfor %}
+  </ul>
+  <h3 class="subsection-title">今日のスコアの読み方</h3>
+  <p>{{ sign.reading_advice }}</p>
+</section>
+
+{# 他の星座へのナビゲーション #}
+<section class="card">
+  <h2 class="card-title">他の星座の今日の運勢</h2>
+  <ul class="zodiac-grid zodiac-grid-sm">
+    {% for s in all_signs %}
+    {% if s.slug != sign.slug %}
+    <li class="zodiac-card{% if s.slug == sign.slug %} zodiac-card--active{% endif %}">
+      <a href="{{ url_for('today_zodiac', sign=s.slug) }}" class="zodiac-link">
+        <span class="zodiac-symbol">{{ s.symbol }}</span>
+        <span class="zodiac-name">{{ s.name }}</span>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <p style="margin-top:1rem;"><a href="{{ url_for('today_hub') }}">12星座一覧に戻る</a></p>
+</section>
+
+{# 関連リンク #}
+<section class="card">
+  <h2 class="card-title">もっと詳しく占いたい方へ</h2>
+  <p>生年月日・氏名・出生地を入力すると、西洋占星術を含む11種の占術であなた個人の今日の運勢を鑑定します。</p>
+  <a class="submit-button link-button" href="{{ url_for('index') }}">個人鑑定を受ける（無料）</a>
+  <p style="margin-top:1rem;"><a href="{{ url_for('guides') }}">西洋占星術・占術ガイドを読む</a></p>
+</section>
+{% endblock %}

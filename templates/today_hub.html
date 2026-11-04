@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}12星座の今日の運勢｜毎日更新・総合占い{% endblock %}
+{% block meta_description %}牡羊座・牡牛座・双子座・蟹座・獅子座・乙女座・天秤座・蠍座・射手座・山羊座・水瓶座・魚座。12星座それぞれの今日の運勢を毎日更新でお届けします。{% endblock %}
+
+{% block head_extra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "12星座の今日の運勢",
+  "url": "{{ canonical_url }}",
+  "dateModified": "{{ today.isoformat() }}",
+  "description": "12星座それぞれの今日の運勢。西洋占星術ほか11種の占術を使って毎日更新します。"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1 class="hero-title">12星座の<br><span class="accent">今日の運勢</span></h1>
+  <p class="hero-desc">
+    西洋占星術をはじめとする11種の占術で計算した、今日の星座別運勢です。<br>
+    毎日自動更新。同じ日なら何度アクセスしても同じ結果が出ます。
+  </p>
+  <p class="hero-date">本日は {{ today.year }}年{{ today.month }}月{{ today.day }}日です</p>
+</section>
+
+<section class="card">
+  <h2 class="card-title">星座を選ぶ</h2>
+  <ul class="zodiac-grid">
+    {% for s in signs %}
+    <li class="zodiac-card">
+      <a href="{{ url_for('today_zodiac', sign=s.slug) }}" class="zodiac-link">
+        <span class="zodiac-symbol">{{ s.symbol }}</span>
+        <span class="zodiac-name">{{ s.name }}</span>
+        <span class="zodiac-range">{{ s.date_range }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="card">
+  <h2 class="card-title">このページについて</h2>
+  <p>
+    各星座ページでは、西洋占星術の日々のアスペクト計算を含む11種の占術を統合した<strong>総合スコア（100点満点）</strong>と、
+    今日のラッキーカラー・ラッキーアイテム・ラッキー方位・ラッキーナンバーをお伝えします。
+    結果は決定論的に算出されるため、同じ星座・同じ日なら常に同じ内容が表示されます。
+  </p>
+  <p>
+    <a href="{{ url_for('guides') }}">占術の解説はこちら（占術ガイド）</a>
+    ／
+    <a href="{{ url_for('index') }}">生年月日を入れた個人鑑定はこちら</a>
+  </p>
+</section>
+{% endblock %}
