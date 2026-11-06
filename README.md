@@ -126,6 +126,11 @@ static/                  CSS・JS
 - [タロットの逆位置は使わなくていい？正位置だけで読む場合の考え方と注意点](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-gyakuichi-tsukawanai-seiichi-dake.html)
 - [タロットで同じカードが何度も出る？引き直しの考え方を8ページで比較](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-onaji-card-nandomo-deru-hikinaoshi.html)
 - [ココナラ占いで評価しないとどうなる？任意か・期限10日・公開の仕組み](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-hyouka-shinai-dounaru.html)
+- [ココナラ電話占いで通話が途中で切れたら？かけ直しと料金の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-denden-uranai-tsuwa-kireta-kakenaoshi.html)
+- [タロット スプレッド ワンオラクル 初心者は何枚引く？1枚と3枚の違い](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-spread-one-oracle-nanmai-shoshinsha.html)
+- [ココナラ電話占いの予約日時はどう決める？相談できる時間の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-denwa-uranai-yoyaku-nichiji.html)
+- [ココナラ占いの納品を承諾しないとどうなる？72時間・差し戻し1回の確認点](https://solederlego8-a11y.github.io/uranai-app/blog/coconala-uranai-noohin-shounin-sashimodoshi.html)
+- [タロットカードの保管と包み方は？箱・布・場所を7ページで比較](https://solederlego8-a11y.github.io/uranai-app/blog/tarot-card-hokan-tsutsumikata-shoshinsha.html)
 
 ### en
 - [Today's Fortune | Combine 11 Divination Systems in One Reading](https://solederlego8-a11y.github.io/uranai-app/en/)
