@@ -409,6 +409,30 @@ PRODUCTS = {
 # ---------------------------------------------------------------------------
 POSTS = [
     {
+        "slug": "hikkoshi-hitori-koyomi-houi-erabikata",
+        "tag": "暮らしと暦",
+        "title": "引っ越しの日取りはどう選ぶ？六曜・選日と九星の方位の見方",
+        "description": "引っ越しの日取りを暦で選ぶときの考え方を、六曜・一粒万倍日などの選日（日取り）と九星気学の吉方位（方角）に分けて整理。契約・鍵渡し・荷物搬入のどの日を基準にするか、実務の都合と両立させる優先順位の付け方もまとめます。",
+        "keyword": "引っ越し 日取り 六曜 吉方位 九星気学",
+        "published": "2026-11-10",
+    },
+    {
+        "slug": "rokuyou-toha-imi-junban-koyomi",
+        "tag": "暦の使い方",
+        "title": "六曜とは｜大安・仏滅の意味、並び方と旧暦で決まる仕組み",
+        "description": "六曜（先勝・友引・先負・仏滅・大安・赤口）の意味と一般的な解釈、（旧暦の月＋日）÷6の余りで決まる並び方の仕組み、冠婚葬祭や日取り選びでの使われ方を、国立国会図書館「日本の暦」などの公的資料をもとに整理した基礎解説です。",
+        "keyword": "六曜 意味 大安 仏滅 並び方",
+        "published": "2026-11-10",
+    },
+    {
+        "slug": "tarot-oracle-card-chigai-shoshinsha",
+        "tag": "タロットの選び方",
+        "title": "タロットとオラクルカードの違いは？枚数・読み方・1組目の選び方",
+        "description": "タロット（78枚・正逆の位置・スプレッドで読む体系）とオラクルカード（組ごとに自由なテーマ・枚数で、付属ガイドブックの言葉を引く道具）の違いを、構成・読み方・向いている使い方から整理。1組目を買う前の確認点と判断表つきです。",
+        "keyword": "タロット オラクルカード 違い 初心者",
+        "published": "2026-11-10",
+    },
+    {
         "slug": "coconala-uranai-noohin-shounin-sashimodoshi",
         "tag": "有料占いの選び方",
         "title": "ココナラ占いの納品を承諾しないとどうなる？72時間・差し戻し1回の確認点",
@@ -708,10 +732,10 @@ POSTS = [
 
 # 既存の占術ガイドから関連ブログ記事へ張る内部リンク（ガイド slug → 記事 slug）
 GUIDE_RELATED_POSTS = {
-    "kyusei-kigaku": ["kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
+    "kyusei-kigaku": ["hikkoshi-hitori-koyomi-houi-erabikata", "rokuyou-toha-imi-junban-koyomi", "kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
                       "power-spot-ryokou-yado-taiken-yoyaku", "shinshitsu-fusui-makura-weighted-blanket-hana"],
     "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata", "hana-no-kai-mail-touroku-mae-kakunin"],
-    "seiyo-uranai": ["tarot-card-shoshinsha-erabikata", "tarot-22mai-78mai-shoshinsha-dochira", "tarot-kaisetsusho-nihongo-dore", "mail-uranai-denwa-uranai-dochira",
+    "seiyo-uranai": ["tarot-oracle-card-chigai-shoshinsha", "tarot-card-shoshinsha-erabikata", "tarot-22mai-78mai-shoshinsha-dochira", "tarot-kaisetsusho-nihongo-dore", "mail-uranai-denwa-uranai-dochira",
                      "fusui-shikaku-tsushin-kouza-hikaku"],
     "suuhi": ["mail-uranai-denwa-uranai-dochira", "coconala-denwa-uranai-hatsukai-coupon-nanpun"],
     "sanmei": ["takashima-ekidan-hongoyomi-chigai", "fusui-shikaku-tsushin-kouza-hikaku"],
