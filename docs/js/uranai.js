@@ -1769,7 +1769,7 @@
   function honmeiStar(year, month, day) {
     var y = year;
     if (month < 2 || (month === 2 && day < 4)) y -= 1;
-    var star = mod(11 - mod(y - 1, 9), 9);
+    var star = mod(11 - mod(y, 9), 9);
     return star === 0 ? 9 : star;
   }
   function getsumeiStar(honmei, month, day) {
@@ -1781,7 +1781,7 @@
     return KYUSEI_GETSUMEI_TABLE[KYUSEI_GROUP[honmei]][m];
   }
   function yearStar(year) {
-    var star = mod(11 - mod(year - 1, 9), 9);
+    var star = mod(11 - mod(year, 9), 9);
     return star === 0 ? 9 : star;
   }
   function monthStarOf(year, month) {
@@ -2327,7 +2327,7 @@
   function mewaNumber(year, month, day) {
     var y = year;
     if (month < 2 || (month === 2 && day < 4)) y -= 1;
-    var star = mod(11 - mod(y - 1, 9), 9);
+    var star = mod(11 - mod(y, 9), 9);
     return star === 0 ? 9 : star;
   }
   function parkhaIndex(year, gender) {

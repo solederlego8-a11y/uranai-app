@@ -81,7 +81,7 @@ def mewa_number(year: int, month: int, day: int) -> int:
     y = year
     if month < 2 or (month == 2 and day < 4):
         y -= 1
-    star = (11 - ((y - 1) % 9)) % 9
+    star = (11 - (y % 9)) % 9
     return 9 if star == 0 else star
 
 

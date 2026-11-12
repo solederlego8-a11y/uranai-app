@@ -51,7 +51,7 @@ def honmei_star(year: int, month: int, day: int) -> int:
     y = year
     if month < 2 or (month == 2 and day < 4):
         y -= 1
-    star = (11 - ((y - 1) % 9)) % 9
+    star = (11 - (y % 9)) % 9
     return 9 if star == 0 else star
 
 
@@ -79,7 +79,7 @@ def getsumei_star(honmei: int, month: int, day: int) -> int:
 
 def year_star(year: int) -> int:
     """指定年の年盤中宮星を返す。"""
-    star = (11 - ((year - 1) % 9)) % 9
+    star = (11 - (year % 9)) % 9
     return 9 if star == 0 else star
 
 

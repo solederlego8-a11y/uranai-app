@@ -744,11 +744,19 @@ POSTS = [
         "keyword": "令和九年 天赦日 一粒万倍日 寅の日 重なる日",
         "published": "2026-11-11",
     },
+    {
+        "slug": "takashima-koyomi-honmeisei-hayamihyo-seinengappi",
+        "tag": "暦の使い方",
+        "title": "高島暦の早見表で本命星を調べるには？生年月日別の九星一覧と立春の注意",
+        "description": "高島暦を読む前に必要な本命星を、1935〜2027年生まれの早見表で確認できます。立春より前に生まれた人の見方、西暦から計算する手順、暦のどこを読むかを整理しました。",
+        "keyword": "高島暦 早見表 本命星 生年月日 調べ方",
+        "published": "2026-11-12",
+    },
 ]
 
 # 既存の占術ガイドから関連ブログ記事へ張る内部リンク（ガイド slug → 記事 slug）
 GUIDE_RELATED_POSTS = {
-    "kyusei-kigaku": ["hikkoshi-hitori-koyomi-houi-erabikata", "rokuyou-toha-imi-junban-koyomi", "kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
+    "kyusei-kigaku": ["takashima-koyomi-honmeisei-hayamihyo-seinengappi", "hikkoshi-hitori-koyomi-houi-erabikata", "rokuyou-toha-imi-junban-koyomi", "kokunai-tour-kojin-tehai-dochira", "nengajo-2027-shashin-hayawari-kazoku", "takashima-ekidan-hongoyomi-chigai", "saifu-shinchou-hi-koyomi-erabikata",
                       "power-spot-ryokou-yado-taiken-yoyaku", "shinshitsu-fusui-makura-weighted-blanket-hana"],
     "shukuyo": ["saifu-shinchou-hi-koyomi-erabikata", "hana-no-kai-mail-touroku-mae-kakunin"],
     "seiyo-uranai": ["tarot-oracle-card-chigai-shoshinsha", "tarot-card-shoshinsha-erabikata", "tarot-22mai-78mai-shoshinsha-dochira", "tarot-kaisetsusho-nihongo-dore", "mail-uranai-denwa-uranai-dochira",
