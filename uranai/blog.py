@@ -167,6 +167,50 @@ PRODUCTS = {
         ],
         "enabled": True,
     },
+    # ---- 2026-11-12 追加: 高島易断シリーズの残り3冊（楽天ブックス・料率3.0%を管理画面で確認）。
+    #      naoさん承認の「料率5%以上のみ」ルールの例外（流入1位記事が4冊を比較しているため）----
+    "koyomi_kaiun": {
+        "name": "令和九年 高島易断開運本暦",
+        "asp": "rakuten",
+        "href": "https://hb.afl.rakuten.co.jp/ichiba/557c5512.644c26ca.557c5515.961fd0a7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F18667889%2F",
+        "pixel": "",
+        "button": "楽天ブックスで商品ページを見る",
+        "lead": "高島易断協同組合 著・編、ディスカヴァー・トゥエンティワン刊の暦です。",
+        "facts": [
+            "1,650円（税込。楽天ブックスの表示、2026年11月12日時点）",
+            "256ページ（出版社の発表資料）",
+            "完全版から難しい項目・特殊性の高い項目を除いた別冊版",
+        ],
+        "enabled": True,
+    },
+    "koyomi_unsei": {
+        "name": "令和九年 高島易断運勢本暦",
+        "asp": "rakuten",
+        "href": "https://hb.afl.rakuten.co.jp/ichiba/557c5512.644c26ca.557c5515.961fd0a7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F18667890%2F",
+        "pixel": "",
+        "button": "楽天ブックスで商品ページを見る",
+        "lead": "高島易断協同組合 著・編、ディスカヴァー・トゥエンティワン刊の暦です。",
+        "facts": [
+            "1,210円（税込。楽天ブックスの表示、2026年11月12日時点）",
+            "176ページ（出版社の発表資料）",
+            "九星別の個人運勢など、日常で使う項目が中心",
+        ],
+        "enabled": True,
+    },
+    "koyomi_kichiun": {
+        "name": "令和九年 高島易断吉運本暦",
+        "asp": "rakuten",
+        "href": "https://hb.afl.rakuten.co.jp/ichiba/557c5512.644c26ca.557c5515.961fd0a7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F18667891%2F",
+        "pixel": "",
+        "button": "楽天ブックスで商品ページを見る",
+        "lead": "高島易断協同組合 著・編、ディスカヴァー・トゥエンティワン刊の暦です。",
+        "facts": [
+            "880円（税込。楽天ブックスの表示、2026年11月12日時点）",
+            "128ページ（出版社の発表資料）",
+            "シリーズで最もコンパクト。毎月の行動指針が中心",
+        ],
+        "enabled": True,
+    },
     # ---- 2026-10-09 追加（a8-links-2026-10-09.json の site=005）。Morning Booster は広告主の実体を確認できず見送り→KKday で代替 ----
     "coconala_denwa": {
         "name": "ココナラ電話占い",
