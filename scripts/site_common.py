@@ -21,8 +21,8 @@ if ROOT not in sys.path:
 BASE_URL = "https://solederlego8-a11y.github.io/uranai-app/"
 
 # 運営者情報（Flask 版では環境変数 SITE_OPERATOR / CONTACT_EMAIL）
-SITE_OPERATOR = ""
-CONTACT_EMAIL = ""
+SITE_OPERATOR = "フォローズ"
+CONTACT_EMAIL = "naoren.38@gmail.com"
 
 POLICY_UPDATED_ON = "2026年8月28日"
 POLICY_UPDATED_ON_EN = "August 28, 2026"
